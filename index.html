@@ -163,6 +163,13 @@ h3.sub { font-size: 13px; font-weight: 500; color: var(--grey); margin: 12px 0 0
 .detail-images .type-cover { width: min(100%, 420px); aspect-ratio: 3 / 4; }
 @media (max-width: 900px) { .detail-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; } .detail-text { position: static; } }
 
+
+/* Comic panels: every card image sits inside an ink frame, like a vignette */
+.card .thumb, .card .type-cover { box-sizing: border-box; border: 2px solid var(--ink); box-shadow: none; }
+.card .thumb.line { padding: 10px; background: var(--paper); }
+.card:hover .thumb, .card:hover .type-cover, .card:hover .thumb.line { transform: translateY(-3px); box-shadow: 4px 4px 0 var(--ink); }
+.type-cover.t3 { border-color: var(--ink); }
+
 /* Lists */
 .list { list-style: none; margin: 0; padding: 0; max-width: 46em; }
 .list li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); }
