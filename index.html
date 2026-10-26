@@ -170,6 +170,16 @@ h3.sub { font-size: 13px; font-weight: 500; color: var(--grey); margin: 12px 0 0
 .card:hover .thumb, .card:hover .type-cover, .card:hover .thumb.line { transform: translateY(-3px); box-shadow: 4px 4px 0 var(--ink); }
 .type-cover.t3 { border-color: var(--ink); }
 
+
+/* Close-up panels: the image is cropped and zoomed inside the frame */
+.panel { display: block; width: 100%; aspect-ratio: 3 / 4; overflow: hidden; box-sizing: border-box; border: 2px solid var(--ink); background: var(--paper); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.panel .thumb, .panel .thumb.line { width: 100%; height: 100%; aspect-ratio: auto; padding: 0; border: 0; box-shadow: none; background: none; object-fit: cover; object-position: var(--fx, 50%) var(--fy, 45%); transform: scale(var(--z, 1.15)); transition: transform 0.6s ease; }
+#ilustracion .panel .thumb { --z: 1.75; }
+#arquitectura .panel .thumb { --z: 1.4; }
+.card:hover .panel { transform: translateY(-3px); box-shadow: 4px 4px 0 var(--ink); }
+.card:hover .panel .thumb { transform: scale(calc(var(--z, 1.15) * 1.08)); box-shadow: none; }
+@media (prefers-reduced-motion: reduce) { .panel, .panel .thumb { transition: none; } }
+
 /* Lists */
 .list { list-style: none; margin: 0; padding: 0; max-width: 46em; }
 .list li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); }
@@ -260,11 +270,11 @@ cite { font-style: italic; }
       </div>
       <div class="covers">
         <a class="card" href="#d-architectural-education-under-the-iron">
-          <img class="thumb" src="img/poster.jpg" width="1350" height="1800" alt="Póster de investigación en formato de novela gráfica" loading="lazy">
+          <span class="panel"><img class="thumb" src="img/poster.jpg" width="1350" height="1800" alt="Póster de investigación en formato de novela gráfica" loading="lazy"></span>
           <span class="card-cap"><b><cite>Architectural Education Under the Iron Fist</cite></b><span><span class="es">Póster de investigación doctoral · Penn State, 2025</span><span class="en">Doctoral research poster · Penn State, 2025</span></span></span>
         </a>
         <a class="card" href="#d-the-black-cats">
-          <img class="thumb" src="img/black-cats-1.jpg" width="1212" height="1500" alt="The Black Cats, página 1" loading="lazy">
+          <span class="panel"><img class="thumb" src="img/black-cats-1.jpg" width="1212" height="1500" alt="The Black Cats, página 1" loading="lazy"></span>
           <span class="card-cap"><b><cite>The Black Cats</cite></b><span>The Funambulist n.º 61, 2025</span></span>
         </a>
       </div>
@@ -277,15 +287,15 @@ cite { font-style: italic; }
       </div>
       <div class="covers">
         <a class="card" href="#d-a-room-is-not-a">
-          <img class="thumb" src="img/room.jpg" width="1500" height="1077" alt="A room is not a house: un dormitorio convertido en máquina, con muros ondulantes en naranjo" loading="lazy">
+          <span class="panel"><img class="thumb" src="img/room.jpg" width="1500" height="1077" alt="A room is not a house: un dormitorio convertido en máquina, con muros ondulantes en naranjo" loading="lazy"></span>
           <span class="card-cap"><b><cite>A room is not a house or Banham’s latest nightmare</cite></b><span>2020</span></span>
         </a>
         <a class="card" href="#d-alonso">
-          <img class="thumb" src="img/alonso-retrato.jpg" width="1500" height="1500" alt="Retrato de perfil rodeado de gatos negros, bajo una luna" loading="lazy">
+          <span class="panel"><img class="thumb" src="img/alonso-retrato.jpg" width="1500" height="1500" alt="Retrato de perfil rodeado de gatos negros, bajo una luna" loading="lazy"></span>
           <span class="card-cap"><b>Alonso</b><span><span class="es">Serie personal · 2024–2026</span><span class="en">Personal series · 2024–2026</span></span></span>
         </a>
         <a class="card" href="#d-un-enemigo-poderoso">
-          <img class="thumb" src="img/tolerancia-0.jpg" width="1352" height="1500" alt="Conductor al volante de un vehículo policial blindado" loading="lazy">
+          <span class="panel"><img class="thumb" src="img/tolerancia-0.jpg" width="1352" height="1500" alt="Conductor al volante de un vehículo policial blindado" loading="lazy"></span>
           <span class="card-cap"><b><cite>Un enemigo poderoso</cite></b><span><span class="es">Serie · 2019–2020</span><span class="en">Series · 2019–2020</span></span></span>
         </a>
       </div>
@@ -298,19 +308,19 @@ cite { font-style: italic; }
       </div>
       <div class="covers">
         <a class="card" href="#d-plaza-dignidad">
-          <img class="thumb line" src="img/plaza-italia.png" width="1111" height="1562" alt="Croquis de una manifestación en Plaza Italia" loading="lazy">
+          <span class="panel"><img class="thumb line" src="img/plaza-italia.png" width="1111" height="1562" alt="Croquis de una manifestación en Plaza Italia" loading="lazy"></span>
           <span class="card-cap"><b>Plaza Dignidad</b><span><span class="es">Santiago, 2019</span><span class="en">Santiago, 2019</span></span></span>
         </a>
         <a class="card" href="#d-sa-pa-cat-cat">
-          <img class="thumb line" src="img/sa-pa.png" width="1521" height="864" alt="Croquis de la plaza de Sa Pa, con edificios, motos y montañas al fondo" loading="lazy">
+          <span class="panel"><img class="thumb line" src="img/sa-pa.png" width="1521" height="864" alt="Croquis de la plaza de Sa Pa, con edificios, motos y montañas al fondo" loading="lazy"></span>
           <span class="card-cap"><b>Sa Pa · Cat Cat</b><span><span class="es">Cuaderno de viaje · Vietnam, 2019</span><span class="en">Travel sketchbook · Vietnam, 2019</span></span></span>
         </a>
         <a class="card" href="#d-grand-central-louie-en-ruta">
-          <img class="thumb line" src="img/grand-central.png" width="1529" height="1473" alt="Croquis de Grand Central Terminal con una multitud en movimiento" loading="lazy">
+          <span class="panel"><img class="thumb line" src="img/grand-central.png" width="1529" height="1473" alt="Croquis de Grand Central Terminal con una multitud en movimiento" loading="lazy"></span>
           <span class="card-cap"><b><span class="es">Grand Central · Louie, en ruta · Mi departamento</span><span class="en">Grand Central · Louie, on the road · My apartment</span></b><span><span class="es">Cuadernos de Manhattan (2023) y State College (2021)</span><span class="en">Manhattan (2023) and State College (2021) sketchbooks</span></span></span>
         </a>
         <a class="card" href="#d-travesia-san-pedro-aricatravesia-san">
-          <img class="thumb" src="img/travesia.jpg" width="1600" height="1119" alt="Página de cuaderno con acuarelas de paisaje y notas manuscritas" loading="lazy">
+          <span class="panel"><img class="thumb" src="img/travesia.jpg" width="1600" height="1119" alt="Página de cuaderno con acuarelas de paisaje y notas manuscritas" loading="lazy"></span>
           <span class="card-cap"><b><span class="es">Travesía · San Pedro · Arica</span><span class="en">Travesía · San Pedro · Arica</span></b><span><span class="es">Cuadernos</span><span class="en">Sketchbooks</span></span></span>
         </a>
       </div>
@@ -321,19 +331,19 @@ cite { font-style: italic; }
     <h2><span class="es">Publicaciones</span><span class="en">Publications</span></h2>
     <div class="covers">
       <a class="card" href="#d-the-black-cats-2">
-        <img class="thumb" src="img/funambulist-61.jpg" width="900" height="1125" alt="Portada: The Black Cats" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/funambulist-61.jpg" width="900" height="1125" alt="Portada: The Black Cats" loading="lazy"></span>
         <span class="card-cap"><b><cite>The Black Cats</cite></b><span class="es">Historia gráfica · The Funambulist n.º 61, 2025</span><span class="en">Graphic story · The Funambulist no. 61, 2025</span></span>
       </a>
       <a class="card" href="#d-architectural-education-under-the-iron-2">
-        <img class="thumb" src="img/iron-fist-poster.jpg" width="900" height="1200" alt="Portada: Architectural Education Under the Iron Fist" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/iron-fist-poster.jpg" width="900" height="1200" alt="Portada: Architectural Education Under the Iron Fist" loading="lazy"></span>
         <span class="card-cap"><b><cite>Architectural Education Under the Iron Fist</cite></b><span class="es">Póster de la tesis doctoral · Penn State, 2025</span><span class="en">Dissertation poster · Penn State, 2025</span></span>
       </a>
       <a class="card" href="#d-tres-silencios">
-        <img class="thumb" src="img/anales-2023.jpg" width="900" height="1146" alt="Portada: Tres silencios" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/anales-2023.jpg" width="900" height="1146" alt="Portada: Tres silencios" loading="lazy"></span>
         <span class="card-cap"><b><cite>Tres silencios</cite></b><span class="es">Artículo · Anales de Arquitectura UC, 2023</span><span class="en">Article · Anales de Arquitectura UC, 2023</span></span>
       </a>
       <a class="card" href="#d-cambiar-de-vida">
-        <img class="thumb" src="img/cambiar-de-vida-lom.jpg" width="867" height="1224" alt="Portada: Cambiar de vida" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/cambiar-de-vida-lom.jpg" width="867" height="1224" alt="Portada: Cambiar de vida" loading="lazy"></span>
         <span class="card-cap"><b><cite>Cambiar de vida</cite></b><span class="es">Libro · LOM Ediciones, 2022</span><span class="en">Book · LOM Ediciones, 2022</span></span>
       </a>
       <a class="card" href="#d-24-7">
@@ -341,19 +351,19 @@ cite { font-style: italic; }
         <span class="card-cap"><b><cite>24/7</cite></b><span class="es">Columna · El Mostrador, 28 de marzo de 2020</span><span class="en">Op-ed · El Mostrador, 28 March 2020</span></span>
       </a>
       <a class="card" href="#d-el-genero-en-la-historiografia">
-        <img class="thumb" src="img/de-arquitectura-2019.jpg" width="900" height="1165" alt="Portada: El género en la historiografía de la arquitectura" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/de-arquitectura-2019.jpg" width="900" height="1165" alt="Portada: El género en la historiografía de la arquitectura" loading="lazy"></span>
         <span class="card-cap"><b><cite>El género en la historiografía de la arquitectura</cite></b><span class="es">Artículo en coautoría · De Arquitectura, 2019</span><span class="en">Co-authored article · De Arquitectura, 2019</span></span>
       </a>
       <a class="card" href="#d-la-segunda-via">
-        <img class="thumb" src="img/arq-99.jpg" width="900" height="1185" alt="Portada: La segunda vía" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/arq-99.jpg" width="900" height="1185" alt="Portada: La segunda vía" loading="lazy"></span>
         <span class="card-cap"><b><cite>La segunda vía</cite></b><span class="es">Artículo · ARQ n.º 99, 2018</span><span class="en">Article · ARQ no. 99, 2018</span></span>
       </a>
       <a class="card" href="#d-cambiar-de-vida-2">
-        <img class="thumb" src="img/anales-2017-2018.jpg" width="900" height="1157" alt="Portada: Cambiar de vida" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/anales-2017-2018.jpg" width="900" height="1157" alt="Portada: Cambiar de vida" loading="lazy"></span>
         <span class="card-cap"><b><cite>Cambiar de vida</cite></b><span class="es">Artículo · Anales de Arquitectura 2017–2018</span><span class="en">Article · Anales de Arquitectura 2017–2018</span></span>
       </a>
       <a class="card" href="#d-transparent-processes-of-urban-production">
-        <img class="thumb" src="img/routledge-2018.jpg" width="758" height="1075" alt="Portada: Transparent Processes of Urban Production in Chile" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/routledge-2018.jpg" width="758" height="1075" alt="Portada: Transparent Processes of Urban Production in Chile" loading="lazy"></span>
         <span class="card-cap"><b><cite>Transparent Processes of Urban Production in Chile</cite></b><span class="es">Capítulo en coautoría · Routledge, 2018</span><span class="en">Co-authored chapter · Routledge, 2018</span></span>
       </a>
       <a class="card" href="#d-erase-una-vez-un-estado">
@@ -361,11 +371,11 @@ cite { font-style: italic; }
         <span class="card-cap"><b><cite>Érase una vez un Estado</cite></b><span class="es">Artículo · Cuadernos de Atraviesos Urbanos, FAD Universidad Finis Terrae, 2018</span><span class="en">Article · Cuadernos de Atraviesos Urbanos, FAD Universidad Finis Terrae, 2018</span></span>
       </a>
       <a class="card" href="#d-santiago-babylon">
-        <img class="thumb" src="img/santiago-babylon.jpg" width="758" height="1075" alt="Portada: Santiago Babylon" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/santiago-babylon.jpg" width="758" height="1075" alt="Portada: Santiago Babylon" loading="lazy"></span>
         <span class="card-cap"><b><cite>Santiago Babylon</cite></b><span class="es">Libro, coeditor · Santiago, 2017</span><span class="en">Book, co-editor · Santiago, 2017</span></span>
       </a>
       <a class="card" href="#d-sustitucion-cultural-y-guetizacion-en">
-        <img class="thumb" src="img/bifurcaciones-21.jpg" width="900" height="1165" alt="Portada: Sustitución cultural y guetización en la ciudad" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/bifurcaciones-21.jpg" width="900" height="1165" alt="Portada: Sustitución cultural y guetización en la ciudad" loading="lazy"></span>
         <span class="card-cap"><b><cite>Sustitución cultural y guetización en la ciudad</cite></b><span class="es">Artículo · Bifurcaciones n.º 21, 2016</span><span class="en">Article · Bifurcaciones no. 21, 2016</span></span>
       </a>
       <a class="card" href="#d-ni-perdon-ni-olvido">
@@ -373,7 +383,7 @@ cite { font-style: italic; }
         <span class="card-cap"><b><cite>Ni perdón ni olvido</cite></b><span class="es">Fanzine n.º 5, serie Proyectos pendientes, Milm2, 5 de julio de 2015. Con Ariztíalab.</span><span class="en">Fanzine no. 5, Proyectos pendientes series, Milm2, 5 July 2015. With Ariztíalab.</span></span>
       </a>
       <a class="card" href="#d-los-otros-viajes-del-arquitecto">
-        <img class="thumb" src="img/revista-180-29.jpg" width="900" height="1165" alt="Portada: Los otros viajes del arquitecto" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/revista-180-29.jpg" width="900" height="1165" alt="Portada: Los otros viajes del arquitecto" loading="lazy"></span>
         <span class="card-cap"><b><cite>Los otros viajes del arquitecto</cite></b><span class="es">Artículo · Revista 180 n.º 29, 2012</span><span class="en">Article · Revista 180 no. 29, 2012</span></span>
       </a>
     </div>
@@ -441,11 +451,11 @@ cite { font-style: italic; }
     <h2><span class="es">Exposiciones</span><span class="en">Exhibitions</span></h2>
     <div class="covers">
       <a class="card" href="#d-graduate-exhibition">
-        <img class="thumb" src="img/iron-fist-poster.jpg" width="900" height="1200" alt="Póster de investigación en formato de novela gráfica" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/iron-fist-poster.jpg" width="900" height="1200" alt="Póster de investigación en formato de novela gráfica" loading="lazy"></span>
         <span class="card-cap"><b>Graduate Exhibition</b><span class="es">Penn State University, marzo de 2025. Tercer lugar, Research Poster.</span><span class="en">Penn State University, March 2025. Third place, Research Poster.</span></span>
       </a>
       <a class="card" href="#d-municipal-ilustrado">
-        <img class="thumb line" src="img/municipal-ilustrado.png" width="1059" height="1040" alt="Croquis a tinta de la sala del Teatro Municipal de Santiago" loading="lazy">
+        <span class="panel"><img class="thumb line" src="img/municipal-ilustrado.png" width="1059" height="1040" alt="Croquis a tinta de la sala del Teatro Municipal de Santiago" loading="lazy"></span>
         <span class="card-cap"><b><cite>Municipal Ilustrado</cite></b><span class="es">Artista invitado, Teatro Municipal de Santiago, septiembre a diciembre de 2023</span><span class="en">Guest artist, Teatro Municipal de Santiago, September to December 2023</span></span>
       </a>
       <a class="card" href="#d-my-beloved-room-quarantine-nightmares">
@@ -457,7 +467,7 @@ cite { font-style: italic; }
         <span class="card-cap"><b><cite>Ciudad y Cielo. Santiago 1850</cite></b><span class="es">Colegio de Arquitectos de Chile, octubre de 2018. En coautoría.</span><span class="en">Colegio de Arquitectos de Chile, October 2018. Co-authored.</span></span>
       </a>
       <a class="card" href="#d-cual-sueno-de-la-arquitectura">
-        <img class="thumb line" src="img/cual-sueno.png" width="1135" height="853" alt="Croquis: un lienzo con la pregunta ¿Cuál sueño? frente a un edificio" loading="lazy">
+        <span class="panel"><img class="thumb line" src="img/cual-sueno.png" width="1135" height="853" alt="Croquis: un lienzo con la pregunta ¿Cuál sueño? frente a un edificio" loading="lazy"></span>
         <span class="card-cap"><b><cite>¿Cuál sueño? De la arquitectura pública a la especulación inmobiliaria</cite></b><span class="es">Galería Metropolitana, con Ariztíalab. En coautoría.</span><span class="en">Galería Metropolitana, with Ariztíalab. Co-authored.</span></span>
       </a>
       <a class="card" href="#d-territorio-obsoleto">
@@ -475,7 +485,7 @@ cite { font-style: italic; }
     <h2><span class="es">Arquitectura</span><span class="en">Architecture</span></h2>
     <div class="covers">
       <a class="card" href="#d-zaguan-del-viento">
-        <img class="thumb" src="img/zaguan.jpg" width="1500" height="1500" alt="Dibujo de El Zaguán del viento" loading="lazy">
+        <span class="panel"><img class="thumb" src="img/zaguan.jpg" width="1500" height="1500" alt="Dibujo de El Zaguán del viento" loading="lazy"></span>
         <span class="card-cap"><b>El Zaguán del viento</b><span class="es">Independencia, Santiago</span><span class="en">Independencia, Santiago</span></span>
       </a>
       <a class="card" href="#d-casa-puerto-natales">
