@@ -154,6 +154,8 @@ h3.sub { font-size: 13px; font-weight: 500; color: var(--grey); margin: 12px 0 0
 .detail-title cite { font-style: italic; }
 .detail-meta { margin: 0; color: var(--grey); font-size: 14px; display: flex; flex-direction: column; gap: 2px; }
 .detail-text p.es, .detail-text p.en { margin: 0; font-family: var(--serif); font-size: 17px; line-height: 1.55; max-width: 34em; }
+.detail-list { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-family: var(--serif); font-size: 15px; line-height: 1.45; max-width: 34em; }
+.detail-list b { font-family: var(--sans); font-weight: 500; font-size: 13px; color: var(--grey); margin-right: 8px; font-variant-numeric: tabular-nums; }
 .detail-tech { margin: 0; color: var(--grey); font-size: 13px; }
 .detail-images { display: flex; flex-direction: column; gap: 22px; }
 .detail-images img { width: 100%; height: auto; box-shadow: 0 1px 0 var(--line), 0 12px 28px -16px rgba(60, 45, 20, 0.45); }
@@ -464,19 +466,20 @@ cite { font-style: italic; }
 
   <section id="arquitectura" hidden>
     <h2><span class="es">Arquitectura</span><span class="en">Architecture</span></h2>
-    <div class="plates two">
-      <figure>
-        <img src="img/zaguan.jpg" width="1500" height="1500" alt="Dibujo de El Zaguán del viento" loading="lazy">
-        <figcaption class="caption"><b>El Zaguán del viento</b><br><span class="es">Independencia, Santiago. Dibujo; fotografías por cargar</span><span class="en">Independencia, Santiago. Drawing; photographs to come</span></figcaption>
-      </figure>
-      <figure>
-        <div class="empty"><span class="es">Fotografía por cargar</span><span class="en">Photograph to come</span></div>
-        <figcaption class="caption"><b><span class="es">Casa en Puerto Natales</span><span class="en">House in Puerto Natales</span></b><br><span class="es">Patagonia chilena</span><span class="en">Chilean Patagonia</span></figcaption>
-      </figure>
+    <div class="covers">
+      <a class="card" href="#d-zaguan-del-viento">
+        <img class="thumb" src="img/zaguan.jpg" width="1500" height="1500" alt="Dibujo de El Zaguán del viento" loading="lazy">
+        <span class="card-cap"><b>El Zaguán del viento</b><span class="es">Independencia, Santiago</span><span class="en">Independencia, Santiago</span></span>
+      </a>
+      <a class="card" href="#d-casa-puerto-natales">
+        <div class="type-cover t2" role="img" aria-label="Casa en Puerto Natales"><span class="tc-title">Casa en Puerto Natales</span><span class="tc-meta">Patagonia chilena</span></div>
+        <span class="card-cap"><b><span class="es">Casa en Puerto Natales</span><span class="en">House in Puerto Natales</span></b><span class="es">Patagonia chilena</span><span class="en">Chilean Patagonia</span></span>
+      </a>
+      <a class="card" href="#d-obmi">
+        <div class="type-cover t1" role="img" aria-label="OBMI, Miami"><span class="tc-title">OBMI</span><span class="tc-meta">Miami · 2018–</span></div>
+        <span class="card-cap"><b>OBMI, Miami</b><span class="es">Consultor senior de diseño, 2018 a la fecha</span><span class="en">Senior design consultant, 2018 to present</span></span>
+      </a>
     </div>
-    <ul class="list">
-      <li><span class="yr">2018–</span><div><div class="t">OBMI, Miami</div><div class="m"><span class="es">Consultor senior de diseño en proyectos internacionales.</span><span class="en">Senior design consultant on international projects.</span></div></div></li>
-    </ul>
   </section>
 
 
@@ -1040,6 +1043,67 @@ cite { font-style: italic; }
       </div>
       <div class="detail-images">
         <div class="type-cover t2" role="img" aria-label="Rasgos de España"><span class="tc-title">Rasgos<br>de España</span><span class="tc-meta">Cuadernos de viaje · 2010</span></div>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="detail" id="d-zaguan-del-viento" data-parent="arquitectura" hidden>
+    <a class="back" href="#arquitectura">← <span class="es">Arquitectura</span><span class="en">Architecture</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title">El Zaguán del viento</h2>
+        <p class="detail-meta"><span class="es">Independencia, Santiago</span><span class="en">Independencia, Santiago</span></p>
+        <p class="es">Pequeña obra que diseñé en memoria de Alonso, mi hermano menor, para la casa de mis padres en Independencia. Reúne arquitectura y diseño de objetos.</p><p class="en">A small work I designed in memory of Alonso, my younger brother, for my parents’ house in Independencia. It brings together architecture and object design.</p><p class="detail-tech"><span class="es">Fotografías de la obra por agregar.</span><span class="en">Photographs of the built work to come.</span></p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/zaguan.jpg" width="1500" height="1500" alt="Dibujo de El Zaguán del viento">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-casa-puerto-natales" data-parent="arquitectura" hidden>
+    <a class="back" href="#arquitectura">← <span class="es">Arquitectura</span><span class="en">Architecture</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><span class="es">Casa en Puerto Natales</span><span class="en">House in Puerto Natales</span></h2>
+        <p class="detail-meta"><span class="es">Patagonia chilena · En coautoría</span><span class="en">Chilean Patagonia · Co-authored</span></p>
+        <p class="detail-tech"><span class="es">Fotografías y descripción por agregar.</span><span class="en">Photographs and description to come.</span></p>
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t2" role="img" aria-label="Casa en Puerto Natales"><span class="tc-title">Casa en Puerto Natales</span><span class="tc-meta">Patagonia chilena</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-obmi" data-parent="arquitectura" hidden>
+    <a class="back" href="#arquitectura">← <span class="es">Arquitectura</span><span class="en">Architecture</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title">OBMI, Miami</h2>
+        <p class="detail-meta"><span class="es">Consultor senior de diseño · 2018 a la fecha</span><span class="en">Senior design consultant · 2018 to present</span></p>
+        <p class="es">Desde 2018 diseño para OBMI, oficina de Miami, proyectos residenciales, hoteleros y de gran escala en Oriente Medio, el Caribe y Europa.</p>
+        <ul class="detail-list es">
+          <li><b>2024–2026</b> Diseño conceptual de residencias de lujo en Riyadh, Arabia Saudita.</li>
+          <li><b>2024</b> Complejo hotelero Warwick, Bermudas; complejo hotelero y residencial Curtain Bluff, Antigua y Barbuda.</li>
+          <li><b>2023</b> Residencia de lujo en Jeddah; complejo hotelero, residencial y comercial en Abha, Arabia Saudita.</li>
+          <li><b>2022</b> Plan maestro para las Islas Turcas y Caicos; plan maestro y estrategia de desarrollo para las islas Tiran y Sanafir, Arabia Saudita; complejo hotelero Angsana en Málaga, España.</li>
+          <li><b>2021</b> Residencias de lujo en Fujairah, Emiratos Árabes Unidos.</li>
+          <li><b>2020</b> Diseño conceptual y plan maestro del complejo turístico y hotelero de Amaala, Arabia Saudita.</li>
+          <li><b>2019</b> Edificios civiles en Diriyah, Arabia Saudita.</li>
+          <li><b>2018</b> Plan maestro en la isla Hassan, Arabia Saudita.</li>
+        </ul><p class="en">Since 2018 I have designed for OBMI, a Miami office, residential, hospitality and large-scale projects in the Middle East, the Caribbean and Europe.</p>
+        <ul class="detail-list en">
+          <li><b>2024–2026</b> Conceptual design of luxury residences in Riyadh, Saudi Arabia.</li>
+          <li><b>2024</b> Warwick resort, Bermuda; Curtain Bluff resort and residences, Antigua and Barbuda.</li>
+          <li><b>2023</b> Luxury residence in Jeddah; hotel, residential and commercial complex in Abha, Saudi Arabia.</li>
+          <li><b>2022</b> Master plan for the Turks and Caicos Islands; master plan and development strategy for Tiran and Sanafir islands, Saudi Arabia; Angsana resort in Málaga, Spain.</li>
+          <li><b>2021</b> Luxury residences in Fujairah, United Arab Emirates.</li>
+          <li><b>2020</b> Conceptual design and master plan for the Amaala resort, Saudi Arabia.</li>
+          <li><b>2019</b> Civic buildings in Diriyah, Saudi Arabia.</li>
+          <li><b>2018</b> Master plan on Hassan island, Saudi Arabia.</li>
+        </ul>
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t1" role="img" aria-label="OBMI, Miami"><span class="tc-title">OBMI</span><span class="tc-meta">Miami · 2018–</span></div>
       </div>
     </div>
   </article>
