@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Nico Verdejo: arquitecto, historiador e ilustrador. Historias donde se cruzan la arquitectura y la política, y dibujos sobre la ternura y el duelo.">
+<meta property="og:title" content="Nico Verdejo">
+<meta property="og:description" content="Arquitecto, historiador e ilustrador.">
+<meta property="og:image" content="https://nicoverdejo.com/img/cover-plaza-dignidad.png">
+<meta property="og:url" content="https://nicoverdejo.com/">
+<link rel="icon" type="image/png" href="img/logo-rojo.png">
+<style>html,body{margin:0}body{font-size:14px}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}</style>
+<title>Nico Verdejo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Montserrat:wght@700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: a cover (the Plaza Dignidad drawing full-bleed, logo, name, menu and statement over it) that leads to one section at a time. White page, black ink, the logo's red as the only accent. */
+:root {
+  --paper: #F4EDDC; /* sketchbook paper */
+  --ink: #111111;
+  --grey: #6E6656;
+  --line: #DDD3BD;
+  --tint: #EAE1CB;
+  --sheet: #F4EDDC;
+  --red: #B0263A;
+  --display: "Montserrat", "Futura", "Century Gothic", "Helvetica Neue", Arial, sans-serif;
+  --sans: "Karla", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  color-scheme: light;
+}
+body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.45; }
+a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--red); }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+img { display: block; max-width: 100%; height: auto; }
+#site[data-lang="es"] .en, #site[data-lang="en"] .es { display: none !important; }
+
+/* Shared menu */
+.menu { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; }
+.menu a { text-decoration: none; font-weight: 500; }
+.menu a:hover, .menu a[aria-current="page"] { text-decoration: underline; color: var(--ink); }
+.lang { display: flex; gap: 10px; margin-left: auto; }
+.lang button { font: inherit; background: none; border: 0; padding: 0; color: var(--grey); cursor: pointer; }
+.lang button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+/* The name: Montserrat with every letter knocked slightly off its line */
+.wordmark { font-family: var(--display); font-weight: 800; text-transform: uppercase; line-height: 0.92; letter-spacing: 0.01em; margin: 0; }
+.wordmark .row { display: block; white-space: nowrap; }
+.wordmark .l { display: inline-block; transform: translateY(var(--y, 0)) rotate(var(--r, 0deg)); }
+
+/* Cover: one screen. Drawing on the left (3/4), text on the right (1/4), all on sketchbook paper */
+.cover { height: 100svh; display: grid; grid-template-rows: auto minmax(0, 1fr); background: var(--paper); }
+.cover-top { padding-block: 20px 6px; padding-left: max(28px, env(safe-area-inset-left, 0px)); padding-right: max(28px, env(safe-area-inset-right, 0px)); }
+.cover-main { min-height: 0; display: grid; grid-template-columns: minmax(0, 2.8fr) minmax(0, 1.2fr); gap: 36px; padding-block: 12px 22px; padding-left: max(28px, env(safe-area-inset-left, 0px)); padding-right: max(28px, env(safe-area-inset-right, 0px)); }
+.cover-figure { margin: 0; min-height: 0; display: flex; flex-direction: column; gap: 8px; }
+.slides { position: relative; flex: 1; min-height: 0; }
+.slides .slide { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: contain; object-position: center; opacity: 0; transition: opacity 1.2s ease; }
+.slides .slide.on { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .slides .slide { transition: none; } }
+.cover-figure figcaption { color: var(--grey); font-size: 13px; }
+.cover-figure figcaption b { color: var(--ink); font-weight: 500; }
+.cover-side { min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; padding-right: 4px; }
+.cover-id { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.cover .logo { width: 40px; height: auto; }
+.cover .wordmark { font-size: clamp(26px, 2.5vw, 38px); }
+.bio { display: flex; flex-direction: column; gap: 9px; }
+.bio p { margin: 0; font-family: var(--serif); font-size: 14px; line-height: 1.5; }
+.bio p.lead { font-size: 16.5px; line-height: 1.4; }
+.cover-contact { margin: 0; font-size: 13px; color: var(--grey); display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
+.cover-contact .email { font-family: var(--sans); font-size: 13px; color: var(--ink); }
+
+@media (max-width: 900px) {
+  .cover { height: auto; min-height: 100svh; }
+  .cover-main { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .cover-side { overflow: visible; order: -1; }
+  .slides { flex: none; aspect-ratio: 1 / 1; max-height: 80svh; }
+}
+
+/* Inner pages */
+.inner-top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+.inner-top .bar { max-width: 1360px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 32px; padding-block: 12px; padding-left: max(28px, env(safe-area-inset-left, 0px)); padding-right: max(28px, env(safe-area-inset-right, 0px)); }
+.home { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.home img { width: 22px; height: auto; }
+.home .wordmark { font-size: 20px; }
+.inner-top .menu { flex: 1; }
+.inner main { max-width: 1360px; margin: 0 auto; padding-block: 48px 96px; padding-left: max(28px, env(safe-area-inset-left, 0px)); padding-right: max(28px, env(safe-area-inset-right, 0px)); }
+
+/* Sections */
+section { display: flex; flex-direction: column; gap: 22px; }
+h2 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(28px, 4vw, 44px); line-height: 1; margin: 0 0 8px; }
+h3.sub { font-size: 13px; font-weight: 500; color: var(--grey); margin: 12px 0 0; }
+.prose { font-family: var(--serif); font-size: 18px; line-height: 1.55; max-width: 36em; margin: 0; }
+.caption { color: var(--grey); font-size: 13px; line-height: 1.4; }
+.caption b { color: var(--ink); font-weight: 500; }
+.plates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 28px; align-items: start; }
+.plates.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 1000px; }
+.plates figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.empty { aspect-ratio: 4 / 3; background: var(--tint); display: flex; align-items: center; justify-content: center; color: var(--grey); font-size: 13px; text-align: center; padding: 12px; }
+
+/* Illustration categories */
+.cat-nav { display: flex; flex-wrap: wrap; gap: 6px 20px; padding-bottom: 6px; }
+.cat-nav a { text-decoration: none; color: var(--grey); }
+.cat-nav a:hover { color: var(--ink); text-decoration: underline; }
+.cat { display: flex; flex-direction: column; gap: 56px; padding-top: 16px; scroll-margin-top: 80px; }
+.cat + .cat { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 40px; }
+.cat-head { display: flex; flex-direction: column; gap: 6px; }
+.cat-title { font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 3vw, 32px); line-height: 1.1; margin: 0; text-wrap: balance; }
+.cat-intro { font-family: var(--serif); font-size: 18px; line-height: 1.5; color: var(--grey); max-width: 34em; margin: 0; }
+.work { display: flex; flex-direction: column; gap: 14px; }
+.imgs { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 14px; align-items: start; }
+.imgs.narrow { max-width: 760px; }
+.imgs .stack { display: flex; flex-direction: column; gap: 14px; }
+.work-cap { display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr) minmax(0, 170px); gap: 6px 28px; font-size: 13px; line-height: 1.45; color: var(--grey); }
+.work-cap b { color: var(--ink); font-weight: 700; }
+.work-cap p { margin: 0; color: var(--ink); font-family: var(--serif); font-size: 15px; line-height: 1.5; max-width: 40em; }
+
+
+/* Research: covers first, text as small captions */
+.covers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 28px; align-items: start; margin-bottom: 40px; }
+.pub { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.pub img, .type-cover { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; box-shadow: 0 1px 0 var(--line), 0 10px 24px -14px rgba(60, 45, 20, 0.45); }
+.pub figcaption { display: flex; flex-direction: column; gap: 2px; font-size: 13px; color: var(--grey); line-height: 1.4; }
+.pub figcaption b { color: var(--ink); font-weight: 500; font-size: 14px; }
+.talk-sub { font-family: var(--serif); font-weight: 600; font-size: clamp(20px, 2.4vw, 26px); margin: 8px 0 0; }
+.talk-sub + .covers { margin-top: -4px; }
+.pub img.line { object-fit: contain; object-position: center; box-shadow: none; }
+.type-cover { display: flex; flex-direction: column; justify-content: space-between; padding: 22px 18px; box-sizing: border-box; }
+.type-cover .tc-title { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(20px, 2.1vw, 30px); line-height: 0.98; text-wrap: balance; }
+.type-cover .tc-meta { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+.type-cover.t1 { background: var(--red); color: var(--paper); }
+.type-cover.t2 { background: var(--ink); color: var(--paper); }
+.type-cover.t3 { background: var(--tint); color: var(--ink); border: 1px solid var(--line); }
+@media (max-width: 1100px) { .covers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .covers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+
+/* Cards (index) and detail pages, like an archive index: image first, small caption */
+.card { display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: inherit; }
+.card .thumb, .card .type-cover { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; box-shadow: 0 1px 0 var(--line), 0 10px 24px -14px rgba(60, 45, 20, 0.45); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.card .thumb.line { object-fit: contain; object-position: center; box-shadow: none; }
+.card:hover .thumb, .card:hover .type-cover { transform: translateY(-3px); box-shadow: 0 1px 0 var(--line), 0 16px 30px -14px rgba(60, 45, 20, 0.55); }
+.card:hover .thumb.line { box-shadow: none; }
+.card:hover .card-cap b { text-decoration: underline; text-underline-offset: 3px; }
+.card-cap { display: flex; flex-direction: column; gap: 2px; font-size: 13px; color: var(--grey); line-height: 1.4; }
+.card-cap b { color: var(--ink); font-weight: 500; font-size: 14px; }
+.detail { display: flex; flex-direction: column; gap: 24px; scroll-margin-top: 120px; }
+.back { align-self: flex-start; text-decoration: none; color: var(--grey); font-size: 14px; }
+.back:hover { color: var(--ink); text-decoration: underline; }
+.detail-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 48px; align-items: start; }
+.detail-text { position: sticky; top: 90px; display: flex; flex-direction: column; gap: 12px; }
+.detail-title { font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.15; margin: 0; text-transform: none; text-wrap: balance; }
+.detail-title cite { font-style: italic; }
+.detail-meta { margin: 0; color: var(--grey); font-size: 14px; display: flex; flex-direction: column; gap: 2px; }
+.detail-text p.es, .detail-text p.en { margin: 0; font-family: var(--serif); font-size: 17px; line-height: 1.55; max-width: 34em; }
+.detail-tech { margin: 0; color: var(--grey); font-size: 13px; }
+.detail-images { display: flex; flex-direction: column; gap: 22px; }
+.detail-images img { width: 100%; height: auto; box-shadow: 0 1px 0 var(--line), 0 12px 28px -16px rgba(60, 45, 20, 0.45); }
+.detail-images img.line { box-shadow: none; }
+.detail-images .type-cover { width: min(100%, 420px); aspect-ratio: 3 / 4; }
+@media (max-width: 900px) { .detail-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; } .detail-text { position: static; } }
+
+/* Lists */
+.list { list-style: none; margin: 0; padding: 0; max-width: 46em; }
+.list li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); }
+.list li:last-child { border-bottom: 1px solid var(--line); }
+.list .yr { color: var(--grey); font-variant-numeric: tabular-nums; }
+.list .t { font-family: var(--serif); font-size: 17px; line-height: 1.4; }
+.list .m { color: var(--grey); margin-top: 3px; }
+cite { font-style: italic; }
+.email-row { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; }
+.email { font-family: var(--serif); font-size: 22px; user-select: all; overflow-wrap: anywhere; }
+.copy { font: inherit; font-size: 13px; background: none; border: 1px solid var(--ink); color: var(--ink); padding: 3px 10px; cursor: pointer; }
+.copy:hover { background: var(--ink); color: var(--paper); }
+.inner footer { margin-top: 80px; color: var(--grey); font-size: 13px; }
+
+@media (max-width: 900px) {
+  .work-cap { grid-template-columns: minmax(0, 1fr); }
+  .plates { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .inner-top .menu { flex-basis: 100%; order: 3; }
+}
+@media (max-width: 640px) {
+  .cover-top, .cover-main, .inner-top .bar, .inner main { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .plates, .plates.two { grid-template-columns: minmax(0, 1fr); }
+  .imgs { grid-template-columns: repeat(min(var(--n), 2), minmax(0, 1fr)); }
+  .imgs[style*="--n:1"] { grid-template-columns: minmax(0, 1fr); }
+  .list li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+</style>
+</head>
+<body>
+<div id="site" data-lang="es">
+
+<div class="cover" id="view-inicio">
+  <div class="cover-top">
+    <nav class="menu" aria-label="Secciones"><a href="#ilustracion"><span class="es">Ilustración</span><span class="en">Illustration</span></a><a href="#investigacion"><span class="es">Publicaciones</span><span class="en">Publications</span></a><a href="#charlas"><span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a><a href="#exposiciones"><span class="es">Exposiciones</span><span class="en">Exhibitions</span></a><a href="#arquitectura"><span class="es">Arquitectura</span><span class="en">Architecture</span></a><span class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-set="es" aria-pressed="true">ES</button><button type="button" data-set="en" aria-pressed="false">EN</button></span></nav>
+  </div>
+  <div class="cover-main">
+    <figure class="cover-figure">
+      <div class="slides" id="slides" aria-roledescription="carrusel">
+        <img class="slide on" src="img/cover-plaza-dignidad.png" width="1709" height="951" alt="Croquis a tinta de una marcha en Plaza Dignidad, Santiago, 2019" data-title="Plaza Dignidad" data-es="Santiago, 2019. Tinta sobre papel." data-en="Santiago, 2019. Ink on paper.">
+        <img class="slide" src="img/cover-2013-metro.png" width="1043" height="1735" alt="Croquis de cuaderno: la Catedral de Santiago y la multitud a la salida del metro Plaza de Armas" data-title="Salida del metro Plaza de Armas" data-es="5 de septiembre de 2013. Tinta sobre cuaderno." data-en="5 September 2013. Ink in sketchbook." loading="lazy">
+        <img class="slide" src="img/cover-2013-catedral.png" width="1233" height="1762" alt="Croquis: la fachada de la Catedral y una marcha en la Plaza de Armas" data-title="Plaza de Armas" data-es="5 de septiembre de 2013. Tinta sobre cuaderno." data-en="5 September 2013. Ink in sketchbook." loading="lazy">
+        <img class="slide" src="img/cover-2013-heroes.png" width="1511" height="1743" alt="Croquis: lienzos y multitud bajo la Torre Entel, en Los Héroes" data-title="Los Héroes, 10:45" data-es="Septiembre de 2013. Tinta sobre cuaderno." data-en="September 2013. Ink in sketchbook." loading="lazy">
+        <img class="slide" src="img/cover-2013-banderas.png" width="1188" height="1601" alt="Croquis: banderas sobre la multitud, con la Torre Entel al fondo" data-title="Banderas" data-es="Septiembre de 2013. Tinta sobre cuaderno." data-en="September 2013. Ink in sketchbook." loading="lazy">
+        <img class="slide" src="img/cover-2013-recoleta.png" width="1144" height="1606" alt="Croquis: la torre de una iglesia tras los lienzos de una marcha llegando a Av. Recoleta" data-title="Llegando a Av. Recoleta" data-es="8 de septiembre de 2013. Tinta sobre cuaderno." data-en="8 September 2013. Ink in sketchbook." loading="lazy">
+        <img class="slide" src="img/cover-plaza-italia.png" width="1250" height="1752" alt="Croquis de cuaderno de una manifestación en Plaza Italia, con notas manuscritas" data-title="Plaza Italia" data-es="Santiago, 2019. Tinta sobre cuaderno." data-en="Santiago, 2019. Ink in sketchbook." loading="lazy">
+      </div>
+      <figcaption id="slide-cap"><b>Plaza Dignidad</b>, <span class="es">Santiago, 2019. Tinta sobre papel.</span><span class="en">Santiago, 2019. Ink on paper.</span></figcaption>
+    </figure>
+    <div class="cover-side">
+      <div class="cover-id">
+        <img class="logo" src="img/logo-rojo.png" width="436" height="664" alt="Logo de Nico Verdejo">
+        <h1 class="wordmark" aria-label="Nico Verdejo"><span class="row" aria-hidden="true"><span class="l">N</span><span class="l">i</span><span class="l">c</span><span class="l">o</span></span><span class="row" aria-hidden="true"><span class="l">V</span><span class="l">e</span><span class="l">r</span><span class="l">d</span><span class="l">e</span><span class="l">j</span><span class="l">o</span></span></h1>
+      </div>
+      <div class="bio es">
+          <p class="lead">Soy arquitecto, historiador e ilustrador. Cuento historias donde se cruzan la arquitectura y la política, y dibujo historias gráficas sobre la ternura y el duelo.</p>
+          <p>Arquitecto por la Pontificia Universidad Católica de Valparaíso (2013), Magíster en Arquitectura por la Pontificia Universidad Católica de Chile (2017) y Doctor en Arquitectura por Penn State, con beca Fulbright (2026).</p>
+          <p>Publiqué <cite>Cambiar de vida</cite> (LOM, 2022), sobre la Escuela de Arquitectura de Valparaíso entre 1967 y 1973. Mi tesis doctoral, <cite>Architectural Education Under the Iron Fist</cite>, sigue a estudiantes y profesores de las escuelas de arquitectura chilenas bajo la dictadura.</p>
+          <p>Publiqué la historia gráfica <cite>The Black Cats</cite> en The Funambulist (2025). Mención especial de Architizer (2023) y tercer lugar en la Penn State Graduate Exhibition (2025) por presentar mi investigación como novela gráfica.</p>
+          <p>Consultor senior de diseño en OBMI, Miami, desde 2018. En Chile proyecté El Zaguán del viento, en Independencia, y una casa en Puerto Natales. Enseño arquitectura desde 2016, en Chile, Estados Unidos y Corea del Sur, y busco que mis estudiantes la piensen desde los afectos. Hoy hago clases en la FAU de la Universidad de Chile y en la Universidad de las Américas.</p>
+        </div>
+      <div class="bio en">
+          <p class="lead">I am an architect, historian and illustrator. I tell stories where architecture and politics meet, and I draw graphic stories about tenderness and grief.</p>
+          <p>Architect, Pontificia Universidad Católica de Valparaíso (2013); Master of Architecture, Pontificia Universidad Católica de Chile (2017); PhD in Architecture, Penn State, as a Fulbright fellow (2026).</p>
+          <p>I published <cite>Cambiar de vida</cite> (LOM, 2022), on the Valparaíso school of architecture between 1967 and 1973. My dissertation, <cite>Architectural Education Under the Iron Fist</cite>, follows students and professors in Chile’s architecture schools under the dictatorship.</p>
+          <p>I published the graphic story <cite>The Black Cats</cite> in The Funambulist (2025). Special Mention from Architizer (2023) and third place at the Penn State Graduate Exhibition (2025) for presenting my research as a graphic novel.</p>
+          <p>Senior design consultant at OBMI, Miami, since 2018. In Chile I designed El Zaguán del viento, in Independencia, and a house in Puerto Natales. I have taught architecture since 2016, in Chile, the United States and South Korea, and I ask my students to think about it through affection. I currently teach at the Universidad de Chile’s FAU and at Universidad de las Américas.</p>
+        </div>
+      <p class="cover-contact"><span class="email" id="email">nverdejob@gmail.com</span> <button type="button" class="copy" id="copy-email"><span class="es">Copiar</span><span class="en">Copy</span></button> · <a href="https://www.instagram.com/nicoverdejo/" target="_blank" rel="noopener">@nicoverdejo</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="inner" id="view-inner" hidden>
+  <header class="inner-top">
+    <div class="bar">
+      <a class="home" href="#inicio"><img src="img/logo-rojo.png" width="436" height="664" alt=""><span class="wordmark">Nico Verdejo</span></a>
+      <nav class="menu" aria-label="Secciones"><a href="#ilustracion"><span class="es">Ilustración</span><span class="en">Illustration</span></a><a href="#investigacion"><span class="es">Publicaciones</span><span class="en">Publications</span></a><a href="#charlas"><span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a><a href="#exposiciones"><span class="es">Exposiciones</span><span class="en">Exhibitions</span></a><a href="#arquitectura"><span class="es">Arquitectura</span><span class="en">Architecture</span></a><span class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-set="es" aria-pressed="true">ES</button><button type="button" data-set="en" aria-pressed="false">EN</button></span></nav>
+    </div>
+  </header>
+  <main>
+<section id="ilustracion" hidden>
+    <h2><span class="es">Ilustración</span><span class="en">Illustration</span></h2>
+    <div class="cat" id="narrativa">
+      <div class="cat-head">
+        <h3 class="cat-title"><span class="es">Narrativa</span><span class="en">Narrative</span></h3>
+        <p class="cat-intro es">Historias que cruzan la arquitectura y la política, contadas en secuencia: novela gráfica, cómic y dibujo que dan cuenta de investigaciones académicas y ensayos narrativos.</p>
+        <p class="cat-intro en">Stories where architecture and politics meet, told in sequence: graphic novel, comics and drawing that carry academic research and narrative essays.</p>
+      </div>
+      <div class="covers">
+        <a class="card" href="#d-architectural-education-under-the-iron">
+          <img class="thumb" src="img/poster.jpg" width="1350" height="1800" alt="Póster de investigación en formato de novela gráfica" loading="lazy">
+          <span class="card-cap"><b><cite>Architectural Education Under the Iron Fist</cite></b><span><span class="es">Póster de investigación doctoral · Penn State, 2025</span><span class="en">Doctoral research poster · Penn State, 2025</span></span></span>
+        </a>
+        <a class="card" href="#d-the-black-cats">
+          <img class="thumb" src="img/black-cats-1.jpg" width="1212" height="1500" alt="The Black Cats, página 1" loading="lazy">
+          <span class="card-cap"><b><cite>The Black Cats</cite></b><span>The Funambulist n.º 61, 2025</span></span>
+        </a>
+      </div>
+    </div>
+    <div class="cat" id="obra">
+      <div class="cat-head">
+        <h3 class="cat-title"><span class="es">Obra individual e ilustración</span><span class="en">Individual work and illustration</span></h3>
+        <p class="cat-intro es">Ilustraciones independientes sobre el encierro, la ternura y el duelo, y la política chilena.</p>
+        <p class="cat-intro en">Stand-alone illustrations about confinement, tenderness and grief, and Chilean politics.</p>
+      </div>
+      <div class="covers">
+        <a class="card" href="#d-a-room-is-not-a">
+          <img class="thumb" src="img/room.jpg" width="1500" height="1077" alt="A room is not a house: un dormitorio convertido en máquina, con muros ondulantes en naranjo" loading="lazy">
+          <span class="card-cap"><b><cite>A room is not a house or Banham’s latest nightmare</cite></b><span>2020</span></span>
+        </a>
+        <a class="card" href="#d-alonso">
+          <img class="thumb" src="img/alonso-retrato.jpg" width="1500" height="1500" alt="Retrato de perfil rodeado de gatos negros, bajo una luna" loading="lazy">
+          <span class="card-cap"><b>Alonso</b><span><span class="es">Serie personal · 2024–2026</span><span class="en">Personal series · 2024–2026</span></span></span>
+        </a>
+        <a class="card" href="#d-un-enemigo-poderoso">
+          <img class="thumb" src="img/tolerancia-0.jpg" width="1352" height="1500" alt="Conductor al volante de un vehículo policial blindado" loading="lazy">
+          <span class="card-cap"><b><cite>Un enemigo poderoso</cite></b><span><span class="es">Serie · 2019–2020</span><span class="en">Series · 2019–2020</span></span></span>
+        </a>
+      </div>
+    </div>
+    <div class="cat" id="croquis">
+      <div class="cat-head">
+        <h3 class="cat-title"><span class="es">Croquis urbanos</span><span class="en">Urban sketches</span></h3>
+        <p class="cat-intro es">Cuadernos de viaje y de todos los días: dibujar para mirar con atención.</p>
+        <p class="cat-intro en">Travel and everyday sketchbooks: drawing as a way of looking closely.</p>
+      </div>
+      <div class="covers">
+        <a class="card" href="#d-plaza-dignidad">
+          <img class="thumb line" src="img/plaza-italia.png" width="1111" height="1562" alt="Croquis de una manifestación en Plaza Italia" loading="lazy">
+          <span class="card-cap"><b>Plaza Dignidad</b><span><span class="es">Santiago, 2019</span><span class="en">Santiago, 2019</span></span></span>
+        </a>
+        <a class="card" href="#d-sa-pa-cat-cat">
+          <img class="thumb line" src="img/sa-pa.png" width="1521" height="864" alt="Croquis de la plaza de Sa Pa, con edificios, motos y montañas al fondo" loading="lazy">
+          <span class="card-cap"><b>Sa Pa · Cat Cat</b><span><span class="es">Cuaderno de viaje · Vietnam, 2019</span><span class="en">Travel sketchbook · Vietnam, 2019</span></span></span>
+        </a>
+        <a class="card" href="#d-grand-central-louie-en-ruta">
+          <img class="thumb line" src="img/grand-central.png" width="1529" height="1473" alt="Croquis de Grand Central Terminal con una multitud en movimiento" loading="lazy">
+          <span class="card-cap"><b><span class="es">Grand Central · Louie, en ruta · Mi departamento</span><span class="en">Grand Central · Louie, on the road · My apartment</span></b><span><span class="es">Cuadernos de Manhattan (2023) y State College (2021)</span><span class="en">Manhattan (2023) and State College (2021) sketchbooks</span></span></span>
+        </a>
+        <a class="card" href="#d-travesia-san-pedro-aricatravesia-san">
+          <img class="thumb" src="img/travesia.jpg" width="1600" height="1119" alt="Página de cuaderno con acuarelas de paisaje y notas manuscritas" loading="lazy">
+          <span class="card-cap"><b><span class="es">Travesía · San Pedro · Arica</span><span class="en">Travesía · San Pedro · Arica</span></b><span><span class="es">Cuadernos</span><span class="en">Sketchbooks</span></span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<section id="investigacion" hidden>
+    <h2><span class="es">Publicaciones</span><span class="en">Publications</span></h2>
+    <div class="covers">
+      <a class="card" href="#d-the-black-cats-2">
+        <img class="thumb" src="img/funambulist-61.jpg" width="900" height="1125" alt="Portada: The Black Cats" loading="lazy">
+        <span class="card-cap"><b><cite>The Black Cats</cite></b><span class="es">Historia gráfica · The Funambulist n.º 61, 2025</span><span class="en">Graphic story · The Funambulist no. 61, 2025</span></span>
+      </a>
+      <a class="card" href="#d-architectural-education-under-the-iron-2">
+        <img class="thumb" src="img/iron-fist-poster.jpg" width="900" height="1200" alt="Portada: Architectural Education Under the Iron Fist" loading="lazy">
+        <span class="card-cap"><b><cite>Architectural Education Under the Iron Fist</cite></b><span class="es">Póster de la tesis doctoral · Penn State, 2025</span><span class="en">Dissertation poster · Penn State, 2025</span></span>
+      </a>
+      <a class="card" href="#d-tres-silencios">
+        <img class="thumb" src="img/anales-2023.jpg" width="900" height="1146" alt="Portada: Tres silencios" loading="lazy">
+        <span class="card-cap"><b><cite>Tres silencios</cite></b><span class="es">Artículo · Anales de Arquitectura UC, 2023</span><span class="en">Article · Anales de Arquitectura UC, 2023</span></span>
+      </a>
+      <a class="card" href="#d-cambiar-de-vida">
+        <img class="thumb" src="img/cambiar-de-vida-lom.jpg" width="867" height="1224" alt="Portada: Cambiar de vida" loading="lazy">
+        <span class="card-cap"><b><cite>Cambiar de vida</cite></b><span class="es">Libro · LOM Ediciones, 2022</span><span class="en">Book · LOM Ediciones, 2022</span></span>
+      </a>
+      <a class="card" href="#d-24-7">
+        <div class="type-cover t2" role="img" aria-label="24/7"><span class="tc-title">24/7</span><span class="tc-meta">El Mostrador · 2020</span></div>
+        <span class="card-cap"><b><cite>24/7</cite></b><span class="es">Columna · El Mostrador, 28 de marzo de 2020</span><span class="en">Op-ed · El Mostrador, 28 March 2020</span></span>
+      </a>
+      <a class="card" href="#d-el-genero-en-la-historiografia">
+        <img class="thumb" src="img/de-arquitectura-2019.jpg" width="900" height="1165" alt="Portada: El género en la historiografía de la arquitectura" loading="lazy">
+        <span class="card-cap"><b><cite>El género en la historiografía de la arquitectura</cite></b><span class="es">Artículo en coautoría · De Arquitectura, 2019</span><span class="en">Co-authored article · De Arquitectura, 2019</span></span>
+      </a>
+      <a class="card" href="#d-la-segunda-via">
+        <img class="thumb" src="img/arq-99.jpg" width="900" height="1185" alt="Portada: La segunda vía" loading="lazy">
+        <span class="card-cap"><b><cite>La segunda vía</cite></b><span class="es">Artículo · ARQ n.º 99, 2018</span><span class="en">Article · ARQ no. 99, 2018</span></span>
+      </a>
+      <a class="card" href="#d-cambiar-de-vida-2">
+        <img class="thumb" src="img/anales-2017-2018.jpg" width="900" height="1157" alt="Portada: Cambiar de vida" loading="lazy">
+        <span class="card-cap"><b><cite>Cambiar de vida</cite></b><span class="es">Artículo · Anales de Arquitectura 2017–2018</span><span class="en">Article · Anales de Arquitectura 2017–2018</span></span>
+      </a>
+      <a class="card" href="#d-transparent-processes-of-urban-production">
+        <img class="thumb" src="img/routledge-2018.jpg" width="758" height="1075" alt="Portada: Transparent Processes of Urban Production in Chile" loading="lazy">
+        <span class="card-cap"><b><cite>Transparent Processes of Urban Production in Chile</cite></b><span class="es">Capítulo en coautoría · Routledge, 2018</span><span class="en">Co-authored chapter · Routledge, 2018</span></span>
+      </a>
+      <a class="card" href="#d-erase-una-vez-un-estado">
+        <div class="type-cover t1" role="img" aria-label="Érase una vez un Estado"><span class="tc-title">Érase una vez un Estado</span><span class="tc-meta">Atraviesos Urbanos · 2018</span></div>
+        <span class="card-cap"><b><cite>Érase una vez un Estado</cite></b><span class="es">Artículo · Cuadernos de Atraviesos Urbanos, FAD Universidad Finis Terrae, 2018</span><span class="en">Article · Cuadernos de Atraviesos Urbanos, FAD Universidad Finis Terrae, 2018</span></span>
+      </a>
+      <a class="card" href="#d-santiago-babylon">
+        <img class="thumb" src="img/santiago-babylon.jpg" width="758" height="1075" alt="Portada: Santiago Babylon" loading="lazy">
+        <span class="card-cap"><b><cite>Santiago Babylon</cite></b><span class="es">Libro, coeditor · Santiago, 2017</span><span class="en">Book, co-editor · Santiago, 2017</span></span>
+      </a>
+      <a class="card" href="#d-sustitucion-cultural-y-guetizacion-en">
+        <img class="thumb" src="img/bifurcaciones-21.jpg" width="900" height="1165" alt="Portada: Sustitución cultural y guetización en la ciudad" loading="lazy">
+        <span class="card-cap"><b><cite>Sustitución cultural y guetización en la ciudad</cite></b><span class="es">Artículo · Bifurcaciones n.º 21, 2016</span><span class="en">Article · Bifurcaciones no. 21, 2016</span></span>
+      </a>
+      <a class="card" href="#d-ni-perdon-ni-olvido">
+        <div class="type-cover t3" role="img" aria-label="Ni perdón ni olvido"><span class="tc-title">Ni perdón ni olvido</span><span class="tc-meta">Fanzine n.º 5 · 2015</span></div>
+        <span class="card-cap"><b><cite>Ni perdón ni olvido</cite></b><span class="es">Fanzine n.º 5, serie Proyectos pendientes, Milm2, 5 de julio de 2015. Con Ariztíalab.</span><span class="en">Fanzine no. 5, Proyectos pendientes series, Milm2, 5 July 2015. With Ariztíalab.</span></span>
+      </a>
+      <a class="card" href="#d-los-otros-viajes-del-arquitecto">
+        <img class="thumb" src="img/revista-180-29.jpg" width="900" height="1165" alt="Portada: Los otros viajes del arquitecto" loading="lazy">
+        <span class="card-cap"><b><cite>Los otros viajes del arquitecto</cite></b><span class="es">Artículo · Revista 180 n.º 29, 2012</span><span class="en">Article · Revista 180 no. 29, 2012</span></span>
+      </a>
+    </div>
+  </section>
+
+<section id="charlas" hidden>
+    <h2><span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></h2>
+    <div class="covers">
+      <a class="card" href="#d-architecture-education-under-the-iron">
+        <div class="type-cover t2" role="img" aria-label="SAH Atlanta 2025"><span class="tc-title">SAH<br>Atlanta</span><span class="tc-meta">78th Annual Conference · 2025</span></div>
+        <span class="card-cap"><b><cite>Architecture Education Under the Iron Fist: Architecture Schools Depoliticized in Chile during the Pinochet Dictatorship, 1973–1990</cite></b><span class="es">Society of Architectural Historians, Atlanta, 1 de mayo de 2025</span><span class="en">Society of Architectural Historians, Atlanta, 1 May 2025</span></span>
+      </a>
+      <a class="card" href="#d-architectural-education-under-the-iron-3">
+        <div class="type-cover t1" role="img" aria-label="SAH Montreal 2023"><span class="tc-title">SAH<br>Montreal</span><span class="tc-meta">76th Annual Conference · 2023</span></div>
+        <span class="card-cap"><b><cite>Architectural Education under the Iron Fist: Architecture Schools during the Pinochet Dictatorship in Chile, 1973–1989</cite></b><span class="es">Society of Architectural Historians, Montreal, 14 de abril de 2023</span><span class="en">Society of Architectural Historians, Montreal, 14 April 2023</span></span>
+      </a>
+      <a class="card" href="#d-nada-ni-nadie-se-salva">
+        <div class="type-cover t3" role="img" aria-label="UDP"><span class="tc-title">UDP</span><span class="tc-meta">FAAD · 2021</span></div>
+        <span class="card-cap"><b><cite>Nada ni nadie se salva</cite></b><span class="es">FAAD, Universidad Diego Portales, en línea, 20 de mayo de 2021</span><span class="en">FAAD, Universidad Diego Portales, online, 20 May 2021</span></span>
+      </a>
+      <a class="card" href="#d-conversaciones-sobre-dibujo">
+        <div class="type-cover t2" role="img" aria-label="Rosario"><span class="tc-title">Rosario</span><span class="tc-meta">FAPD · 2021</span></div>
+        <span class="card-cap"><b><cite>Conversaciones sobre dibujo</cite></b><span class="es">FAPD, Universidad de Rosario, en línea, 26 de abril de 2021</span><span class="en">FAPD, Universidad de Rosario, online, 26 April 2021</span></span>
+      </a>
+      <a class="card" href="#d-un-objeto-y-un-sujeto">
+        <div class="type-cover t1" role="img" aria-label="FADEU UC"><span class="tc-title">FADEU UC</span><span class="tc-meta">Herramientas de investigación · 2021</span></div>
+        <span class="card-cap"><b><cite>Un objeto y un sujeto: dos órbitas</cite></b><span class="es">Curso Herramientas de investigación en arquitectura (modera Constanza Larach), FADEU, Pontificia Universidad Católica de Chile, en línea, 21 de abril de 2021</span><span class="en">Herramientas de investigación en arquitectura course (moderated by Constanza Larach), FADEU, Pontificia Universidad Católica de Chile, online, 21 April 2021</span></span>
+      </a>
+      <a class="card" href="#d-dibujo-en-vivolive-drawing">
+        <div class="type-cover t3" role="img" aria-label="Dibujo en vivo, UDLA 2020"><span class="tc-title">Dibujo<br>en vivo</span><span class="tc-meta">UDLA · 2020</span></div>
+        <span class="card-cap"><b><span class="es">Dibujo en vivo</span><span class="en">Live drawing</span></b><span class="es">I Seminario Internacional Arquitectura y Etnografía, Universidad de las Américas, Santiago, 29 de septiembre de 2020</span><span class="en">1st International Seminar on Architecture and Ethnography, Universidad de las Américas, Santiago, 29 September 2020</span></span>
+      </a>
+      <a class="card" href="#d-no-queda-otra-que-dibujar">
+        <div class="type-cover t2" role="img" aria-label="UDLA"><span class="tc-title">UDLA</span><span class="tc-meta">Taller · 2020</span></div>
+        <span class="card-cap"><b><cite>No queda otra que dibujar: representaciones en cuarentena</cite></b><span class="es">Taller, Facultad de Arquitectura y Construcción, UDLA, en línea, 12 de mayo de 2020</span><span class="en">Workshop, Faculty of Architecture and Construction, UDLA, online, 12 May 2020</span></span>
+      </a>
+      <a class="card" href="#d-la-segunda-via-2">
+        <div class="type-cover t1" role="img" aria-label="Coloquio Iquique 2018"><span class="tc-title">Iquique</span><span class="tc-meta">Coloquio · 2018</span></div>
+        <span class="card-cap"><b><cite>La segunda vía</cite></b><span class="es">Coloquio Paisajes Arquitectónicos Modernos en el Cono Sur Andino 1930–1970, FAU Universidad de Chile y Universidad Arturo Prat, Iquique, 8 de junio de 2018</span><span class="en">Colloquium on Modern Architectural Landscapes in the Andean Southern Cone 1930–1970, FAU Universidad de Chile and Universidad Arturo Prat, Iquique, 8 June 2018</span></span>
+      </a>
+      <a class="card" href="#d-la-segunda-via-la-publica">
+        <div class="type-cover t3" role="img" aria-label="Exploraciones urbanas"><span class="tc-title">Exploraciones<br>urbanas</span><span class="tc-meta">UC · 2018</span></div>
+        <span class="card-cap"><b><cite>La segunda vía: la pública controversia por el proyecto de la vía elevada entre Valparaíso y Viña del Mar, 1969</cite></b><span class="es">Seminario universitario Exploraciones urbanas (organiza Gonzalo Cáceres), Pontificia Universidad Católica de Chile, 6 de marzo de 2018</span><span class="en">University seminar Exploraciones urbanas (organized by Gonzalo Cáceres), Pontificia Universidad Católica de Chile, 6 March 2018</span></span>
+      </a>
+      <a class="card" href="#d-trayectorias-del-dolor-la-anulacion">
+        <div class="type-cover t2" role="img" aria-label="Congreso Redfundamentos 2017"><span class="tc-title">Madrid</span><span class="tc-meta">Redfundamentos · 2017</span></div>
+        <span class="card-cap"><b><cite>Trayectorias del dolor: la anulación política del cuerpo en la historiografía de la ciudad de Richard Sennett</cite></b><span class="es">I Congreso Iberoamericano Redfundamentos, Madrid (en línea), 13 de diciembre de 2017</span><span class="en">1st Ibero-American Redfundamentos Congress, Madrid (online), 13 December 2017</span></span>
+      </a>
+      <a class="card" href="#d-el-gobierno-del-algoritmo-la">
+        <div class="type-cover t1" role="img" aria-label="Encuentro CTS Valdivia 2017"><span class="tc-title">Valdivia</span><span class="tc-meta">Encuentro CTS · 2017</span></div>
+        <span class="card-cap"><b><cite>El gobierno del algoritmo: la política y la ciudad en la Smartcity</cite></b><span class="es">IV Encuentro de la Red Chilena de Estudios de la Ciencia, Tecnología y Sociedad, Universidad Austral, Valdivia, 19 de enero de 2017</span><span class="en">4th Meeting of the Chilean Science, Technology and Society Network, Universidad Austral, Valdivia, 19 January 2017</span></span>
+      </a>
+      <a class="card" href="#d-campos-de-batalla">
+        <div class="type-cover t3" role="img" aria-label="Campos de batalla"><span class="tc-title">Campos<br>de batalla</span><span class="tc-meta">U. Alberto Hurtado · 2015</span></div>
+        <span class="card-cap"><b><cite>Campos de batalla</cite></b><span class="es">Clase en el Magíster en Estudios de la Imagen, Universidad Alberto Hurtado, 5 de noviembre de 2015. En coautoría.</span><span class="en">Lecture in the Master’s in Image Studies, Universidad Alberto Hurtado, 5 November 2015. Co-authored.</span></span>
+      </a>
+      <a class="card" href="#d-el-trabajo-del-colectivo-meta">
+        <div class="type-cover t2" role="img" aria-label="UNIACC"><span class="tc-title">UNIACC</span><span class="tc-meta">Especulaciones Públicas · 2013</span></div>
+        <span class="card-cap"><b><cite>El trabajo del colectivo META</cite></b><span class="es">Seminario Especulaciones Públicas n.º 2, Facultad de Arquitectura, Diseño y Artes Visuales, UNIACC, Santiago, 5 de junio de 2013</span><span class="en">Especulaciones Públicas seminar no. 2, Faculty of Architecture, Design and Visual Arts, UNIACC, Santiago, 5 June 2013</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section id="exposiciones" hidden>
+    <h2><span class="es">Exposiciones</span><span class="en">Exhibitions</span></h2>
+    <div class="covers">
+      <a class="card" href="#d-graduate-exhibition">
+        <img class="thumb" src="img/iron-fist-poster.jpg" width="900" height="1200" alt="Póster de investigación en formato de novela gráfica" loading="lazy">
+        <span class="card-cap"><b>Graduate Exhibition</b><span class="es">Penn State University, marzo de 2025. Tercer lugar, Research Poster.</span><span class="en">Penn State University, March 2025. Third place, Research Poster.</span></span>
+      </a>
+      <a class="card" href="#d-municipal-ilustrado">
+        <img class="thumb line" src="img/municipal-ilustrado.png" width="1059" height="1040" alt="Croquis a tinta de la sala del Teatro Municipal de Santiago" loading="lazy">
+        <span class="card-cap"><b><cite>Municipal Ilustrado</cite></b><span class="es">Artista invitado, Teatro Municipal de Santiago, septiembre a diciembre de 2023</span><span class="en">Guest artist, Teatro Municipal de Santiago, September to December 2023</span></span>
+      </a>
+      <a class="card" href="#d-my-beloved-room-quarantine-nightmares">
+        <div class="type-cover t2" role="img" aria-label="My Beloved Room"><span class="tc-title">My Beloved Room</span><span class="tc-meta">Penn State Creates · 2021</span></div>
+        <span class="card-cap"><b><cite>My Beloved Room: Quarantine Nightmares</cite></b><span class="es">Penn State Creates, exposición virtual, 2021</span><span class="en">Penn State Creates, virtual exhibition, 2021</span></span>
+      </a>
+      <a class="card" href="#d-ciudad-y-cielo-santiago-1850">
+        <div class="type-cover t1" role="img" aria-label="Ciudad y Cielo"><span class="tc-title">Ciudad<br>y Cielo</span><span class="tc-meta">Santiago 1850 · 2018</span></div>
+        <span class="card-cap"><b><cite>Ciudad y Cielo. Santiago 1850</cite></b><span class="es">Colegio de Arquitectos de Chile, octubre de 2018. En coautoría.</span><span class="en">Colegio de Arquitectos de Chile, October 2018. Co-authored.</span></span>
+      </a>
+      <a class="card" href="#d-cual-sueno-de-la-arquitectura">
+        <img class="thumb line" src="img/cual-sueno.png" width="1135" height="853" alt="Croquis: un lienzo con la pregunta ¿Cuál sueño? frente a un edificio" loading="lazy">
+        <span class="card-cap"><b><cite>¿Cuál sueño? De la arquitectura pública a la especulación inmobiliaria</cite></b><span class="es">Galería Metropolitana, con Ariztíalab. En coautoría.</span><span class="en">Galería Metropolitana, with Ariztíalab. Co-authored.</span></span>
+      </a>
+      <a class="card" href="#d-territorio-obsoleto">
+        <div class="type-cover t3" role="img" aria-label="Territorio obsoleto"><span class="tc-title">Territorio<br>obsoleto</span><span class="tc-meta">Galería Conejo · 2013</span></div>
+        <span class="card-cap"><b><cite>Territorio obsoleto</cite></b><span class="es">Galería Conejo, marzo de 2013, con el Colectivo META</span><span class="en">Galería Conejo, March 2013, with Colectivo META</span></span>
+      </a>
+      <a class="card" href="#d-rasgos-de-espana">
+        <div class="type-cover t2" role="img" aria-label="Rasgos de España"><span class="tc-title">Rasgos<br>de España</span><span class="tc-meta">Cuadernos de viaje · 2010</span></div>
+        <span class="card-cap"><b><cite>Rasgos de España</cite></b><span class="es">Cuadernos de viaje, Edificio Plaza Barón, Valparaíso, enero a marzo de 2010</span><span class="en">Travel sketchbooks, Edificio Plaza Barón, Valparaíso, January to March 2010</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section id="arquitectura" hidden>
+    <h2><span class="es">Arquitectura</span><span class="en">Architecture</span></h2>
+    <div class="plates two">
+      <figure>
+        <img src="img/zaguan.jpg" width="1500" height="1500" alt="Dibujo de El Zaguán del viento" loading="lazy">
+        <figcaption class="caption"><b>El Zaguán del viento</b><br><span class="es">Independencia, Santiago. Dibujo; fotografías por cargar</span><span class="en">Independencia, Santiago. Drawing; photographs to come</span></figcaption>
+      </figure>
+      <figure>
+        <div class="empty"><span class="es">Fotografía por cargar</span><span class="en">Photograph to come</span></div>
+        <figcaption class="caption"><b><span class="es">Casa en Puerto Natales</span><span class="en">House in Puerto Natales</span></b><br><span class="es">Patagonia chilena</span><span class="en">Chilean Patagonia</span></figcaption>
+      </figure>
+    </div>
+    <ul class="list">
+      <li><span class="yr">2018–</span><div><div class="t">OBMI, Miami</div><div class="m"><span class="es">Consultor senior de diseño en proyectos internacionales.</span><span class="en">Senior design consultant on international projects.</span></div></div></li>
+    </ul>
+  </section>
+
+
+
+
+
+  <article class="detail" id="d-architectural-education-under-the-iron" data-parent="ilustracion" hidden>
+    <a class="back" href="#ilustracion">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Architectural Education Under the Iron Fist</cite></h2>
+        <p class="detail-meta"><span class="es">Póster de investigación doctoral · Penn State, 2025</span><span class="en">Doctoral research poster · Penn State, 2025</span></p>
+        <p class="es">Los hallazgos de mi tesis doctoral contados como novela gráfica: cómo la dictadura intervino las escuelas de arquitectura en Chile entre 1973 y 1990, y cómo estudiantes y profesores la enfrentaron. Tercer lugar, Research Poster, Penn State Graduate Exhibition 2025.</p><p class="en">The findings of my dissertation told as a graphic novel: how the dictatorship intervened Chile’s architecture schools between 1973 and 1990, and how students and professors faced it. Third place, Research Poster, Penn State Graduate Exhibition 2025.</p><p class="detail-tech"><span class="es">Ilustración digital (Clip Studio Paint Pro)</span><span class="en">Digital illustration (Clip Studio Paint Pro)</span></p>
+      </div>
+      <div class="detail-images"><img loading="lazy" src="img/poster.jpg" width="1350" height="1800" alt="Póster de investigación en formato de novela gráfica"><img loading="lazy" src="img/poster-detalle-1.jpg" width="1500" height="988" alt="Detalle del póster: Chile entre 1970 y 1973"><img loading="lazy" src="img/poster-detalle-2.jpg" width="1500" height="585" alt="Detalle del póster: intervención por la fuerza y por coerción institucional">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-the-black-cats" data-parent="ilustracion" hidden>
+    <a class="back" href="#ilustracion">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>The Black Cats</cite></h2>
+        <p class="detail-meta">The Funambulist n.º 61, 2025</p>
+        <p class="es">Historia gráfica breve sobre un grupo de jóvenes que recupera una escuela abandonada en Independencia, Santiago, y la abre a su comunidad: un comedor popular, una biblioteca, clases para adultos mayores y una cancha abierta a todos. Es también un homenaje a Alonso, mi hermano menor, fallecido en 2024. Encargo y edición: Ana María León.</p><p class="en">A short graphic story about a group of young people who reclaim an abandoned school in Independencia, Santiago, and open it to their community: a soup kitchen, a library, classes for older adults and a court open to all. It is also a tribute to Alonso, my younger brother, who died in 2024. Commissioned and edited by Ana María León.</p><p class="detail-tech"><span class="es">Ilustración digital (Clip Studio Paint Pro)</span><span class="en">Digital illustration (Clip Studio Paint Pro)</span></p>
+      </div>
+      <div class="detail-images"><img loading="lazy" src="img/black-cats-1.jpg" width="1212" height="1500" alt="The Black Cats, página 1"><img loading="lazy" src="img/black-cats-2.jpg" width="1212" height="1500" alt="The Black Cats, página 2"><img loading="lazy" src="img/black-cats-3.jpg" width="1212" height="1500" alt="The Black Cats, página 3"><img loading="lazy" src="img/black-cats-4.jpg" width="1212" height="1500" alt="The Black Cats, página 4">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-a-room-is-not-a" data-parent="ilustracion" hidden>
+    <a class="back" href="#ilustracion">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>A room is not a house or Banham’s latest nightmare</cite></h2>
+        <p class="detail-meta">2020</p>
+        <p class="es">El encierro de la pandemia convierte un dormitorio en escenario de ficciones: casa, oficina y máquina a la vez, con pantallas, cámaras y cables que invaden la habitación. Mención especial, Student Creator of the Year, Architizer 2023.</p><p class="en">Pandemic confinement turns a bedroom into a stage for fictions: house, office and machine at once, with screens, cameras and cables invading the room. Special Mention, Student Creator of the Year, Architizer 2023.</p><p class="detail-tech"><span class="es">Ilustración digital (Autodesk Sketchbook)</span><span class="en">Digital illustration (Autodesk Sketchbook)</span></p>
+      </div>
+      <div class="detail-images"><img loading="lazy" src="img/room.jpg" width="1500" height="1077" alt="A room is not a house: un dormitorio convertido en máquina, con muros ondulantes en naranjo">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-alonso" data-parent="ilustracion" hidden>
+    <a class="back" href="#ilustracion">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title">Alonso</h2>
+        <p class="detail-meta"><span class="es">Serie personal · 2024–2026</span><span class="en">Personal series · 2024–2026</span></p>
+        <p class="es">Serie sobre mi hermano menor y su importancia en mi vida. Desde el duelo, dibujo su legado de amor y ternura. Un retrato de Alonso; <cite>El Zaguán del viento</cite>, pequeña obra que diseñé en su memoria para la casa de mis padres, en Independencia; y <cite>Ni tan lejos</cite>, historieta de una página: cada mañana, alguien abre la persiana y busca una señal entre las aves de invierno.</p><p class="en">A series about my younger brother and what he means in my life. From grief, I draw his legacy of love and tenderness. A portrait of Alonso; <cite>El Zaguán del viento</cite>, a small work I designed in his memory for my parents’ house in Independencia; and <cite>Ni tan lejos</cite>, a one-page comic: every morning someone opens the blinds and looks for a sign among the winter birds.</p><p class="detail-tech"><span class="es">Ilustración digital (Procreate)</span><span class="en">Digital illustration (Procreate)</span></p>
+      </div>
+      <div class="detail-images"><img loading="lazy" src="img/alonso-retrato.jpg" width="1500" height="1500" alt="Retrato de perfil rodeado de gatos negros, bajo una luna"><img loading="lazy" src="img/zaguan.jpg" width="1500" height="1500" alt="El Zaguán del viento, con un gato negro en el sendero del jardín"><img loading="lazy" src="img/ni-tan-lejos.jpg" width="1200" height="1500" alt="Historieta de una página: un hombre abre la persiana y mira aves en la nieve">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-un-enemigo-poderoso" data-parent="ilustracion" hidden>
+    <a class="back" href="#ilustracion">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Un enemigo poderoso</cite></h2>
+        <p class="detail-meta"><span class="es">Serie · 2019–2020</span><span class="en">Series · 2019–2020</span></p>
+        <p class="es">Ilustraciones en el contexto del estallido social de 2019: <cite>Tolerancia 0</cite>, <cite>La única paz posible</cite> y la portada de <cite>Crónicas del Estallido</cite>.</p><p class="en">Illustrations made during Chile’s 2019 social uprising: <cite>Tolerancia 0</cite>, <cite>La única paz posible</cite> and the cover of <cite>Crónicas del Estallido</cite>.</p><p class="detail-tech"><span class="es">Ilustración digital (Autodesk Sketchbook)</span><span class="en">Digital illustration (Autodesk Sketchbook)</span></p>
+      </div>
+      <div class="detail-images"><img loading="lazy" src="img/tolerancia-0.jpg" width="1352" height="1500" alt="Conductor al volante de un vehículo policial blindado"><img loading="lazy" src="img/la-unica-paz.jpg" width="1061" height="1500" alt="Figura de traje con piocha de la bandera chilena, cubierta por franjas blancas"><img loading="lazy" src="img/cronicas-del-estallido.jpg" width="1300" height="1838" alt="Un hombre de traje camina por una alfombra roja entre filas de policías">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-plaza-dignidad" data-parent="ilustracion" hidden>
+    <a class="back" href="#ilustracion">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title">Plaza Dignidad</h2>
+        <p class="detail-meta"><span class="es">Santiago, 2019</span><span class="en">Santiago, 2019</span></p>
+        <p class="es">Croquis hechos en las marchas de octubre y noviembre de 2019.</p><p class="en">Sketches drawn in the marches of October and November 2019.</p><p class="detail-tech"><span class="es">Tinta sobre papel</span><span class="en">Ink on paper</span></p>
+      </div>
+      <div class="detail-images"><img loading="lazy" src="img/plaza-italia.png" width="1111" height="1562" alt="Croquis de una manifestación en Plaza Italia"><img loading="lazy" src="img/marcha.png" width="1453" height="1098" alt="Croquis de manifestantes con carteles y bicicletas">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-sa-pa-cat-cat" data-parent="ilustracion" hidden>
+    <a class="back" href="#ilustracion">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title">Sa Pa · Cat Cat</h2>
+        <p class="detail-meta"><span class="es">Cuaderno de viaje · Vietnam, 2019</span><span class="en">Travel sketchbook · Vietnam, 2019</span></p>
+        <p class="es">El norte de Vietnam: una plaza donde autos, motos y peatones comparten la calle bajo las cumbres, y la aldea de Cat Cat, con su puente sobre el río y un pueblo que crece entre terrazas de arroz.</p><p class="en">Northern Vietnam: a square where cars, motorbikes and pedestrians share the street beneath the peaks, and the village of Cat Cat, with its bridge over the river and a town growing among rice terraces.</p><p class="detail-tech"><span class="es">Tinta sobre papel</span><span class="en">Ink on paper</span></p>
+      </div>
+      <div class="detail-images"><img loading="lazy" src="img/sa-pa.png" width="1521" height="864" alt="Croquis de la plaza de Sa Pa, con edificios, motos y montañas al fondo"><img loading="lazy" src="img/cat-cat-1.png" width="1338" height="1060" alt="Croquis del puente de Cat Cat sobre el río"><img loading="lazy" src="img/cat-cat-2.png" width="1513" height="1032" alt="Croquis del valle de Cat Cat, con casas, terrazas de arroz y montañas">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-grand-central-louie-en-ruta" data-parent="ilustracion" hidden>
+    <a class="back" href="#ilustracion">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><span class="es">Grand Central · Louie, en ruta · Mi departamento</span><span class="en">Grand Central · Louie, on the road · My apartment</span></h2>
+        <p class="detail-meta"><span class="es">Cuadernos de Manhattan (2023) y State College (2021)</span><span class="en">Manhattan (2023) and State College (2021) sketchbooks</span></p>
+        <p class="es">Grand Central como escenario de cuerpos en movimiento; Louie, nuestro conductor, y estudios de la carretera; y un interior donde todo queda a la vista: cocina, comedor, lugar de trabajo y la ventana hacia afuera.</p><p class="en">Grand Central as a stage of bodies in motion; Louie, our driver, with studies of the road; and an interior where everything is in view: kitchen, dining table, workspace and the window out.</p><p class="detail-tech"><span class="es">Tinta sobre papel</span><span class="en">Ink on paper</span></p>
+      </div>
+      <div class="detail-images"><img loading="lazy" src="img/grand-central.png" width="1529" height="1473" alt="Croquis de Grand Central Terminal con una multitud en movimiento"><img loading="lazy" src="img/louie.png" width="1600" height="1133" alt="Croquis de un conductor al volante y estudios de la carretera"><img loading="lazy" src="img/departamento.png" width="1513" height="1335" alt="Croquis del interior de un departamento: cocina, comedor, escritorio y ventana">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-travesia-san-pedro-aricatravesia-san" data-parent="ilustracion" hidden>
+    <a class="back" href="#ilustracion">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><span class="es">Travesía · San Pedro · Arica</span><span class="en">Travesía · San Pedro · Arica</span></h2>
+        <p class="detail-meta"><span class="es">Cuadernos</span><span class="en">Sketchbooks</span></p>
+        <p class="es">Una página de cuaderno de Travesía de la Escuela de Arquitectura PUCV, la columnata de San Pedro y la costa de Arica.</p><p class="en">A page from a PUCV Travesía sketchbook, the colonnade of St Peter’s and the Arica coastline.</p><p class="detail-tech"><span class="es">Tinta y acuarela sobre papel</span><span class="en">Ink and watercolor on paper</span></p>
+      </div>
+      <div class="detail-images"><img loading="lazy" src="img/travesia.jpg" width="1600" height="1119" alt="Página de cuaderno con acuarelas de paisaje y notas manuscritas"><img loading="lazy" src="img/san-pedro.png" width="1304" height="1379" alt="Croquis a tinta de una columnata curva"><img loading="lazy" src="img/arica.png" width="1213" height="645" alt="Croquis de la costa de Arica y el morro">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-the-black-cats-2" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>The Black Cats</cite></h2>
+        <p class="detail-meta"><span class="es">Historia gráfica · The Funambulist n.º 61, 2025</span><span class="en">Graphic story · The Funambulist no. 61, 2025</span></p>
+        <p class="es">Historia gráfica breve sobre un grupo de jóvenes que recupera una escuela abandonada en Independencia, Santiago, y la abre a su comunidad: un comedor popular, una biblioteca, clases para adultos mayores y una cancha abierta a todos. Publicada en español, inglés y francés.</p><p class="en">A short graphic story about a group of young people who reclaim an abandoned school in Independencia, Santiago, and open it to their community: a soup kitchen, a library, classes for older adults and a court open to all. Published in Spanish, English and French.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/funambulist-61.jpg" width="900" height="1125" alt="Portada: The Black Cats">
+        <img loading="lazy" src="img/black-cats-1.jpg" width="1212" height="1500" alt="The Black Cats">
+        <img loading="lazy" src="img/black-cats-2.jpg" width="1212" height="1500" alt="The Black Cats">
+        <img loading="lazy" src="img/black-cats-3.jpg" width="1212" height="1500" alt="The Black Cats">
+        <img loading="lazy" src="img/black-cats-4.jpg" width="1212" height="1500" alt="The Black Cats">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-architectural-education-under-the-iron-2" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Architectural Education Under the Iron Fist</cite></h2>
+        <p class="detail-meta"><span class="es">Póster de la tesis doctoral · Penn State, 2025</span><span class="en">Dissertation poster · Penn State, 2025</span></p>
+        <p class="es">Los hallazgos de mi tesis doctoral contados como novela gráfica: cómo la dictadura intervino las escuelas de arquitectura en Chile entre 1973 y 1990, y cómo estudiantes y profesores la enfrentaron. Tercer lugar en la categoría Research Poster de la Penn State Graduate Exhibition 2025.</p><p class="en">The findings of my dissertation told as a graphic novel: how the dictatorship intervened Chile’s architecture schools between 1973 and 1990, and how students and professors faced it. Third place, Research Poster, Penn State Graduate Exhibition 2025.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/iron-fist-poster.jpg" width="900" height="1200" alt="Portada: Architectural Education Under the Iron Fist">
+        <img loading="lazy" src="img/poster-detalle-1.jpg" width="1500" height="988" alt="Architectural Education Under the Iron Fist">
+        <img loading="lazy" src="img/poster-detalle-2.jpg" width="1500" height="585" alt="Architectural Education Under the Iron Fist">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-tres-silencios" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Tres silencios</cite></h2>
+        <p class="detail-meta"><span class="es">Artículo · Anales de Arquitectura UC, 2023</span><span class="en">Article · Anales de Arquitectura UC, 2023</span></p>
+        <p class="es">La dictadura de Pinochet intervino con fuerza la Facultad de Arquitectura y Urbanismo de la Universidad de Chile: algunos de sus miembros desaparecieron y su campus fue reubicado por completo. A partir de documentos y archivos administrativos, el texto releva tres historias en que el poder autoritario se ejerció sobre trabajadores, alumnos y profesores de la FAU, y los roces entre la facultad y lo que pasaba fuera de sus muros.</p><p class="en">The Pinochet dictatorship heavily intervened the Faculty of Architecture and Urbanism of the Universidad de Chile: some of its members were disappeared and its campus was entirely relocated. Drawing on administrative documents and archives, the text brings out three stories in which authoritarian power was exercised over the faculty’s workers, students and professors, and the frictions between the faculty and what happened beyond its walls.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/anales-2023.jpg" width="900" height="1146" alt="Portada: Tres silencios">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-cambiar-de-vida" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Cambiar de vida</cite></h2>
+        <p class="detail-meta"><span class="es">Libro · LOM Ediciones, 2022</span><span class="en">Book · LOM Ediciones, 2022</span></p>
+        <p class="es">Historia de la Escuela de Arquitectura de la Universidad Católica de Valparaíso entre 1967 y 1973: cómo se transformó su proyecto académico a la luz del escenario social y político del país, desde la Reforma Universitaria hasta el golpe militar. Nace de mi tesis de magíster en la Pontificia Universidad Católica de Chile.</p><p class="en">A history of the Universidad Católica de Valparaíso school of architecture between 1967 and 1973: how its academic project changed in light of the country’s social and political situation, from the University Reform to the military coup. Based on my master’s thesis at the Pontificia Universidad Católica de Chile.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/cambiar-de-vida-lom.jpg" width="867" height="1224" alt="Portada: Cambiar de vida">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-24-7" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>24/7</cite></h2>
+        <p class="detail-meta"><span class="es">Columna · El Mostrador, 28 de marzo de 2020</span><span class="en">Op-ed · El Mostrador, 28 March 2020</span></p>
+        <p class="es">Columna publicada en <cite>El Mostrador</cite> durante las primeras semanas de la pandemia.</p><p class="en">An op-ed published in <cite>El Mostrador</cite> during the first weeks of the pandemic.</p>
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t2" role="img" aria-label="24/7"><span class="tc-title">24/7</span><span class="tc-meta">El Mostrador · 2020</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-el-genero-en-la-historiografia" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>El género en la historiografía de la arquitectura</cite></h2>
+        <p class="detail-meta"><span class="es">Artículo en coautoría · De Arquitectura, 2019</span><span class="en">Co-authored article · De Arquitectura, 2019</span></p>
+        <p class="es">Sobre la presencia de las arquitectas en la historia chilena reciente y su lugar en la historiografía de la arquitectura. <cite>Revista de Arquitectura</cite> 24:37, FAU Universidad de Chile.</p><p class="en">On the presence of women architects in recent Chilean history and their place in architectural historiography. <cite>Revista de Arquitectura</cite> 24:37, FAU Universidad de Chile.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/de-arquitectura-2019.jpg" width="900" height="1165" alt="Portada: El género en la historiografía de la arquitectura">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-la-segunda-via" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>La segunda vía</cite></h2>
+        <p class="detail-meta"><span class="es">Artículo · ARQ n.º 99, 2018</span><span class="en">Article · ARQ no. 99, 2018</span></p>
+        <p class="es">La controversia pública que desató la irrupción de la Escuela de Arquitectura de la Universidad Católica de Valparaíso ante el proyecto de la Vía Elevada entre Valparaíso y Viña del Mar, en 1969.</p><p class="en">The public controversy sparked when the Universidad Católica de Valparaíso school of architecture intervened against the 1969 project for an elevated highway between Valparaíso and Viña del Mar.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/arq-99.jpg" width="900" height="1185" alt="Portada: La segunda vía">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-cambiar-de-vida-2" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Cambiar de vida</cite></h2>
+        <p class="detail-meta"><span class="es">Artículo · Anales de Arquitectura 2017–2018</span><span class="en">Article · Anales de Arquitectura 2017–2018</span></p>
+        <p class="es">Describe y analiza las transformaciones del proyecto académico de la Escuela de Arquitectura de la Universidad Católica de Valparaíso a la luz del escenario social y político del país, desde 1967 hasta el golpe militar de 1973, años que coinciden con la Reforma Universitaria. Escrito a partir de mi tesis de magíster.</p><p class="en">Describes and analyzes how the academic project of the Universidad Católica de Valparaíso school of architecture changed in light of Chile’s social and political situation, from 1967 to the 1973 military coup, years that overlap with the University Reform. Written from my master’s thesis.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/anales-2017-2018.jpg" width="900" height="1157" alt="Portada: Cambiar de vida">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-transparent-processes-of-urban-production" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Transparent Processes of Urban Production in Chile</cite></h2>
+        <p class="detail-meta"><span class="es">Capítulo en coautoría · Routledge, 2018</span><span class="en">Co-authored chapter · Routledge, 2018</span></p>
+        <p class="es">Un caso en la comuna de Pedro Aguirre Cerda. Capítulo del libro <cite>Neoliberalism and Urban Development in Latin America: The Case of Santiago</cite>, editado por Camillo Boano y Francisco Vergara.</p><p class="en">A case in the Pedro Aguirre Cerda district. Chapter in <cite>Neoliberalism and Urban Development in Latin America: The Case of Santiago</cite>, edited by Camillo Boano and Francisco Vergara.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/routledge-2018.jpg" width="758" height="1075" alt="Portada: Transparent Processes of Urban Production in Chile">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-erase-una-vez-un-estado" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Érase una vez un Estado</cite></h2>
+        <p class="detail-meta"><span class="es">Artículo · Cuadernos de Atraviesos Urbanos, FAD Universidad Finis Terrae, 2018</span><span class="en">Article · Cuadernos de Atraviesos Urbanos, FAD Universidad Finis Terrae, 2018</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t1" role="img" aria-label="Érase una vez un Estado"><span class="tc-title">Érase una vez un Estado</span><span class="tc-meta">Atraviesos Urbanos · 2018</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-santiago-babylon" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Santiago Babylon</cite></h2>
+        <p class="detail-meta"><span class="es">Libro, coeditor · Santiago, 2017</span><span class="en">Book, co-editor · Santiago, 2017</span></p>
+        <p class="es">Inmigración: espacio, prácticas y representación. Una investigación de Ariztíalab sobre los cruces entre comunidades, etnias y culturas en el centro de Santiago, y las formas en que la inmigración rearticula lo político, lo económico y lo espacial. Reconocida en la XX Bienal de Arquitectura de Chile como una de las publicaciones más relevantes de la convocatoria.</p><p class="en">Immigration: space, practices and representation. Ariztíalab’s research on the encounters between communities, ethnicities and cultures in central Santiago, and the ways immigration reshapes the political, the economic and the spatial. Recognized at the 20th Chilean Architecture Biennial as one of the most relevant publications of its call.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/santiago-babylon.jpg" width="758" height="1075" alt="Portada: Santiago Babylon">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-sustitucion-cultural-y-guetizacion-en" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Sustitución cultural y guetización en la ciudad</cite></h2>
+        <p class="detail-meta"><span class="es">Artículo · Bifurcaciones n.º 21, 2016</span><span class="en">Article · Bifurcaciones no. 21, 2016</span></p>
+        <p class="es">Lecturas dialécticas sobre la «Lima chica» en Santiago. El texto analiza la transformación del centro de la ciudad a raíz de la presencia de la comunidad peruana en dos etapas: la ciudad global de fines de los noventa y la «Lima chica» como gueto cultural, objeto de exclusión por la legislación y la población. Cierra con la necesidad de una nueva ley de extranjería.</p><p class="en">Dialectical readings of Santiago’s “Lima chica.” The text analyzes how central Santiago changed with the presence of the Peruvian community, in two stages: the global city of the late 1990s and “Lima chica” as a cultural ghetto, excluded by law and by the public. It closes with the need for a new immigration law.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/bifurcaciones-21.jpg" width="900" height="1165" alt="Portada: Sustitución cultural y guetización en la ciudad">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-ni-perdon-ni-olvido" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Ni perdón ni olvido</cite></h2>
+        <p class="detail-meta"><span class="es">Fanzine n.º 5, serie Proyectos pendientes, Milm2, 5 de julio de 2015. Con Ariztíalab.</span><span class="en">Fanzine no. 5, Proyectos pendientes series, Milm2, 5 July 2015. With Ariztíalab.</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t3" role="img" aria-label="Ni perdón ni olvido"><span class="tc-title">Ni perdón ni olvido</span><span class="tc-meta">Fanzine n.º 5 · 2015</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-los-otros-viajes-del-arquitecto" data-parent="investigacion" hidden>
+    <a class="back" href="#investigacion">← <span class="es">Publicaciones</span><span class="en">Publications</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Los otros viajes del arquitecto</cite></h2>
+        <p class="detail-meta"><span class="es">Artículo · Revista 180 n.º 29, 2012</span><span class="en">Article · Revista 180 no. 29, 2012</span></p>
+        <p class="es">Dibujos de una realidad escurridiza y postergada: cuadernos de viaje.</p><p class="en">Drawings of a fleeting and postponed reality: travel sketchbooks.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/revista-180-29.jpg" width="900" height="1165" alt="Portada: Los otros viajes del arquitecto">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-architecture-education-under-the-iron" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Architecture Education Under the Iron Fist: Architecture Schools Depoliticized in Chile during the Pinochet Dictatorship, 1973–1990</cite></h2>
+        <p class="detail-meta"><span class="es">Society of Architectural Historians, Atlanta, 1 de mayo de 2025</span><span class="en">Society of Architectural Historians, Atlanta, 1 May 2025</span></p>
+        <p class="es">Presentación de mi investigación doctoral sobre las escuelas de arquitectura chilenas bajo la dictadura de Pinochet.</p><p class="en">A presentation of my doctoral research on Chile’s architecture schools under the Pinochet dictatorship.</p>
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t2" role="img" aria-label="SAH Atlanta 2025"><span class="tc-title">SAH<br>Atlanta</span><span class="tc-meta">78th Annual Conference · 2025</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-architectural-education-under-the-iron-3" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Architectural Education under the Iron Fist: Architecture Schools during the Pinochet Dictatorship in Chile, 1973–1989</cite></h2>
+        <p class="detail-meta"><span class="es">Society of Architectural Historians, Montreal, 14 de abril de 2023</span><span class="en">Society of Architectural Historians, Montreal, 14 April 2023</span></p>
+        <p class="es">Presentación de mi investigación doctoral sobre las escuelas de arquitectura chilenas bajo la dictadura de Pinochet, en las Graduate Student Lightning Talks.</p><p class="en">A presentation of my doctoral research on Chile’s architecture schools under the Pinochet dictatorship, at the Graduate Student Lightning Talks.</p>
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t1" role="img" aria-label="SAH Montreal 2023"><span class="tc-title">SAH<br>Montreal</span><span class="tc-meta">76th Annual Conference · 2023</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-nada-ni-nadie-se-salva" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Nada ni nadie se salva</cite></h2>
+        <p class="detail-meta"><span class="es">FAAD, Universidad Diego Portales, en línea, 20 de mayo de 2021</span><span class="en">FAAD, Universidad Diego Portales, online, 20 May 2021</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t3" role="img" aria-label="UDP"><span class="tc-title">UDP</span><span class="tc-meta">FAAD · 2021</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-conversaciones-sobre-dibujo" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Conversaciones sobre dibujo</cite></h2>
+        <p class="detail-meta"><span class="es">FAPD, Universidad de Rosario, en línea, 26 de abril de 2021</span><span class="en">FAPD, Universidad de Rosario, online, 26 April 2021</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t2" role="img" aria-label="Rosario"><span class="tc-title">Rosario</span><span class="tc-meta">FAPD · 2021</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-un-objeto-y-un-sujeto" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Un objeto y un sujeto: dos órbitas</cite></h2>
+        <p class="detail-meta"><span class="es">Curso Herramientas de investigación en arquitectura (modera Constanza Larach), FADEU, Pontificia Universidad Católica de Chile, en línea, 21 de abril de 2021</span><span class="en">Herramientas de investigación en arquitectura course (moderated by Constanza Larach), FADEU, Pontificia Universidad Católica de Chile, online, 21 April 2021</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t1" role="img" aria-label="FADEU UC"><span class="tc-title">FADEU UC</span><span class="tc-meta">Herramientas de investigación · 2021</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-dibujo-en-vivolive-drawing" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><span class="es">Dibujo en vivo</span><span class="en">Live drawing</span></h2>
+        <p class="detail-meta"><span class="es">I Seminario Internacional Arquitectura y Etnografía, Universidad de las Américas, Santiago, 29 de septiembre de 2020</span><span class="en">1st International Seminar on Architecture and Ethnography, Universidad de las Américas, Santiago, 29 September 2020</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t3" role="img" aria-label="Dibujo en vivo, UDLA 2020"><span class="tc-title">Dibujo<br>en vivo</span><span class="tc-meta">UDLA · 2020</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-no-queda-otra-que-dibujar" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>No queda otra que dibujar: representaciones en cuarentena</cite></h2>
+        <p class="detail-meta"><span class="es">Taller, Facultad de Arquitectura y Construcción, UDLA, en línea, 12 de mayo de 2020</span><span class="en">Workshop, Faculty of Architecture and Construction, UDLA, online, 12 May 2020</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t2" role="img" aria-label="UDLA"><span class="tc-title">UDLA</span><span class="tc-meta">Taller · 2020</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-la-segunda-via-2" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>La segunda vía</cite></h2>
+        <p class="detail-meta"><span class="es">Coloquio Paisajes Arquitectónicos Modernos en el Cono Sur Andino 1930–1970, FAU Universidad de Chile y Universidad Arturo Prat, Iquique, 8 de junio de 2018</span><span class="en">Colloquium on Modern Architectural Landscapes in the Andean Southern Cone 1930–1970, FAU Universidad de Chile and Universidad Arturo Prat, Iquique, 8 June 2018</span></p>
+        <p class="es">Sobre la controversia pública por el proyecto de la Vía Elevada entre Valparaíso y Viña del Mar, en 1969, y la irrupción de la Escuela de Arquitectura de la Universidad Católica de Valparaíso.</p><p class="en">On the public controversy over the 1969 elevated highway project between Valparaíso and Viña del Mar, and the intervention of the Universidad Católica de Valparaíso school of architecture.</p>
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t1" role="img" aria-label="Coloquio Iquique 2018"><span class="tc-title">Iquique</span><span class="tc-meta">Coloquio · 2018</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-la-segunda-via-la-publica" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>La segunda vía: la pública controversia por el proyecto de la vía elevada entre Valparaíso y Viña del Mar, 1969</cite></h2>
+        <p class="detail-meta"><span class="es">Seminario universitario Exploraciones urbanas (organiza Gonzalo Cáceres), Pontificia Universidad Católica de Chile, 6 de marzo de 2018</span><span class="en">University seminar Exploraciones urbanas (organized by Gonzalo Cáceres), Pontificia Universidad Católica de Chile, 6 March 2018</span></p>
+        <p class="es">Sobre la misma investigación publicada luego en ARQ 99.</p><p class="en">On the research later published in ARQ 99.</p>
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t3" role="img" aria-label="Exploraciones urbanas"><span class="tc-title">Exploraciones<br>urbanas</span><span class="tc-meta">UC · 2018</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-trayectorias-del-dolor-la-anulacion" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Trayectorias del dolor: la anulación política del cuerpo en la historiografía de la ciudad de Richard Sennett</cite></h2>
+        <p class="detail-meta"><span class="es">I Congreso Iberoamericano Redfundamentos, Madrid (en línea), 13 de diciembre de 2017</span><span class="en">1st Ibero-American Redfundamentos Congress, Madrid (online), 13 December 2017</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t2" role="img" aria-label="Congreso Redfundamentos 2017"><span class="tc-title">Madrid</span><span class="tc-meta">Redfundamentos · 2017</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-el-gobierno-del-algoritmo-la" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>El gobierno del algoritmo: la política y la ciudad en la Smartcity</cite></h2>
+        <p class="detail-meta"><span class="es">IV Encuentro de la Red Chilena de Estudios de la Ciencia, Tecnología y Sociedad, Universidad Austral, Valdivia, 19 de enero de 2017</span><span class="en">4th Meeting of the Chilean Science, Technology and Society Network, Universidad Austral, Valdivia, 19 January 2017</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t1" role="img" aria-label="Encuentro CTS Valdivia 2017"><span class="tc-title">Valdivia</span><span class="tc-meta">Encuentro CTS · 2017</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-campos-de-batalla" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Campos de batalla</cite></h2>
+        <p class="detail-meta"><span class="es">Clase en el Magíster en Estudios de la Imagen, Universidad Alberto Hurtado, 5 de noviembre de 2015. En coautoría.</span><span class="en">Lecture in the Master’s in Image Studies, Universidad Alberto Hurtado, 5 November 2015. Co-authored.</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t3" role="img" aria-label="Campos de batalla"><span class="tc-title">Campos<br>de batalla</span><span class="tc-meta">U. Alberto Hurtado · 2015</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-el-trabajo-del-colectivo-meta" data-parent="charlas" hidden>
+    <a class="back" href="#charlas">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>El trabajo del colectivo META</cite></h2>
+        <p class="detail-meta"><span class="es">Seminario Especulaciones Públicas n.º 2, Facultad de Arquitectura, Diseño y Artes Visuales, UNIACC, Santiago, 5 de junio de 2013</span><span class="en">Especulaciones Públicas seminar no. 2, Faculty of Architecture, Design and Visual Arts, UNIACC, Santiago, 5 June 2013</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t2" role="img" aria-label="UNIACC"><span class="tc-title">UNIACC</span><span class="tc-meta">Especulaciones Públicas · 2013</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-graduate-exhibition" data-parent="exposiciones" hidden>
+    <a class="back" href="#exposiciones">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title">Graduate Exhibition</h2>
+        <p class="detail-meta"><span class="es">Penn State University, marzo de 2025. Tercer lugar, Research Poster.</span><span class="en">Penn State University, March 2025. Third place, Research Poster.</span></p>
+        <p class="es">El póster de mi tesis doctoral, contado como novela gráfica. Tercer lugar en la categoría Research Poster.</p><p class="en">My dissertation poster, told as a graphic novel. Third place in the Research Poster category.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" src="img/iron-fist-poster.jpg" width="900" height="1200" alt="Póster de investigación en formato de novela gráfica">
+        <img loading="lazy" src="img/poster-detalle-1.jpg" width="1500" height="988" alt="Graduate Exhibition">
+        <img loading="lazy" src="img/poster-detalle-2.jpg" width="1500" height="585" alt="Graduate Exhibition">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-municipal-ilustrado" data-parent="exposiciones" hidden>
+    <a class="back" href="#exposiciones">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Municipal Ilustrado</cite></h2>
+        <p class="detail-meta"><span class="es">Artista invitado, Teatro Municipal de Santiago, septiembre a diciembre de 2023</span><span class="en">Guest artist, Teatro Municipal de Santiago, September to December 2023</span></p>
+        <p class="es">Artista invitado. Dibujos de la sala y de los músicos del Teatro Municipal de Santiago.</p><p class="en">Guest artist. Drawings of the hall and the musicians of the Teatro Municipal de Santiago.</p>
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" class="line" src="img/municipal-ilustrado.png" width="1059" height="1040" alt="Croquis a tinta de la sala del Teatro Municipal de Santiago">
+        <img class="line" loading="lazy" src="img/municipal-musico-1.png" width="969" height="802" alt="Municipal Ilustrado">
+        <img class="line" loading="lazy" src="img/municipal-musico-2.png" width="711" height="820" alt="Municipal Ilustrado">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-my-beloved-room-quarantine-nightmares" data-parent="exposiciones" hidden>
+    <a class="back" href="#exposiciones">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>My Beloved Room: Quarantine Nightmares</cite></h2>
+        <p class="detail-meta"><span class="es">Penn State Creates, exposición virtual, 2021</span><span class="en">Penn State Creates, virtual exhibition, 2021</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t2" role="img" aria-label="My Beloved Room"><span class="tc-title">My Beloved Room</span><span class="tc-meta">Penn State Creates · 2021</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-ciudad-y-cielo-santiago-1850" data-parent="exposiciones" hidden>
+    <a class="back" href="#exposiciones">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Ciudad y Cielo. Santiago 1850</cite></h2>
+        <p class="detail-meta"><span class="es">Colegio de Arquitectos de Chile, octubre de 2018. En coautoría.</span><span class="en">Colegio de Arquitectos de Chile, October 2018. Co-authored.</span></p>
+        <p class="es">Exposición del proyecto FONDECYT 1150308, <cite>Santiago 1850. La capital antes de su modernización</cite>, en el que trabajé como asistente de investigación. Participé en su diseño.</p><p class="en">Exhibition of the FONDECYT 1150308 research project, <cite>Santiago 1850. The capital before its modernization</cite>, where I worked as a research assistant. I took part in its design.</p>
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t1" role="img" aria-label="Ciudad y Cielo"><span class="tc-title">Ciudad<br>y Cielo</span><span class="tc-meta">Santiago 1850 · 2018</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-cual-sueno-de-la-arquitectura" data-parent="exposiciones" hidden>
+    <a class="back" href="#exposiciones">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>¿Cuál sueño? De la arquitectura pública a la especulación inmobiliaria</cite></h2>
+        <p class="detail-meta"><span class="es">Galería Metropolitana, con Ariztíalab. En coautoría.</span><span class="en">Galería Metropolitana, with Ariztíalab. Co-authored.</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <img loading="lazy" class="line" src="img/cual-sueno.png" width="1135" height="853" alt="Croquis: un lienzo con la pregunta ¿Cuál sueño? frente a un edificio">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-territorio-obsoleto" data-parent="exposiciones" hidden>
+    <a class="back" href="#exposiciones">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Territorio obsoleto</cite></h2>
+        <p class="detail-meta"><span class="es">Galería Conejo, marzo de 2013, con el Colectivo META</span><span class="en">Galería Conejo, March 2013, with Colectivo META</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t3" role="img" aria-label="Territorio obsoleto"><span class="tc-title">Territorio<br>obsoleto</span><span class="tc-meta">Galería Conejo · 2013</span></div>
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-rasgos-de-espana" data-parent="exposiciones" hidden>
+    <a class="back" href="#exposiciones">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><cite>Rasgos de España</cite></h2>
+        <p class="detail-meta"><span class="es">Cuadernos de viaje, Edificio Plaza Barón, Valparaíso, enero a marzo de 2010</span><span class="en">Travel sketchbooks, Edificio Plaza Barón, Valparaíso, January to March 2010</span></p>
+        
+      </div>
+      <div class="detail-images">
+        <div class="type-cover t2" role="img" aria-label="Rasgos de España"><span class="tc-title">Rasgos<br>de España</span><span class="tc-meta">Cuadernos de viaje · 2010</span></div>
+      </div>
+    </div>
+  </article>
+
+    <footer>© 2026 Nicolás Verdejo Bravo · nverdejob@gmail.com · <a href="https://www.instagram.com/nicoverdejo/" target="_blank" rel="noopener">@nicoverdejo</a></footer>
+  </main>
+</div>
+
+</div>
+
+<script>
+(function () {
+  var site = document.getElementById('site');
+  var cover = document.getElementById('view-inicio');
+  var inner = document.getElementById('view-inner');
+  var sections = ['ilustracion', 'investigacion', 'charlas', 'exposiciones', 'arquitectura'];
+  var sub = { narrativa: 'ilustracion', obra: 'ilustracion', croquis: 'ilustracion' };
+
+  function route() {
+    var h = (location.hash || '').replace('#', '');
+    var detailEl = h.indexOf('d-') === 0 ? document.getElementById(h) : null;
+    var target = detailEl ? detailEl.getAttribute('data-parent') : (sections.indexOf(h) > -1 ? h : (sub[h] || null));
+    document.querySelectorAll('.detail').forEach(function (d) { d.hidden = (d !== detailEl); });
+    if (!target) {
+      cover.hidden = false; inner.hidden = true;
+      window.scrollTo(0, 0);
+      return;
+    }
+    cover.hidden = true; inner.hidden = false;
+    sections.forEach(function (id) { document.getElementById(id).hidden = detailEl ? true : (id !== target); });
+    document.querySelectorAll('.menu a').forEach(function (a) {
+      if (a.getAttribute('href') === '#' + target) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
+    if (sub[h]) { var el = document.getElementById(h); if (el) el.scrollIntoView(); }
+    else { window.scrollTo(0, 0); requestAnimationFrame(function () { window.scrollTo(0, 0); }); }
+  }
+  window.addEventListener('hashchange', route);
+  route();
+
+  var buttons = document.querySelectorAll('.lang button');
+  function setLang(l) {
+    site.setAttribute('data-lang', l);
+    document.documentElement.lang = l;
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === l)); });
+    try { localStorage.setItem('nv-lang', l); } catch (e) {}
+  }
+  var initial = 'es';
+  try { var s = localStorage.getItem('nv-lang'); if (s === 'en' || s === 'es') initial = s; } catch (e) {}
+  setLang(initial);
+  buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.set); }); });
+
+
+  // Cover: the drawings take turns every few seconds; the cursor over the drawing holds the current one
+  (function () {
+    var box = document.getElementById('slides'), cap = document.getElementById('slide-cap');
+    var slides = box.querySelectorAll('.slide'), i = 0, paused = false, DELAY = 7000;
+    if (slides.length < 2) return;
+    function show(n) {
+      slides[i].classList.remove('on');
+      i = n % slides.length;
+      var el = slides[i];
+      el.classList.add('on');
+      cap.innerHTML = '<b>' + el.dataset.title + '</b>, <span class="es">' + el.dataset.es + '</span><span class="en">' + el.dataset.en + '</span>';
+    }
+    setInterval(function () { if (!paused && !document.hidden) show(i + 1); }, DELAY);
+    box.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') paused = true; });
+    box.addEventListener('pointerleave', function () { paused = false; });
+  })();
+
+  var btn = document.getElementById('copy-email');
+  if (btn) btn.addEventListener('click', function () {
+    var text = document.getElementById('email').textContent;
+    var es = btn.querySelector('.es'), en = btn.querySelector('.en');
+    var done = function () { es.textContent = 'Copiado'; en.textContent = 'Copied'; setTimeout(function () { es.textContent = 'Copiar'; en.textContent = 'Copy'; }, 1800); };
+    var fallback = function () { var r = document.createRange(); r.selectNodeContents(document.getElementById('email')); var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); };
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
