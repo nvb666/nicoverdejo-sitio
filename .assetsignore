@@ -3,3 +3,5 @@ wrangler.jsonc
 .git
 .gitignore
 .assetsignore
+.wrangler
+node_modules
