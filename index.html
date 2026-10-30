@@ -184,6 +184,10 @@ h3.sub { font-size: 13px; font-weight: 500; color: var(--grey); margin: 12px 0 0
 .card:hover .panel .thumb { transform: scale(calc(var(--z, 1.15) * 1.08)); box-shadow: none; }
 @media (prefers-reduced-motion: reduce) { .panel, .panel .thumb { transition: none; } }
 
+/* Urban sketches sit on white paper, in the grid and in their pages */
+#croquis .panel { background: #FFFFFF; }
+#d-plaza-dignidad .detail-images img, #d-sa-pa-cat-cat .detail-images img, #d-grand-central-louie-en-ruta .detail-images img, #d-travesia-san-pedro-aricatravesia-san .detail-images img, #d-guggenheim .detail-images img { background: #FFFFFF; padding: 16px; box-sizing: border-box; }
+
 /* Lists */
 .list { list-style: none; margin: 0; padding: 0; max-width: 46em; }
 .list li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); }
