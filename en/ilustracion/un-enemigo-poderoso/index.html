@@ -25,7 +25,7 @@
 <title>Un enemigo poderoso · Nico Verdejo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Montserrat:wght@700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&family=Montserrat:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 <style>
 /* Layout: a cover (the Plaza Dignidad drawing full-bleed, logo, name, menu and statement over it) that leads to one section at a time. White page, black ink, the logo's red as the only accent. */
 :root {
@@ -228,6 +228,33 @@ cite { font-style: italic; }
   .imgs[style*="--n:1"] { grid-template-columns: minmax(0, 1fr); }
   .list li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
+
+.type-cover { overflow: hidden; }
+.type-cover .tc-title { overflow-wrap: anywhere; hyphens: auto; }
+/* Subsection titles: the display face, lighter */
+.cat-title, .talk-sub { font-family: var(--display); font-weight: 500; letter-spacing: 0; }
+.cat-title { font-size: clamp(22px, 2.4vw, 28px); }
+/* Illustration, Architecture and Talks: three larger cards per row, so short rows fill */
+@media (min-width: 1101px) { #ilustracion .covers, #arquitectura .covers, #charlas .covers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 36px; } }
+/* Urban sketches: little zoom, so each card shows the drawing */
+#croquis .panel .thumb { --z: 1.05; }
+/* Menu: section links and language switch */
+.menu .links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; }
+@media (max-width: 900px) {
+  /* One line of links that slides sideways */
+  .menu { flex-wrap: nowrap; gap: 14px; }
+  .menu .links { flex: 1; min-width: 0; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; gap: 18px; padding-bottom: 2px;
+    -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
+  .menu .links::-webkit-scrollbar { display: none; }
+  .menu .lang { margin-left: 0; flex: none; }
+  .cover { grid-template-columns: minmax(0, 1fr); }
+  .inner-top .bar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; padding-block: 10px; }
+  .inner-top .menu { display: contents; }
+  .inner-top .home { grid-column: 1; grid-row: 1; }
+  .inner-top .menu .lang { grid-column: 2; grid-row: 1; align-self: center; }
+  .inner-top .menu .links { grid-column: 1 / -1; grid-row: 2; }
+  .home .wordmark { font-size: 18px; }
+}
 </style>
 </head>
 <body>
@@ -235,7 +262,7 @@ cite { font-style: italic; }
 
 <div class="cover" id="view-inicio" hidden>
   <div class="cover-top">
-    <nav class="menu" aria-label="Secciones"><a href="/en/ilustracion/"><span class="es">Ilustración</span><span class="en">Illustration</span></a><a href="/en/publicaciones/"><span class="es">Publicaciones</span><span class="en">Publications</span></a><a href="/en/charlas/"><span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a><a href="/en/exposiciones/"><span class="es">Exposiciones</span><span class="en">Exhibitions</span></a><a href="/en/arquitectura/"><span class="es">Arquitectura</span><span class="en">Architecture</span></a><span class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-set="es" aria-pressed="false">ES</button><button type="button" data-set="en" aria-pressed="true">EN</button></span></nav>
+    <nav class="menu" aria-label="Secciones"><span class="links"><a href="/en/ilustracion/"><span class="es">Ilustración</span><span class="en">Illustration</span></a><a href="/en/arquitectura/"><span class="es">Arquitectura</span><span class="en">Architecture</span></a><a href="/en/publicaciones/"><span class="es">Publicaciones</span><span class="en">Publications</span></a><a href="/en/exposiciones/"><span class="es">Exposiciones</span><span class="en">Exhibitions</span></a><a href="/en/charlas/"><span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a></span><span class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-set="es" aria-pressed="false">ES</button><button type="button" data-set="en" aria-pressed="true">EN</button></span></nav>
   </div>
   <div class="cover-main">
     <figure class="cover-figure">
@@ -280,7 +307,7 @@ cite { font-style: italic; }
   <header class="inner-top">
     <div class="bar">
       <a class="home" href="/en/"><img src="/img/w/logo-rojo.webp" width="436" height="664" alt=""><span class="wordmark">Nico Verdejo</span></a>
-      <nav class="menu" aria-label="Secciones"><a href="/en/ilustracion/"><span class="es">Ilustración</span><span class="en">Illustration</span></a><a href="/en/publicaciones/"><span class="es">Publicaciones</span><span class="en">Publications</span></a><a href="/en/charlas/"><span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a><a href="/en/exposiciones/"><span class="es">Exposiciones</span><span class="en">Exhibitions</span></a><a href="/en/arquitectura/"><span class="es">Arquitectura</span><span class="en">Architecture</span></a><span class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-set="es" aria-pressed="false">ES</button><button type="button" data-set="en" aria-pressed="true">EN</button></span></nav>
+      <nav class="menu" aria-label="Secciones"><span class="links"><a href="/en/ilustracion/"><span class="es">Ilustración</span><span class="en">Illustration</span></a><a href="/en/arquitectura/"><span class="es">Arquitectura</span><span class="en">Architecture</span></a><a href="/en/publicaciones/"><span class="es">Publicaciones</span><span class="en">Publications</span></a><a href="/en/exposiciones/"><span class="es">Exposiciones</span><span class="en">Exhibitions</span></a><a href="/en/charlas/"><span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a></span><span class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-set="es" aria-pressed="false">ES</button><button type="button" data-set="en" aria-pressed="true">EN</button></span></nav>
     </div>
   </header>
   <main>
