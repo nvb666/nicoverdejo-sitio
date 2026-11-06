@@ -9,5 +9,11 @@
 
 ## Pages
 
-- [Home, with all sections (Illustration, Publications, Talks, Exhibitions, Architecture)](https://nicoverdejo.com/)
+- [Home](https://nicoverdejo.com/)
+- [Illustration: graphic novels, individual work, urban sketches](https://nicoverdejo.com/ilustracion/)
+- [Publications](https://nicoverdejo.com/publicaciones/)
+- [Talks and conferences](https://nicoverdejo.com/charlas/)
+- [Exhibitions](https://nicoverdejo.com/exposiciones/)
+- [Architecture](https://nicoverdejo.com/arquitectura/)
+- Every project has its own page; the full list is in https://nicoverdejo.com/sitemap.xml
 - [CV (Spanish, PDF)](https://nicoverdejo.com/cv/Verdejo-Nicolas-CV-2026.pdf)
