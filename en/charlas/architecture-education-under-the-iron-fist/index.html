@@ -356,13 +356,13 @@ cite { font-style: italic; }
   <div class="cover-main">
     <figure class="cover-figure">
       <div class="slides" id="slides" aria-roledescription="carrusel">
-        <img class="slide on" src="/img/w/cover-plaza-dignidad.webp" width="1709" height="951" alt="Croquis a tinta de una marcha en Plaza Baquedano, Santiago, 2019" data-title="Plaza Baquedano" data-es="Santiago, 2019. Tinta sobre papel." data-en="Santiago, 2019. Ink on paper.">
-        <img class="slide" src="/img/w/cover-2013-metro.webp" width="1043" height="1735" alt="Croquis de cuaderno: la Catedral de Santiago y la multitud a la salida del metro Plaza de Armas" data-title="Salida del metro Plaza de Armas" data-es="5 de septiembre de 2013. Tinta sobre cuaderno." data-en="5 September 2013. Ink in sketchbook." loading="lazy">
-        <img class="slide" src="/img/w/cover-2013-catedral.webp" width="1233" height="1762" alt="Croquis: la fachada de la Catedral y una marcha en la Plaza de Armas" data-title="Plaza de Armas" data-es="5 de septiembre de 2013. Tinta sobre cuaderno." data-en="5 September 2013. Ink in sketchbook." loading="lazy">
-        <img class="slide" src="/img/w/cover-2013-heroes.webp" width="1511" height="1743" alt="Croquis: lienzos y multitud bajo la Torre Entel, en Los Héroes" data-title="Los Héroes, 10:45" data-es="Septiembre de 2013. Tinta sobre cuaderno." data-en="September 2013. Ink in sketchbook." loading="lazy">
-        <img class="slide" src="/img/w/cover-2013-banderas.webp" width="1188" height="1498" alt="Croquis: banderas sobre la multitud, con la Torre Entel al fondo" data-title="Banderas" data-es="Septiembre de 2013. Tinta sobre cuaderno." data-en="September 2013. Ink in sketchbook." loading="lazy">
-        <img class="slide" src="/img/w/cover-2013-recoleta.webp" width="1144" height="1350" alt="Croquis: la torre de una iglesia tras los lienzos de una marcha llegando a Av. Recoleta" data-title="Llegando a Av. Recoleta" data-es="8 de septiembre de 2013. Tinta sobre cuaderno." data-en="8 September 2013. Ink in sketchbook." loading="lazy">
-        <img class="slide" src="/img/w/cover-plaza-italia.webp" width="1250" height="1752" alt="Croquis de cuaderno de una manifestación en Plaza Baquedano, con notas manuscritas" data-title="Plaza Baquedano" data-es="Santiago, 2019. Tinta sobre cuaderno." data-en="Santiago, 2019. Ink in sketchbook." loading="lazy">
+        <img class="slide on" data-src="/img/w/cover-plaza-dignidad.webp" width="1709" height="951" alt="Croquis a tinta de una marcha en Plaza Baquedano, Santiago, 2019" data-title="Plaza Baquedano" data-es="Santiago, 2019. Tinta sobre papel." data-en="Santiago, 2019. Ink on paper.">
+        <img class="slide" data-src="/img/w/cover-2013-metro.webp" width="1043" height="1735" alt="Croquis de cuaderno: la Catedral de Santiago y la multitud a la salida del metro Plaza de Armas" data-title="Salida del metro Plaza de Armas" data-es="5 de septiembre de 2013. Tinta sobre cuaderno." data-en="5 September 2013. Ink in sketchbook." loading="lazy">
+        <img class="slide" data-src="/img/w/cover-2013-catedral.webp" width="1233" height="1762" alt="Croquis: la fachada de la Catedral y una marcha en la Plaza de Armas" data-title="Plaza de Armas" data-es="5 de septiembre de 2013. Tinta sobre cuaderno." data-en="5 September 2013. Ink in sketchbook." loading="lazy">
+        <img class="slide" data-src="/img/w/cover-2013-heroes.webp" width="1511" height="1743" alt="Croquis: lienzos y multitud bajo la Torre Entel, en Los Héroes" data-title="Los Héroes, 10:45" data-es="Septiembre de 2013. Tinta sobre cuaderno." data-en="September 2013. Ink in sketchbook." loading="lazy">
+        <img class="slide" data-src="/img/w/cover-2013-banderas.webp" width="1188" height="1498" alt="Croquis: banderas sobre la multitud, con la Torre Entel al fondo" data-title="Banderas" data-es="Septiembre de 2013. Tinta sobre cuaderno." data-en="September 2013. Ink in sketchbook." loading="lazy">
+        <img class="slide" data-src="/img/w/cover-2013-recoleta.webp" width="1144" height="1350" alt="Croquis: la torre de una iglesia tras los lienzos de una marcha llegando a Av. Recoleta" data-title="Llegando a Av. Recoleta" data-es="8 de septiembre de 2013. Tinta sobre cuaderno." data-en="8 September 2013. Ink in sketchbook." loading="lazy">
+        <img class="slide" data-src="/img/w/cover-plaza-italia.webp" width="1250" height="1752" alt="Croquis de cuaderno de una manifestación en Plaza Baquedano, con notas manuscritas" data-title="Plaza Baquedano" data-es="Santiago, 2019. Tinta sobre cuaderno." data-en="Santiago, 2019. Ink in sketchbook." loading="lazy">
       </div>
       <figcaption id="slide-cap"><b>Plaza Baquedano</b>, <span class="es">Santiago, 2019. Tinta sobre papel.</span><span class="en">Santiago, 2019. Ink on paper.</span></figcaption>
     </figure>
@@ -2100,7 +2100,10 @@ cite { font-style: italic; }
     var box = document.getElementById('slides'), cap = document.getElementById('slide-cap');
     var slides = box.querySelectorAll('.slide'), i = 0, paused = false, DELAY = 7000;
     if (slides.length < 2) return;
+    // Only the first drawing loads with the page; each of the others loads just before its turn
+    function load(el) { if (el && el.dataset.src) { el.src = el.dataset.src; el.removeAttribute('data-src'); } }
     function show(n) {
+      load(slides[n % slides.length]); load(slides[(n + 1) % slides.length]);
       slides[i].classList.remove('on');
       i = n % slides.length;
       var el = slides[i];
@@ -2117,7 +2120,10 @@ cite { font-style: italic; }
         requestAnimationFrame(function () { requestAnimationFrame(function () { slides.forEach(function (s) { s.style.transition = ''; }); }); });
       }
     }
-    setInterval(function () { if (!paused && !document.hidden) show(i + 1); }, DELAY);
+    // While the cover is hidden (a section is open) nothing rotates and nothing loads
+    function visible() { return box.offsetParent !== null; }
+    new IntersectionObserver(function (es) { if (es[0].isIntersecting) { load(slides[i]); load(slides[(i + 1) % slides.length]); } }).observe(box);
+    setInterval(function () { if (!paused && !document.hidden && visible()) show(i + 1); }, DELAY);
     box.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') paused = true; });
     box.addEventListener('pointerleave', function () { paused = false; });
   })();

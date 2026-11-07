@@ -82,6 +82,8 @@ def page(path, lang, title, desc, image, show_id=None, home=False):
         # Static view, the same one the script shows: inner page open, cover closed
         s = s.replace('<div class="cover" id="view-inicio">', '<div class="cover" id="view-inicio" hidden>', 1)
         s = s.replace('<div class="inner" id="view-inner" hidden>', '<div class="inner" id="view-inner">', 1)
+        # The cover stays closed: its first drawing loads only if the visitor goes back to it
+        s = s.replace('<img class="slide on" fetchpriority="high" src="', '<img class="slide on" data-src="', 1)
         if show_id.startswith('d-'):
             s = re.sub(r'(<article class="detail" id="%s"[^>]*?) hidden>' % re.escape(show_id), r'\1>', s, count=1)
         else:
