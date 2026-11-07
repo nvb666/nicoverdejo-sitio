@@ -235,7 +235,7 @@ cite { font-style: italic; }
 .cat-title, .talk-sub { font-family: var(--display); font-weight: 500; letter-spacing: 0; }
 .cat-title { font-size: clamp(22px, 2.4vw, 28px); }
 /* Illustration, Architecture and Talks: three larger cards per row, so short rows fill */
-@media (min-width: 1101px) { #ilustracion .covers, #arquitectura .covers, #exposiciones .covers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 36px; } }
+@media (min-width: 1101px) { #exposiciones .covers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 36px; } }
 /* Urban sketches: little zoom, so each card shows the drawing */
 #croquis .panel .thumb { --z: 1.05; }
 /* Menu: section links and language switch */
@@ -287,6 +287,33 @@ cite { font-style: italic; }
   .about-face { max-width: 150px; }
   .slides { max-height: 52svh; }
 }
+
+/* Illustration: each subsection is one row that slides sideways */
+#ilustracion .cat { gap: 32px; }
+#ilustracion .cat + .cat { margin-top: 24px; padding-top: 32px; }
+#ilustracion .covers.row { margin-bottom: 8px; }
+.covers.row { display: grid; grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: calc((100% - 3 * 28px) / 4.3); gap: 0 28px;
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-left: 2px; scrollbar-width: none; padding: 2px 2px 10px; margin-inline: -2px; }
+.covers.row::-webkit-scrollbar { display: none; }
+.covers.row > .card { scroll-snap-align: start; }
+@media (max-width: 1100px) { .covers.row { grid-auto-columns: calc((100% - 2 * 22px) / 3.3); gap: 0 22px; } }
+@media (max-width: 700px) { .covers.row { grid-auto-columns: 44%; gap: 0 16px; } }
+.cat-head { position: relative; }
+.cat-count { font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--grey); margin-left: 10px; letter-spacing: 0; }
+.strip-nav { display: flex; gap: 8px; }
+.cat-head .strip-nav { position: absolute; right: 0; bottom: 0; }
+.strip-nav button { width: 40px; height: 40px; border: 1.5px solid var(--ink); background: var(--paper); color: var(--ink); font: 600 18px/1 var(--sans); cursor: pointer; display: grid; place-items: center; padding: 0; }
+.strip-nav button:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+.strip-nav button:disabled { opacity: .25; cursor: default; }
+.strip-nav[hidden] { display: none; }
+@media (max-width: 700px) { .cat-head .strip-nav { display: none; } }
+/* Sketchbook pages: a strip that reads like turning pages */
+.detail-images.strip { flex-direction: row; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 6px; }
+.detail-images.strip::-webkit-scrollbar { display: none; }
+.detail-images.strip img { flex: none; width: auto; height: min(68vh, 620px); max-width: 92%; object-fit: contain; scroll-snap-align: start; }
+.strip-wrap { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.strip-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--grey); }
+@media (max-width: 700px) { .detail-images.strip img { height: auto; width: 86vw; max-width: none; } }
 </style>
 </head>
 <body>
@@ -343,7 +370,7 @@ cite { font-style: italic; }
         <p class="cat-intro es">Historias que cruzan la arquitectura y la política, contadas en secuencia: novela gráfica, cómic y dibujo que dan cuenta de investigaciones académicas y ensayos narrativos.</p>
         <p class="cat-intro en">Stories where architecture and politics meet, told in sequence: graphic novel, comics and drawing that carry academic research and narrative essays.</p>
       </div>
-      <div class="covers">
+      <div class="covers row" data-strip>
         <a class="card" href="/en/ilustracion/architectural-education-under-the-iron-fist/">
           <span class="panel"><img class="thumb" src="/img/w/poster-sm.webp" width="1350" height="1800" alt="Póster de investigación en formato de novela gráfica" loading="lazy"></span>
           <span class="card-cap"><b><cite>Architectural Education Under the Iron Fist</cite></b><span><span class="es">Póster de investigación doctoral · Penn State, 2025</span><span class="en">Doctoral research poster · Penn State, 2025</span></span></span>
@@ -364,7 +391,7 @@ cite { font-style: italic; }
         <p class="cat-intro es">Ilustraciones independientes sobre el encierro, la ternura y el duelo, y la política chilena.</p>
         <p class="cat-intro en">Stand-alone illustrations about confinement, tenderness and grief, and Chilean politics.</p>
       </div>
-      <div class="covers">
+      <div class="covers row" data-strip>
         <a class="card" href="/en/ilustracion/a-room-is-not-a-house/">
           <span class="panel"><img class="thumb" src="/img/w/room-sm.webp" width="1500" height="1077" alt="A room is not a house: un dormitorio convertido en máquina, con muros ondulantes en naranjo" loading="lazy"></span>
           <span class="card-cap"><b><cite>A room is not a house or Banham’s latest nightmare</cite></b><span>2020</span></span>
@@ -385,7 +412,7 @@ cite { font-style: italic; }
         <p class="cat-intro es">Cuadernos de viaje y de todos los días: dibujar para mirar con atención.</p>
         <p class="cat-intro en">Travel and everyday sketchbooks: drawing as a way of looking closely.</p>
       </div>
-      <div class="covers">
+      <div class="covers row" data-strip>
         <a class="card" href="/en/ilustracion/croquis-plaza-dignidad/">
           <span class="panel"><img class="thumb line" src="/img/w/plaza-italia-sm.webp" width="1111" height="1562" alt="Croquis de una manifestación en Plaza Italia" loading="lazy"></span>
           <span class="card-cap"><b>Plaza Dignidad</b><span><span class="es">Santiago, 2019</span><span class="en">Santiago, 2019</span></span></span>
@@ -729,7 +756,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">Santiago, 2019</span><span class="en">Santiago, 2019</span></p>
         <p class="es">Croquis hechos en las marchas de octubre y noviembre de 2019.</p><p class="en">Sketches drawn in the marches of October and November 2019.</p><p class="detail-tech"><span class="es">Tinta sobre papel</span><span class="en">Ink on paper</span></p>
       </div>
-      <div class="detail-images"><img loading="lazy" src="/img/w/plaza-italia.webp" width="1111" height="1562" alt="Croquis de una manifestación en Plaza Italia"><img loading="lazy" src="/img/w/marcha.webp" width="1453" height="1098" alt="Croquis de manifestantes con carteles y bicicletas">
+      <div class="detail-images strip" data-strip><img loading="lazy" src="/img/w/plaza-italia.webp" width="1111" height="1562" alt="Croquis de una manifestación en Plaza Italia"><img loading="lazy" src="/img/w/marcha.webp" width="1453" height="1098" alt="Croquis de manifestantes con carteles y bicicletas">
       </div>
     </div>
   </article>
@@ -741,7 +768,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">Cuaderno de viaje · Vietnam, 2019</span><span class="en">Travel sketchbook · Vietnam, 2019</span></p>
         <p class="es">El norte de Vietnam: una plaza donde autos, motos y peatones comparten la calle bajo las cumbres, y la aldea de Cat Cat, con su puente sobre el río y un pueblo que crece entre terrazas de arroz.</p><p class="en">Northern Vietnam: a square where cars, motorbikes, and pedestrians share the street beneath the peaks, and the village of Cat Cat, with its bridge over the river and a town growing among rice terraces.</p><p class="detail-tech"><span class="es">Tinta sobre papel</span><span class="en">Ink on paper</span></p>
       </div>
-      <div class="detail-images"><img loading="lazy" src="/img/w/sa-pa.webp" width="1521" height="864" alt="Croquis de la plaza de Sa Pa, con edificios, motos y montañas al fondo"><img loading="lazy" src="/img/w/cat-cat-1.webp" width="1338" height="1060" alt="Croquis del puente de Cat Cat sobre el río"><img loading="lazy" src="/img/w/cat-cat-2.webp" width="1513" height="1032" alt="Croquis del valle de Cat Cat, con casas, terrazas de arroz y montañas">
+      <div class="detail-images strip" data-strip><img loading="lazy" src="/img/w/sa-pa.webp" width="1521" height="864" alt="Croquis de la plaza de Sa Pa, con edificios, motos y montañas al fondo"><img loading="lazy" src="/img/w/cat-cat-1.webp" width="1338" height="1060" alt="Croquis del puente de Cat Cat sobre el río"><img loading="lazy" src="/img/w/cat-cat-2.webp" width="1513" height="1032" alt="Croquis del valle de Cat Cat, con casas, terrazas de arroz y montañas">
       </div>
     </div>
   </article>
@@ -753,7 +780,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">Cuadernos de Manhattan (2023) y State College (2021)</span><span class="en">Manhattan (2023) and State College (2021) sketchbooks</span></p>
         <p class="es">Grand Central como escenario de cuerpos en movimiento; Louie, nuestro conductor, y estudios de la carretera; y un interior donde todo queda a la vista: cocina, comedor, lugar de trabajo y la ventana hacia afuera.</p><p class="en">Grand Central as a stage of bodies in motion; Louie, our driver, with studies of the road; and an interior where everything is in view: kitchen, dining table, workspace, and the window out.</p><p class="detail-tech"><span class="es">Tinta sobre papel</span><span class="en">Ink on paper</span></p>
       </div>
-      <div class="detail-images"><img loading="lazy" src="/img/w/grand-central.webp" width="1529" height="1473" alt="Croquis de Grand Central Terminal con una multitud en movimiento"><img loading="lazy" src="/img/w/louie.webp" width="1600" height="1133" alt="Croquis de un conductor al volante y estudios de la carretera"><img loading="lazy" src="/img/w/departamento.webp" width="1513" height="1335" alt="Croquis del interior de un departamento: cocina, comedor, escritorio y ventana">
+      <div class="detail-images strip" data-strip><img loading="lazy" src="/img/w/grand-central.webp" width="1529" height="1473" alt="Croquis de Grand Central Terminal con una multitud en movimiento"><img loading="lazy" src="/img/w/louie.webp" width="1600" height="1133" alt="Croquis de un conductor al volante y estudios de la carretera"><img loading="lazy" src="/img/w/departamento.webp" width="1513" height="1335" alt="Croquis del interior de un departamento: cocina, comedor, escritorio y ventana">
       </div>
     </div>
   </article>
@@ -765,7 +792,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">Cuadernos</span><span class="en">Sketchbooks</span></p>
         <p class="es">Una página de cuaderno de Travesía de la Escuela de Arquitectura PUCV, la columnata de San Pedro y la costa de Arica.</p><p class="en">A page from a PUCV Travesía sketchbook, the colonnade of St Peter’s, and the Arica coastline.</p><p class="detail-tech"><span class="es">Tinta y acuarela sobre papel</span><span class="en">Ink and watercolor on paper</span></p>
       </div>
-      <div class="detail-images"><img loading="lazy" src="/img/w/travesia.webp" width="1600" height="1119" alt="Página de cuaderno con acuarelas de paisaje y notas manuscritas"><img loading="lazy" src="/img/w/san-pedro.webp" width="1304" height="1379" alt="Croquis a tinta de una columnata curva"><img loading="lazy" src="/img/w/arica.webp" width="1213" height="645" alt="Croquis de la costa de Arica y el morro">
+      <div class="detail-images strip" data-strip><img loading="lazy" src="/img/w/travesia.webp" width="1600" height="1119" alt="Página de cuaderno con acuarelas de paisaje y notas manuscritas"><img loading="lazy" src="/img/w/san-pedro.webp" width="1304" height="1379" alt="Croquis a tinta de una columnata curva"><img loading="lazy" src="/img/w/arica.webp" width="1213" height="645" alt="Croquis de la costa de Arica y el morro">
       </div>
     </div>
   </article>
@@ -1275,7 +1302,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">Nueva York · 18 de diciembre de 2020</span><span class="en">New York · 18 December 2020</span></p>
         <p class="es">Croquis publicado y difundido por el Museo Guggenheim de Nueva York en sus redes sociales.</p><p class="en">A sketch published and shared by the Guggenheim Museum in New York on its social media.</p>
       </div>
-      <div class="detail-images">
+      <div class="detail-images strip" data-strip>
         <div class="type-cover t2" role="img" aria-label="Guggenheim"><span class="tc-title">Guggenheim</span><span class="tc-meta">Nueva York · 2020</span></div>
       </div>
     </div>
@@ -1303,7 +1330,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">Nueva York, octubre de 2018 · Tinta sobre cuaderno</span><span class="en">New York, October 2018 · Ink in sketchbook</span></p>
         <p class="es">Dibujos del cuaderno de octubre de 2018 en Nueva York.</p><p class="en">Drawings from my October 2018 sketchbook in New York.</p>
       </div>
-      <div class="detail-images">
+      <div class="detail-images strip" data-strip>
         <img loading="lazy" src="/img/w/nueva-york-2018-1.webp" width="1409" height="1600" alt="Croquis: Nueva York">
         <img loading="lazy" src="/img/w/nueva-york-2018-2.webp" width="1551" height="1159" alt="Croquis: Nueva York">
         <img loading="lazy" src="/img/w/nueva-york-2018-3.webp" width="1208" height="1481" alt="Croquis: Nueva York">
@@ -1321,7 +1348,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">Santiago, 2018 · Tinta sobre cuaderno</span><span class="en">Santiago, 2018 · Ink in sketchbook</span></p>
         <p class="es">Panorámica de Santiago, 2018.</p><p class="en">A panorama of Santiago, 2018.</p>
       </div>
-      <div class="detail-images">
+      <div class="detail-images strip" data-strip>
         <img loading="lazy" src="/img/w/santiago-2018-1.webp" width="1600" height="1358" alt="Croquis: Santiago desde el cerro">
         <img loading="lazy" src="/img/w/santiago-2018-2.webp" width="982" height="1316" alt="Croquis: Santiago desde el cerro">
       </div>
@@ -1335,7 +1362,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">Enero de 2018 · Tinta sobre cuaderno</span><span class="en">January 2018 · Ink in sketchbook</span></p>
         <p class="es">Dibujos del cuaderno de Tongoy, enero de 2018.</p><p class="en">Drawings from my Tongoy sketchbook, January 2018.</p>
       </div>
-      <div class="detail-images">
+      <div class="detail-images strip" data-strip>
         <img loading="lazy" src="/img/w/tongoy-2018-1.webp" width="1600" height="1011" alt="Croquis: Tongoy">
         <img loading="lazy" src="/img/w/tongoy-2018-2.webp" width="1200" height="1600" alt="Croquis: Tongoy">
         <img loading="lazy" src="/img/w/tongoy-2018-3.webp" width="1200" height="1600" alt="Croquis: Tongoy">
@@ -1351,7 +1378,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">Febrero de 2016 · Tinta sobre cuaderno</span><span class="en">February 2016 · Ink in sketchbook</span></p>
         <p class="es">Dibujos del cuaderno de Pichilemu, febrero de 2016.</p><p class="en">Drawings from my Pichilemu sketchbook, February 2016.</p>
       </div>
-      <div class="detail-images">
+      <div class="detail-images strip" data-strip>
         <img loading="lazy" src="/img/w/pichilemu-2016-1.webp" width="1600" height="1191" alt="Croquis: Pichilemu">
         <img loading="lazy" src="/img/w/pichilemu-2016-2.webp" width="1586" height="1011" alt="Croquis: Pichilemu">
         <img loading="lazy" src="/img/w/pichilemu-2016-3.webp" width="1593" height="1179" alt="Croquis: Pichilemu">
@@ -1366,7 +1393,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">Mayo de 2014 · Tinta sobre cuaderno</span><span class="en">May 2014 · Ink in sketchbook</span></p>
         <p class="es">Dibujos del cuaderno de viaje a Medellín, mayo de 2014.</p><p class="en">Drawings from my Medellín travel sketchbook, May 2014.</p>
       </div>
-      <div class="detail-images">
+      <div class="detail-images strip" data-strip>
         <img loading="lazy" src="/img/w/medellin-2014-1.webp" width="1562" height="1110" alt="Croquis: Medellín">
         <img loading="lazy" src="/img/w/medellin-2014-2.webp" width="1092" height="1576" alt="Croquis: Medellín">
         <img loading="lazy" src="/img/w/medellin-2014-3.webp" width="1063" height="1590" alt="Croquis: Medellín">
@@ -1385,7 +1412,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">Diciembre de 2013 · Tinta sobre cuaderno</span><span class="en">December 2013 · Ink in sketchbook</span></p>
         <p class="es">Dibujos del cuaderno de Puerto Natales, diciembre de 2013.</p><p class="en">Drawings from my Puerto Natales sketchbook, December 2013.</p>
       </div>
-      <div class="detail-images">
+      <div class="detail-images strip" data-strip>
         <img loading="lazy" src="/img/w/natales-2013-1.webp" width="1549" height="1130" alt="Croquis: Puerto Natales">
         <img loading="lazy" src="/img/w/natales-2013-2.webp" width="1548" height="1131" alt="Croquis: Puerto Natales">
         <img loading="lazy" src="/img/w/natales-2013-3.webp" width="1600" height="1233" alt="Croquis: Puerto Natales">
@@ -1403,7 +1430,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">Santiago, octubre de 2008 · Tinta sobre cuaderno</span><span class="en">Santiago, October 2008 · Ink in sketchbook</span></p>
         <p class="es">Registro de la Unidad Vecinal Portales, en Santiago.</p><p class="en">A survey of the Unidad Vecinal Portales housing complex in Santiago.</p>
       </div>
-      <div class="detail-images">
+      <div class="detail-images strip" data-strip>
         <img loading="lazy" src="/img/w/portales-2008-1.webp" width="861" height="711" alt="Croquis: Unidad Vecinal Portales">
         <img loading="lazy" src="/img/w/portales-2008-2.webp" width="974" height="592" alt="Croquis: Unidad Vecinal Portales">
         <img loading="lazy" src="/img/w/portales-2008-3.webp" width="1138" height="803" alt="Croquis: Unidad Vecinal Portales">
@@ -1418,7 +1445,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">2008 · Tinta sobre cuaderno</span><span class="en">2008 · Ink in sketchbook</span></p>
         <p class="es">Dibujos del cuaderno de Italia: San Pedro, el Coliseo y el Panteón, entre otros.</p><p class="en">Drawings from my Italy sketchbook: St. Peter’s, the Colosseum, and the Pantheon, among others.</p>
       </div>
-      <div class="detail-images">
+      <div class="detail-images strip" data-strip>
         <img loading="lazy" src="/img/w/roma-2008-1.webp" width="1600" height="1202" alt="Croquis: Roma">
         <img loading="lazy" src="/img/w/roma-2008-2.webp" width="1446" height="1126" alt="Croquis: Roma">
         <img loading="lazy" src="/img/w/roma-2008-3.webp" width="1542" height="989" alt="Croquis: Roma">
@@ -1436,7 +1463,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">2008 · Tinta sobre cuaderno</span><span class="en">2008 · Ink in sketchbook</span></p>
         <p class="es">La catedral de Notre Dame, el Ministerio de Economía y Finanzas (Huidobro y Chemetov) y la torre Eiffel.</p><p class="en">Notre-Dame Cathedral, the Ministry of the Economy and Finance (Huidobro and Chemetov), and the Eiffel Tower.</p>
       </div>
-      <div class="detail-images">
+      <div class="detail-images strip" data-strip>
         <img loading="lazy" src="/img/w/paris-2008-1.webp" width="1271" height="1600" alt="Croquis: París">
         <img loading="lazy" src="/img/w/paris-2008-2.webp" width="992" height="1237" alt="Croquis: París">
         <img loading="lazy" src="/img/w/paris-2008-3.webp" width="1600" height="1273" alt="Croquis: París">
@@ -1451,7 +1478,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">2008 · Tinta sobre cuaderno</span><span class="en">2008 · Ink in sketchbook</span></p>
         <p class="es">El ayuntamiento de Gotemburgo, de Erik Gunnar Asplund, y la ciudad.</p><p class="en">Gothenburg City Hall, by Erik Gunnar Asplund, and the city.</p>
       </div>
-      <div class="detail-images">
+      <div class="detail-images strip" data-strip>
         <img loading="lazy" src="/img/w/suecia-2008-1.webp" width="1591" height="924" alt="Croquis: Gotemburgo">
         <img loading="lazy" src="/img/w/suecia-2008-2.webp" width="1548" height="961" alt="Croquis: Gotemburgo">
       </div>
@@ -1465,7 +1492,7 @@ cite { font-style: italic; }
         <p class="detail-meta"><span class="es">2007–2008 · Tinta sobre cuaderno</span><span class="en">2007–2008 · Ink in sketchbook</span></p>
         <p class="es">La catedral de León, la catedral de Oviedo, San Miguel de Lillo, el palacio de Carlos V en Granada, la Sagrada Familia y la torre de San Pedro en Vic.</p><p class="en">León Cathedral, Oviedo Cathedral, San Miguel de Lillo, the Palace of Charles V in Granada, the Sagrada Família, and the tower of San Pedro in Vic.</p>
       </div>
-      <div class="detail-images">
+      <div class="detail-images strip" data-strip>
         <img loading="lazy" src="/img/w/espana-2007-1.webp" width="956" height="1439" alt="Croquis: España">
         <img loading="lazy" src="/img/w/espana-2007-2.webp" width="1467" height="1287" alt="Croquis: España">
         <img loading="lazy" src="/img/w/espana-2007-3.webp" width="1558" height="994" alt="Croquis: España">
@@ -1564,7 +1591,52 @@ cite { font-style: italic; }
   // A visitor who chose English before lands in English
   try { if (lang === 'es' && location.pathname === '/' && !location.hash && localStorage.getItem('nv-lang') === 'en') { lang = 'en'; history.replaceState(null, '', '/en/'); } } catch (e) {}
   setLang(lang, true);
+
+  // Sideways rows and sketchbook strips: arrows, count, and a page counter
+  function setupStrip(el) {
+    var isRow = el.classList.contains('row');
+    var nav = document.createElement('div'); nav.className = 'strip-nav';
+    var prev = document.createElement('button'); prev.type = 'button'; prev.textContent = '←';
+    var next = document.createElement('button'); next.type = 'button'; next.textContent = '→';
+    prev.setAttribute('aria-label', 'Anterior / Previous'); next.setAttribute('aria-label', 'Siguiente / Next');
+    nav.appendChild(prev); nav.appendChild(next);
+    var items = el.children.length, counter = null;
+    if (isRow) {
+      var head = el.parentNode.querySelector('.cat-head'), title = head && head.querySelector('.cat-title');
+      if (title) { var c = document.createElement('span'); c.className = 'cat-count'; c.textContent = items; c.setAttribute('aria-hidden', 'true'); title.appendChild(c); }
+      if (head) head.appendChild(nav);
+    } else {
+      var wrap = document.createElement('div'); wrap.className = 'strip-wrap';
+      el.parentNode.insertBefore(wrap, el); wrap.appendChild(el);
+      var bar = document.createElement('div'); bar.className = 'strip-bar';
+      counter = document.createElement('span'); bar.appendChild(counter); bar.appendChild(nav); wrap.appendChild(bar);
+    }
+    function step() { var f = el.children[0]; if (!f) return el.clientWidth; var g = parseFloat(getComputedStyle(el).columnGap || getComputedStyle(el).gap) || 0; return isRow ? Math.max(f.getBoundingClientRect().width + g, el.clientWidth - f.getBoundingClientRect().width) : f.getBoundingClientRect().width + g; }
+    function update() {
+      var max = el.scrollWidth - el.clientWidth - 2;
+      prev.disabled = el.scrollLeft <= 2; next.disabled = el.scrollLeft >= max;
+      nav.hidden = max <= 2;
+      if (counter) {
+        var kids = el.children, i = 0, left = el.getBoundingClientRect().left;
+        for (var k = 0; k < kids.length; k++) { if (kids[k].getBoundingClientRect().left - left > -20) { i = k; break; } }
+        if (el.scrollLeft >= max) i = kids.length - 1;
+        counter.textContent = (i + 1) + ' / ' + kids.length;
+        if (kids.length < 2) counter.parentNode.hidden = true;
+      }
+    }
+    prev.addEventListener('click', function () { el.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    next.addEventListener('click', function () { el.scrollBy({ left: step(), behavior: 'smooth' }); });
+    el.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener('resize', update);
+    el.querySelectorAll('img').forEach(function (im) { im.addEventListener('load', update); });
+    el._update = update;
+    update();
+  }
+  document.querySelectorAll('[data-strip]').forEach(setupStrip);
+  window.addEventListener('popstate', function () { setTimeout(function () { document.querySelectorAll('[data-strip]').forEach(function (e) { e._update && e._update(); }); }, 50); });
+  document.addEventListener('click', function () { setTimeout(function () { document.querySelectorAll('[data-strip]').forEach(function (e) { e._update && e._update(); }); }, 60); });
   route();
+  setTimeout(function () { document.querySelectorAll('[data-strip]').forEach(function (e) { e._update && e._update(); }); }, 100);
   buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.set); }); });
 
 
