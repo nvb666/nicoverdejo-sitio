@@ -89,9 +89,10 @@ img { display: block; max-width: 100%; height: auto; }
 
 @media (max-width: 900px) {
   .cover { height: auto; min-height: 100svh; }
-  .cover-main { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .cover-main { grid-template-columns: minmax(0, 1fr); gap: 14px; padding-block: 0 22px; }
+  .cover-top { padding-block: 14px 0; }
   .cover-side { overflow: visible; }
-  .slides { flex: none; aspect-ratio: 1 / 1; max-height: 80svh; }
+  .slides { flex: none; aspect-ratio: 1 / 1; max-height: 60svh; }
   .cover-figure figcaption { line-height: 1.4; min-height: 2.8em; }
 }
 
@@ -279,7 +280,15 @@ cite { font-style: italic; }
 .bio.intro p.lead { font-size: 19px; line-height: 1.4; }
 .bio.intro a { text-decoration-thickness: 1.5px; }
 /* About page */
-.about { display: grid; grid-template-columns: minmax(0, 210px) minmax(0, 640px); gap: 48px; align-items: start; }
+.about { display: grid; grid-template-columns: minmax(0, 210px) minmax(0, 640px) minmax(0, 240px); gap: 48px; align-items: start; }
+.about-contact { border-left: 1px solid var(--line); padding-left: 28px; font-size: 14px; }
+.about-contact h3 { margin: 0 0 12px; font-size: 13px; font-weight: 500; color: var(--grey); text-transform: uppercase; letter-spacing: .06em; }
+.about-contact p { margin: 0 0 8px; }
+.about-contact a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; }
+.about-contact a:hover { color: var(--red); }
+.about-contact .about-cv a { display: inline-block; margin-top: 8px; padding: 8px 14px; border: 1px solid var(--ink); text-decoration: none; }
+.about-contact .about-cv a:hover { background: var(--ink); color: var(--paper); }
+@media (max-width: 1200px) and (min-width: 901px) { .about { grid-template-columns: minmax(0, 180px) minmax(0, 1fr); } .about-contact { grid-column: 2; border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 20px; } }
 .about-face { margin: 0; }
 .about-face img { width: 100%; height: auto; display: block; }
 .about-face[hidden] + .about-text { grid-column: 1 / -1; max-width: 640px; }
@@ -287,6 +296,7 @@ cite { font-style: italic; }
 .about .bio { gap: 14px; }
 @media (max-width: 900px) {
   .about { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .about-contact { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 20px; }
   .about-face { max-width: 150px; }
   .slides { max-height: 52svh; }
 }
@@ -443,51 +453,31 @@ cite { font-style: italic; }
       <div class="covers">
         <a class="card" href="/en/ilustracion/croquis-arch132/">
           <span class="panel"><img class="thumb" src="/img/w/croquis-arch132-2024-2-sm.webp" width="1575" height="1519" alt="Croquis: Nueva York con estudiantes" loading="lazy"></span>
-          <span class="card-cap"><b><span class="es">Nueva York con estudiantes</span><span class="en">New York with students</span></b><span class="es">Nueva York, 2024–2025</span><span class="en">New York, 2024–2025</span></span>
+          <span class="card-cap"><b><span class="es">Nueva York con estudiantes</span><span class="en">New York with students</span></b><span class="es">Estados Unidos, 2024–2025</span><span class="en">United States, 2024–2025</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-kentuck-knob/">
           <span class="panel"><img class="thumb" src="/img/w/croquis-kentuck-knob-8-sm.webp" width="1322" height="791" alt="Croquis: Kentuck Knob" loading="lazy"></span>
-          <span class="card-cap"><b>Kentuck Knob</b><span class="es">Frank Lloyd Wright · 2024</span><span class="en">Frank Lloyd Wright · 2024</span></span>
+          <span class="card-cap"><b>Kentuck Knob</b><span class="es">Estados Unidos, 2024</span><span class="en">United States, 2024</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-fallingwater/">
           <span class="panel"><img class="thumb" src="/img/w/croquis-fallingwater-3-sm.webp" width="1093" height="1600" alt="Croquis: Fallingwater" loading="lazy"></span>
-          <span class="card-cap"><b>Fallingwater</b><span class="es">Frank Lloyd Wright · 2023</span><span class="en">Frank Lloyd Wright · 2023</span></span>
-        </a>
-        <a class="card" href="/en/ilustracion/croquis-plaza-dignidad/">
-          <span class="panel"><img class="thumb line" src="/img/w/plaza-italia-sm.webp" width="1111" height="1562" alt="Croquis de una manifestación en Plaza Italia" loading="lazy"></span>
-          <span class="card-cap"><b>Plaza Dignidad</b><span><span class="es">Santiago, 2019</span><span class="en">Santiago, 2019</span></span></span>
-        </a>
-        <a class="card" href="/en/ilustracion/croquis-sa-pa-cat-cat/">
-          <span class="panel"><img class="thumb line" src="/img/w/sa-pa-sm.webp" width="1521" height="864" alt="Croquis de la plaza de Sa Pa, con edificios, motos y montañas al fondo" loading="lazy"></span>
-          <span class="card-cap"><b>Sa Pa · Cat Cat</b><span><span class="es">Cuaderno de viaje · Vietnam, 2019</span><span class="en">Travel sketchbook · Vietnam, 2019</span></span></span>
+          <span class="card-cap"><b>Fallingwater</b><span class="es">Estados Unidos, 2023</span><span class="en">United States, 2023</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-grand-central/">
           <span class="panel"><img class="thumb line" src="/img/w/grand-central-sm.webp" width="1529" height="1473" alt="Croquis de Grand Central Terminal con una multitud en movimiento" loading="lazy"></span>
-          <span class="card-cap"><b><span class="es">Grand Central · Louie, en ruta · Mi departamento</span><span class="en">Grand Central · Louie, on the road · My apartment</span></b><span><span class="es">Cuadernos de Manhattan (2023) y State College (2021)</span><span class="en">Manhattan (2023) and State College (2021) sketchbooks</span></span></span>
+          <span class="card-cap"><b>Grand Central · State College</b><span class="es">Estados Unidos, 2021–2023</span><span class="en">United States, 2021–2023</span></span>
         </a>
-        <a class="card" href="/en/ilustracion/croquis-travesia-san-pedro-arica/">
-          <span class="panel"><img class="thumb" src="/img/w/travesia-sm.webp" width="1600" height="1119" alt="Página de cuaderno con acuarelas de paisaje y notas manuscritas" loading="lazy"></span>
-          <span class="card-cap"><b><span class="es">Travesía · San Pedro · Arica</span><span class="en">Travesía · San Pedro · Arica</span></b><span><span class="es">Cuadernos</span><span class="en">Sketchbooks</span></span></span>
+        <a class="card" href="/en/ilustracion/croquis-plaza-dignidad/">
+          <span class="panel"><img class="thumb line" src="/img/w/plaza-italia-sm.webp" width="1111" height="1562" alt="Croquis de una manifestación en Plaza Italia" loading="lazy"></span>
+          <span class="card-cap"><b>Plaza Dignidad</b><span class="es">Santiago, 2019</span><span class="en">Santiago, 2019</span></span>
         </a>
-        <a class="card" href="/en/ilustracion/croquis-travesia-villa-ohiggins/">
-          <span class="panel"><img class="thumb" src="/img/w/travesia-villa-ohiggins-n50-sm.webp" width="1524" height="1483" alt="Croquis: Travesía a Villa O’Higgins" loading="lazy"></span>
-          <span class="card-cap"><b><span class="es">Travesía a Villa O’Higgins</span><span class="en">Travesía to Villa O’Higgins</span></b><span class="es">Travesía PUCV, 2005</span><span class="en">PUCV Travesía, 2005</span></span>
-        </a>
-        <a class="card" href="/en/ilustracion/croquis-travesia-misiones-2006/">
-          <span class="panel"><img class="thumb" src="/img/w/travesia-misiones-2006-n15-sm.webp" width="1581" height="1050" alt="Croquis: Travesía a San Miguel de las Misiones" loading="lazy"></span>
-          <span class="card-cap"><b><span class="es">Travesía a San Miguel de las Misiones</span><span class="en">Travesía to São Miguel das Missões</span></b><span class="es">Travesía PUCV, 2006</span><span class="en">PUCV Travesía, 2006</span></span>
-        </a>
-        <a class="card" href="/en/ilustracion/croquis-travesia-las-lastimas/">
-          <span class="panel"><img class="thumb" src="/img/w/travesia-las-lastimas-n26-sm.webp" width="1474" height="963" alt="Croquis: Travesía a Las Lástimas" loading="lazy"></span>
-          <span class="card-cap"><b><span class="es">Travesía a Las Lástimas</span><span class="en">Travesía to Las Lástimas</span></b><span class="es">Travesía PUCV, 2008</span><span class="en">PUCV Travesía, 2008</span></span>
-        </a>
-        <a class="card" href="/en/ilustracion/croquis-travesia-sao-francisco/">
-          <span class="panel"><img class="thumb" src="/img/w/travesia-sao-francisco-n9-sm.webp" width="554" height="939" alt="Croquis: Travesía a São Francisco do Sul" loading="lazy"></span>
-          <span class="card-cap"><b><span class="es">Travesía a São Francisco do Sul</span><span class="en">Travesía to São Francisco do Sul</span></b><span class="es">Travesía PUCV, 2009</span><span class="en">PUCV Travesía, 2009</span></span>
+        <a class="card" href="/en/ilustracion/croquis-sa-pa-cat-cat/">
+          <span class="panel"><img class="thumb line" src="/img/w/sa-pa-sm.webp" width="1521" height="864" alt="Croquis de la plaza de Sa Pa, con edificios, motos y montañas al fondo" loading="lazy"></span>
+          <span class="card-cap"><b>Sa Pa · Cat Cat</b><span class="es">Vietnam, 2019</span><span class="en">Vietnam, 2019</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-nueva-york/">
           <span class="panel"><img class="thumb" src="/img/w/nueva-york-2018-4-sm.webp" width="1075" height="1571" alt="Croquis: Nueva York" loading="lazy"></span>
-          <span class="card-cap"><b><span class="es">Nueva York</span><span class="en">New York</span></b><span class="es">Nueva York, octubre de 2018</span><span class="en">New York, October 2018</span></span>
+          <span class="card-cap"><b><span class="es">Nueva York</span><span class="en">New York</span></b><span class="es">Estados Unidos, 2018</span><span class="en">United States, 2018</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-santiago-2018/">
           <span class="panel"><img class="thumb" src="/img/w/panorama-santiago-2018-portada-sm.webp" width="280" height="335" alt="Detalle de Panorama Santiago 2018" loading="lazy"></span>
@@ -495,35 +485,43 @@ cite { font-style: italic; }
         </a>
         <a class="card" href="/en/ilustracion/croquis-tongoy/">
           <span class="panel"><img class="thumb" src="/img/w/tongoy-2018-3-sm.webp" width="1200" height="1600" alt="Croquis: Tongoy" loading="lazy"></span>
-          <span class="card-cap"><b>Tongoy</b><span class="es">Enero de 2018</span><span class="en">January 2018</span></span>
+          <span class="card-cap"><b>Tongoy</b><span class="es">Chile, 2018</span><span class="en">Chile, 2018</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-pichilemu/">
           <span class="panel"><img class="thumb" src="/img/w/pichilemu-2016-1-sm.webp" width="1600" height="1191" alt="Croquis: Pichilemu" loading="lazy"></span>
-          <span class="card-cap"><b>Pichilemu</b><span class="es">Febrero de 2016</span><span class="en">February 2016</span></span>
+          <span class="card-cap"><b>Pichilemu</b><span class="es">Chile, 2016</span><span class="en">Chile, 2016</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-medellin/">
           <span class="panel"><img class="thumb" src="/img/w/medellin-2014-1-sm.webp" width="1562" height="1110" alt="Croquis: Medellín" loading="lazy"></span>
-          <span class="card-cap"><b>Medellín</b><span class="es">Mayo de 2014</span><span class="en">May 2014</span></span>
+          <span class="card-cap"><b>Medellín</b><span class="es">Colombia, 2014</span><span class="en">Colombia, 2014</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-puerto-natales/">
           <span class="panel"><img class="thumb" src="/img/w/natales-2013-4-sm.webp" width="1216" height="1526" alt="Croquis: Puerto Natales" loading="lazy"></span>
-          <span class="card-cap"><b>Puerto Natales</b><span class="es">Diciembre de 2013</span><span class="en">December 2013</span></span>
+          <span class="card-cap"><b>Puerto Natales</b><span class="es">Chile, 2013</span><span class="en">Chile, 2013</span></span>
+        </a>
+        <a class="card" href="/en/ilustracion/croquis-travesia-sao-francisco/">
+          <span class="panel"><img class="thumb" src="/img/w/travesia-sao-francisco-n9-sm.webp" width="554" height="939" alt="Croquis: Travesía a São Francisco do Sul" loading="lazy"></span>
+          <span class="card-cap"><b><span class="es">Travesía a São Francisco do Sul</span><span class="en">Travesía to São Francisco do Sul</span></b><span class="es">Travesía PUCV, 2009</span><span class="en">PUCV Travesía, 2009</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-portales/">
           <span class="panel"><img class="thumb" src="/img/w/portales-2008-2-sm.webp" width="974" height="592" alt="Croquis: Unidad Vecinal Portales" loading="lazy"></span>
-          <span class="card-cap"><b>Unidad Vecinal Portales</b><span class="es">Santiago, octubre de 2008</span><span class="en">Santiago, October 2008</span></span>
+          <span class="card-cap"><b>Unidad Vecinal Portales</b><span class="es">Santiago, 2008</span><span class="en">Santiago, 2008</span></span>
+        </a>
+        <a class="card" href="/en/ilustracion/croquis-travesia-las-lastimas/">
+          <span class="panel"><img class="thumb" src="/img/w/travesia-las-lastimas-n26-sm.webp" width="1474" height="963" alt="Croquis: Travesía a Las Lástimas" loading="lazy"></span>
+          <span class="card-cap"><b><span class="es">Travesía a Las Lástimas</span><span class="en">Travesía to Las Lástimas</span></b><span class="es">Travesía PUCV, 2008</span><span class="en">PUCV Travesía, 2008</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-roma/">
           <span class="panel"><img class="thumb" src="/img/w/roma-2008-4-sm.webp" width="1600" height="857" alt="Croquis: Roma" loading="lazy"></span>
-          <span class="card-cap"><b><span class="es">Roma</span><span class="en">Rome</span></b><span class="es">2008</span><span class="en">2008</span></span>
+          <span class="card-cap"><b><span class="es">Roma</span><span class="en">Rome</span></b><span class="es">Italia, 2008</span><span class="en">Italy, 2008</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-paris/">
           <span class="panel"><img class="thumb" src="/img/w/paris-2008-3-sm.webp" width="1600" height="1273" alt="Croquis: París" loading="lazy"></span>
-          <span class="card-cap"><b><span class="es">París</span><span class="en">Paris</span></b><span class="es">2008</span><span class="en">2008</span></span>
+          <span class="card-cap"><b><span class="es">París</span><span class="en">Paris</span></b><span class="es">Francia, 2008</span><span class="en">France, 2008</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-gotemburgo/">
           <span class="panel"><img class="thumb" src="/img/w/suecia-2008-1-sm.webp" width="1591" height="924" alt="Croquis: Gotemburgo" loading="lazy"></span>
-          <span class="card-cap"><b><span class="es">Gotemburgo</span><span class="en">Gothenburg</span></b><span class="es">2008</span><span class="en">2008</span></span>
+          <span class="card-cap"><b><span class="es">Gotemburgo</span><span class="en">Gothenburg</span></b><span class="es">Suecia, 2008</span><span class="en">Sweden, 2008</span></span>
         </a>
         <a class="card" href="/en/ilustracion/croquis-barcelona/">
           <span class="panel"><img class="thumb" src="/img/w/espana-2007-4-sm.webp" width="1237" height="1546" alt="Croquis: Barcelona" loading="lazy"></span>
@@ -549,12 +547,43 @@ cite { font-style: italic; }
           <span class="panel"><img class="thumb" src="/img/w/espana-2007-6-sm.webp" width="968" height="1451" alt="Croquis: Vic" loading="lazy"></span>
           <span class="card-cap"><b>Vic</b><span class="es">España, 2007–2008</span><span class="en">Spain, 2007–2008</span></span>
         </a>
+        <a class="card" href="/en/ilustracion/croquis-travesia-misiones-2006/">
+          <span class="panel"><img class="thumb" src="/img/w/travesia-misiones-2006-n15-sm.webp" width="1581" height="1050" alt="Croquis: Travesía a San Miguel de las Misiones" loading="lazy"></span>
+          <span class="card-cap"><b><span class="es">Travesía a San Miguel de las Misiones</span><span class="en">Travesía to São Miguel das Missões</span></b><span class="es">Travesía PUCV, 2006</span><span class="en">PUCV Travesía, 2006</span></span>
+        </a>
+        <a class="card" href="/en/ilustracion/croquis-travesia-villa-ohiggins/">
+          <span class="panel"><img class="thumb" src="/img/w/travesia-villa-ohiggins-n50-sm.webp" width="1524" height="1483" alt="Croquis: Travesía a Villa O’Higgins" loading="lazy"></span>
+          <span class="card-cap"><b><span class="es">Travesía a Villa O’Higgins</span><span class="en">Travesía to Villa O’Higgins</span></b><span class="es">Travesía PUCV, 2005</span><span class="en">PUCV Travesía, 2005</span></span>
+        </a>
+        <a class="card" href="/en/ilustracion/croquis-travesia-san-pedro-arica/">
+          <span class="panel"><img class="thumb" src="/img/w/travesia-sm.webp" width="1600" height="1119" alt="Página de cuaderno con acuarelas de paisaje y notas manuscritas" loading="lazy"></span>
+          <span class="card-cap"><b><span class="es">Travesía · San Pedro · Arica</span><span class="en">Travesía · San Pedro · Arica</span></b><span><span class="es">Cuadernos</span><span class="en">Sketchbooks</span></span></span>
+        </a>
       </div>
     </div>
   </section>
 
 <section id="investigacion" data-path="/publicaciones/">
     <h2><span class="es">Publicaciones</span><span class="en">Publications</span></h2>
+    <div class="cat" id="libros">
+      <div class="cat-head">
+        <h3 class="cat-title"><span class="es">Libros</span><span class="en">Books</span></h3>
+      </div>
+    <div class="covers">
+      <a class="card" href="/en/publicaciones/cambiar-de-vida/">
+        <span class="panel"><img class="thumb" src="/img/w/cambiar-de-vida-lom-sm.webp" width="1300" height="1826" alt="Portada: Cambiar de vida" loading="lazy"></span>
+        <span class="card-cap"><b><cite>Cambiar de vida</cite></b><span class="es">Libro · LOM Ediciones, 2022</span><span class="en">Book · LOM Ediciones, 2022</span></span>
+      </a>
+      <a class="card" href="/en/publicaciones/santiago-babylon/">
+        <span class="panel"><img class="thumb" src="/img/w/santiago-babylon-sm.webp" width="690" height="960" alt="Portada: Santiago Babylon" loading="lazy"></span>
+        <span class="card-cap"><b><cite>Santiago Babylon</cite></b><span class="es">Libro, coeditor · Santiago, 2017</span><span class="en">Book, co-editor · Santiago, 2017</span></span>
+      </a>
+    </div>
+    </div>
+    <div class="cat" id="articulos">
+      <div class="cat-head">
+        <h3 class="cat-title"><span class="es">Artículos y capítulos</span><span class="en">Articles and chapters</span></h3>
+      </div>
     <div class="covers">
       <a class="card" href="/en/publicaciones/the-black-cats/">
         <span class="panel"><img class="thumb" src="/img/w/funambulist-61-sm.webp" width="900" height="1125" alt="Portada: The Black Cats" loading="lazy"></span>
@@ -563,14 +592,6 @@ cite { font-style: italic; }
       <a class="card" href="/en/publicaciones/tres-silencios/">
         <span class="panel"><img class="thumb" src="/img/w/anales-2023-sm.webp" width="900" height="1146" alt="Portada: Tres silencios" loading="lazy"></span>
         <span class="card-cap"><b><cite>Tres silencios</cite></b><span class="es">Capítulo · Anales de Arquitectura UC 2022–2023, 2024</span><span class="en">Chapter · Anales de Arquitectura UC 2022–2023, 2024</span></span>
-      </a>
-      <a class="card" href="/en/publicaciones/cambiar-de-vida/">
-        <span class="panel"><img class="thumb" src="/img/w/cambiar-de-vida-lom-sm.webp" width="1300" height="1826" alt="Portada: Cambiar de vida" loading="lazy"></span>
-        <span class="card-cap"><b><cite>Cambiar de vida</cite></b><span class="es">Libro · LOM Ediciones, 2022</span><span class="en">Book · LOM Ediciones, 2022</span></span>
-      </a>
-      <a class="card" href="/en/publicaciones/24-7/">
-        <span class="panel"><img class="thumb" src="/img/w/el-mostrador-24-7-sm.webp" width="956" height="1005" alt="24/7 en tiempos de pandemia, El Mostrador" loading="lazy"></span>
-        <span class="card-cap"><b><cite>24/7 en tiempos de pandemia</cite></b><span class="es">Carta al director · El Mostrador, 28 de marzo de 2020</span><span class="en">Letter to the editor · El Mostrador, 28 March 2020</span></span>
       </a>
       <a class="card" href="/en/publicaciones/el-genero-en-la-historiografia/">
         <span class="panel"><img class="thumb" src="/img/w/de-arquitectura-2019-sm.webp" width="900" height="1165" alt="Portada: El género en la historiografía de la arquitectura" loading="lazy"></span>
@@ -592,22 +613,30 @@ cite { font-style: italic; }
         <div class="type-cover t1" role="img" aria-label="Érase una vez un Estado"><span class="tc-title">Érase una vez un Estado</span><span class="tc-meta">Atraviesos Urbanos · 2018</span></div>
         <span class="card-cap"><b><cite>Érase una vez un Estado</cite></b><span class="es">Artículo · Cuadernos de Atraviesos Urbanos, FAD Universidad Finis Terrae, 2018</span><span class="en">Article · Cuadernos de Atraviesos Urbanos, FAD Universidad Finis Terrae, 2018</span></span>
       </a>
-      <a class="card" href="/en/publicaciones/santiago-babylon/">
-        <span class="panel"><img class="thumb" src="/img/w/santiago-babylon-sm.webp" width="690" height="960" alt="Portada: Santiago Babylon" loading="lazy"></span>
-        <span class="card-cap"><b><cite>Santiago Babylon</cite></b><span class="es">Libro, coeditor · Santiago, 2017</span><span class="en">Book, co-editor · Santiago, 2017</span></span>
-      </a>
       <a class="card" href="/en/publicaciones/sustitucion-cultural-y-guetizacion/">
         <span class="panel"><img class="thumb" src="/img/w/bifurcaciones-21-sm.webp" width="900" height="1165" alt="Portada: Sustitución cultural y guetización en la ciudad" loading="lazy"></span>
         <span class="card-cap"><b><cite>Sustitución cultural y guetización en la ciudad</cite></b><span class="es">Artículo · Bifurcaciones n.º 21, 2016</span><span class="en">Article · Bifurcaciones no. 21, 2016</span></span>
-      </a>
-      <a class="card" href="/en/publicaciones/ni-perdon-ni-olvido/">
-        <div class="type-cover t3" role="img" aria-label="Ni perdón ni olvido"><span class="tc-title">Ni perdón ni olvido</span><span class="tc-meta">Fanzine n.º 5 · 2015</span></div>
-        <span class="card-cap"><b><cite>Ni perdón ni olvido</cite></b><span class="es">Fanzine n.º 5, serie Proyectos pendientes, Milm2, 5 de julio de 2015. Con Ariztíalab.</span><span class="en">Fanzine no. 5, Proyectos pendientes series, Milm2, 5 July 2015. With Ariztíalab.</span></span>
       </a>
       <a class="card" href="/en/publicaciones/los-otros-viajes-del-arquitecto/">
         <span class="panel"><img class="thumb" src="/img/w/revista-180-29-sm.webp" width="900" height="1165" alt="Portada: Los otros viajes del arquitecto" loading="lazy"></span>
         <span class="card-cap"><b><cite>Los otros viajes del arquitecto</cite></b><span class="es">Artículo · Revista 180 n.º 29, 2012</span><span class="en">Article · Revista 180 no. 29, 2012</span></span>
       </a>
+    </div>
+    </div>
+    <div class="cat" id="prensa">
+      <div class="cat-head">
+        <h3 class="cat-title"><span class="es">Prensa y fanzines</span><span class="en">Press and zines</span></h3>
+      </div>
+    <div class="covers">
+      <a class="card" href="/en/publicaciones/24-7/">
+        <span class="panel"><img class="thumb" src="/img/w/el-mostrador-24-7-sm.webp" width="956" height="1005" alt="24/7 en tiempos de pandemia, El Mostrador" loading="lazy"></span>
+        <span class="card-cap"><b><cite>24/7 en tiempos de pandemia</cite></b><span class="es">Carta al director · El Mostrador, 28 de marzo de 2020</span><span class="en">Letter to the editor · El Mostrador, 28 March 2020</span></span>
+      </a>
+      <a class="card" href="/en/publicaciones/ni-perdon-ni-olvido/">
+        <div class="type-cover t3" role="img" aria-label="Ni perdón ni olvido"><span class="tc-title">Ni perdón ni olvido</span><span class="tc-meta">Fanzine n.º 5 · 2015</span></div>
+        <span class="card-cap"><b><cite>Ni perdón ni olvido</cite></b><span class="es">Fanzine n.º 5, serie Proyectos pendientes, Milm2, 5 de julio de 2015. Con Ariztíalab.</span><span class="en">Fanzine no. 5, Proyectos pendientes series, Milm2, 5 July 2015. With Ariztíalab.</span></span>
+      </a>
+    </div>
     </div>
   </section>
 
@@ -724,17 +753,23 @@ cite { font-style: italic; }
           <p>Doctor en Arquitectura por Penn State, con beca Fulbright (2026); Magíster en Arquitectura por la Pontificia Universidad Católica de Chile (2017) y arquitecto por la Pontificia Universidad Católica de Valparaíso (2013).</p>
           <p>Mi tesis doctoral, <a href="/en/ilustracion/architectural-education-under-the-iron-fist/"><cite>Architectural Education Under the Iron Fist</cite></a>, es una historia sobre las experiencias de estudiantes y profesores de las escuelas de arquitectura chilenas bajo la dictadura, y recibió una Citation of Special Recognition del Carter Manny Writing Award de la Graham Foundation (2024). Antes publiqué el libro <a href="/en/publicaciones/cambiar-de-vida/"><cite>Cambiar de vida</cite></a> (LOM, 2022), sobre la Escuela de Arquitectura de Valparaíso entre 1967 y 1973.</p>
           <p>Mi historia gráfica <a href="/en/publicaciones/the-black-cats/"><cite>The Black Cats</cite></a> apareció en The Funambulist (2025). Obtuve el tercer lugar en la <a href="/en/exposiciones/graduate-exhibition/">Penn State Graduate Exhibition</a> (2025) por presentar mi investigación como novela gráfica, y una mención especial de Architizer (2023) por la ilustración <a href="/en/ilustracion/mi-querida-habitacion/"><cite>A room is not a house or Banham’s latest nightmare</cite></a>.</p>
-          <p>He diseñado arquitectura en distintas partes del mundo. Desde 2018, como consultor independiente para <a href="/en/arquitectura/obmi/">OBMI</a>, Miami, he liderado proyectos de diseño conceptual en Medio Oriente, el Caribe, Europa y Estados Unidos. En Chile, he diseñado obras como <a href="/en/arquitectura/zaguan-del-viento/">El Zaguán del viento</a>, en Independencia, y la <a href="/en/arquitectura/casa-croasan/">Casa Croasán</a>, en Puerto Natales.</p>
+          <p>He diseñado arquitectura en distintas partes del mundo. Desde 2018, como consultor senior de diseño conceptual para <a href="/en/arquitectura/obmi/">OBMI</a>, una firma internacional con base en Miami, Londres y Dubái, he liderado proyectos de diseño conceptual en Medio Oriente, el Caribe, Europa y Estados Unidos. En Chile, he diseñado obras como <a href="/en/arquitectura/zaguan-del-viento/">El Zaguán del viento</a>, en Independencia, y la <a href="/en/arquitectura/casa-croasan/">Casa Croasán</a>, en Puerto Natales.</p>
           <p>Enseño arquitectura desde 2016, en Chile, Estados Unidos y Corea del Sur. Otorgando gran valor a la representación y al dibujo como herramientas proyectuales y narrativas, trabajo con metodologías de diseño que conciben la pieza arquitectónica desde experiencias afectivas y colectivas. En los cursos de teoría, exploro los cruces entre diseño, arquitectura y política, en particular en contextos autoritarios.</p>
         </div>
         <div class="bio en">
           <p>PhD in Architecture, Penn State, as a Fulbright fellow (2026); Master of Architecture, Pontificia Universidad Católica de Chile (2017); Professional degree in Architecture, Pontificia Universidad Católica de Valparaíso (2013).</p>
           <p>My dissertation, <a href="/en/ilustracion/architectural-education-under-the-iron-fist/"><cite>Architectural Education Under the Iron Fist</cite></a>, is a history of the experiences of students and professors in Chile’s architecture schools under the dictatorship; it received a Citation of Special Recognition from the Graham Foundation’s Carter Manny Writing Award (2024). Earlier I published the book <a href="/en/publicaciones/cambiar-de-vida/"><cite>Cambiar de vida</cite></a> (LOM, 2022), on the Valparaíso school of architecture between 1967 and 1973.</p>
           <p>My graphic story <a href="/en/publicaciones/the-black-cats/"><cite>The Black Cats</cite></a> appeared in The Funambulist (2025). I received third place at the <a href="/en/exposiciones/graduate-exhibition/">Penn State Graduate Exhibition</a> (2025) for presenting my research as a graphic novel, and a Special Mention from Architizer (2023) for the illustration <a href="/en/ilustracion/mi-querida-habitacion/"><cite>A room is not a house or Banham’s latest nightmare</cite></a>.</p>
-          <p>I have designed architecture around the world. Since 2018, as an independent consultant for <a href="/en/arquitectura/obmi/">OBMI</a>, Miami, I have led conceptual design projects in the Middle East, the Caribbean, Europe, and the United States. In Chile, I have designed works such as <a href="/en/arquitectura/zaguan-del-viento/">El Zaguán del viento</a>, in Independencia, and <a href="/en/arquitectura/casa-croasan/">Casa Croasán</a>, in Puerto Natales.</p>
+          <p>I have designed architecture around the world. Since 2018, as a senior conceptual design consultant for <a href="/en/arquitectura/obmi/">OBMI</a>, an international firm based in Miami, London, and Dubai, I have led conceptual design projects in the Middle East, the Caribbean, Europe, and the United States. In Chile, I have designed works such as <a href="/en/arquitectura/zaguan-del-viento/">El Zaguán del viento</a>, in Independencia, and <a href="/en/arquitectura/casa-croasan/">Casa Croasán</a>, in Puerto Natales.</p>
           <p>I have taught architecture since 2016, in Chile, the United States, and South Korea. Placing great value on representation and drawing as tools for design and narrative, I teach design methodologies that conceive the architectural piece from affective and collective experiences. In theory courses, I explore the intersections of design, architecture, and politics, particularly in authoritarian contexts.</p>
         </div>
       </div>
+      <aside class="about-contact" aria-label="Contacto">
+        <h3><span class="es">Contacto</span><span class="en">Contact</span></h3>
+        <p><a href="mailto:nverdejob@gmail.com">nverdejob@gmail.com</a></p>
+        <p><a href="https://www.instagram.com/nicoverdejo/" target="_blank" rel="noopener">Instagram · @nicoverdejo</a></p>
+        <p class="about-cv"><a href="/cv/Verdejo-Nicolas-CV-2026.pdf" target="_blank" rel="noopener" download><span class="es">Descargar CV</span><span class="en">Download CV (Spanish)</span></a></p>
+      </aside>
     </div>
   </section>
 
@@ -751,7 +786,7 @@ cite { font-style: italic; }
       </a>
       <a class="card" href="/en/arquitectura/obmi/">
         <span class="panel" style="background:#252C34"><img class="thumb" style="--z:1; object-fit:contain" src="/img/w/obmi-sm.webp" width="554" height="554" alt="Logo de OBMI" loading="lazy"></span>
-        <span class="card-cap"><b>OBMI, Miami</b><span class="es">Consultor independiente de diseño, 2018 a la fecha</span><span class="en">Independent design consultant, 2018 to present</span></span>
+        <span class="card-cap"><b>OBMI</b><span class="es">Consultor senior de diseño conceptual, 2018 a la fecha</span><span class="en">Senior conceptual design consultant, 2018 to present</span></span>
       </a>
     </div>
   </section>
@@ -1362,9 +1397,9 @@ cite { font-style: italic; }
     <a class="back" href="/en/arquitectura/">← <span class="es">Arquitectura</span><span class="en">Architecture</span></a>
     <div class="detail-grid">
       <div class="detail-text">
-        <h2 class="detail-title">OBMI, Miami</h2>
-        <p class="detail-meta"><span class="es">Consultor independiente de diseño · 2018 a la fecha</span><span class="en">Independent design consultant · 2018 to present</span></p>
-        <p class="es">Desde 2018, como consultor independiente para OBMI, Miami, he liderado y desarrollado proyectos de diseño arquitectónico conceptual en Medio Oriente, el Caribe, Europa y Estados Unidos, que abarcan desde residencias unifamiliares hasta planes maestros.</p><p class="en">Since 2018, as an independent consultant for OBMI, Miami, I have led and developed conceptual architectural design projects in the Middle East, the Caribbean, Europe, and the United States, ranging from single-family residences to master plans.</p>
+        <h2 class="detail-title">OBMI</h2>
+        <p class="detail-meta"><span class="es">Consultor senior de diseño conceptual · 2018 a la fecha</span><span class="en">Senior conceptual design consultant · 2018 to present</span></p>
+        <p class="es">Desde 2018, como consultor senior de diseño conceptual para OBMI, una firma internacional con base en Miami, Londres y Dubái, he liderado y desarrollado proyectos de diseño arquitectónico conceptual en Medio Oriente, el Caribe, Europa y Estados Unidos, que abarcan desde residencias unifamiliares hasta planes maestros.</p><p class="en">Since 2018, as a senior conceptual design consultant for OBMI, an international firm based in Miami, London, and Dubai, I have led and developed conceptual architectural design projects in the Middle East, the Caribbean, Europe, and the United States, ranging from single-family residences to master plans.</p>
       </div>
       <div class="detail-images">
         <img loading="lazy" src="/img/w/obmi.webp" width="554" height="554" alt="Logo de OBMI">
@@ -1920,7 +1955,7 @@ cite { font-style: italic; }
     </div>
   </article>
 
-    <footer>© 2026 Nicolás Verdejo Bravo · nverdejob@gmail.com · <a href="https://www.instagram.com/nicoverdejo/" target="_blank" rel="noopener">@nicoverdejo</a></footer>
+    <footer>© 2026 Nicolás Verdejo Bravo · nverdejob@gmail.com · <a href="https://www.instagram.com/nicoverdejo/" target="_blank" rel="noopener">@nicoverdejo</a> · <a href="/cv/Verdejo-Nicolas-CV-2026.pdf" target="_blank" rel="noopener" download><span class="es">Descargar CV</span><span class="en">Download CV (Spanish)</span></a></footer>
   </main>
 </div>
 
