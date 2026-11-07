@@ -285,6 +285,11 @@ cite { font-style: italic; }
 .about-contact a:hover { color: var(--red); }
 .about-contact .about-cv a { display: inline-block; margin-top: 8px; padding: 8px 14px; border: 1px solid var(--ink); text-decoration: none; }
 .about-contact .about-cv a:hover { background: var(--ink); color: var(--paper); }
+.about-contact h3.about-awards-title { margin-top: 36px; }
+.about-awards { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13px; line-height: 1.45; }
+.about-awards li { display: grid; grid-template-columns: 1fr; gap: 1px; }
+.about-awards .aw-year { color: var(--red); font-size: 12px; font-variant-numeric: tabular-nums; }
+.detail-award { font-size: 14px; border-left: 2px solid var(--red); padding-left: 12px; margin: 14px 0; }
 @media (max-width: 1200px) and (min-width: 901px) { .about { grid-template-columns: minmax(0, 180px) minmax(0, 1fr); } .about-contact { grid-column: 2; border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 20px; } }
 .about-face { margin: 0; }
 .about-face img { width: 100%; height: auto; display: block; }
@@ -757,11 +762,22 @@ cite { font-style: italic; }
           <p>I have taught architecture since 2016, in Chile, the United States, and South Korea. Placing great value on representation and drawing as tools for design and narrative, I teach design methodologies that conceive the architectural piece from affective and collective experiences. In theory courses, I explore the intersections of design, architecture, and politics, particularly in authoritarian contexts.</p>
         </div>
       </div>
-      <aside class="about-contact" aria-label="Contacto">
+      <aside class="about-contact" aria-label="Contacto y premios">
         <h3><span class="es">Contacto</span><span class="en">Contact</span></h3>
         <p><a href="mailto:nverdejob@gmail.com">nverdejob@gmail.com</a></p>
         <p><a href="https://www.instagram.com/nicoverdejo/" target="_blank" rel="noopener">Instagram · @nicoverdejo</a></p>
         <p class="about-cv"><a href="/cv/Verdejo-Nicolas-CV-2026.pdf" target="_blank" rel="noopener" download><span class="es">Descargar CV</span><span class="en">Download CV (Spanish)</span></a></p>
+        <h3 class="about-awards-title"><span class="es">Premios y becas</span><span class="en">Awards and fellowships</span></h3>
+        <ul class="about-awards">
+          <li><span class="aw-year">2025</span><span class="es">Tercer lugar, Research Poster, Penn State Graduate Exhibition</span><span class="en">Third place, Research Poster, Penn State Graduate Exhibition</span></li>
+          <li><span class="aw-year">2024</span><span class="es"><i>Citation of Special Recognition</i>, Carter Manny Writing Award, Graham Foundation</span><span class="en">Citation of Special Recognition, Carter Manny Writing Award, Graham Foundation</span></li>
+          <li><span class="aw-year">2023</span><span class="es">Mención especial, <i>Student Creator of the Year</i>, Architizer</span><span class="en">Special Mention, Student Creator of the Year, Architizer</span></li>
+          <li><span class="aw-year">2023</span><span class="es"><i>Graduate Student Lightning Talks Fellowship</i>, Society of Architectural Historians, Montreal</span><span class="en">Graduate Student Lightning Talks Fellowship, Society of Architectural Historians, Montreal</span></li>
+          <li><span class="aw-year">2020–2024</span><span class="es">Beca Fulbright-ANID para el doctorado en Penn State</span><span class="en">Fulbright-ANID scholarship for doctoral studies at Penn State</span></li>
+          <li><span class="aw-year">2017</span><span class="es">Premio XX Bienal de Arquitectura de Chile, por <cite>Santiago Babylon</cite></span><span class="en">Award, 20th Chilean Architecture Biennial, for <cite>Santiago Babylon</cite></span></li>
+          <li><span class="aw-year">2017</span><span class="es">Premio a la creación artística y docente, FAD Universidad Finis Terrae</span><span class="en">Award for artistic and teaching work, FAD Universidad Finis Terrae</span></li>
+          <li><span class="aw-year">2015–2017</span><span class="es">Beca CONICYT para el magíster en la Pontificia Universidad Católica de Chile</span><span class="en">CONICYT scholarship for master’s studies at Pontificia Universidad Católica de Chile</span></li>
+        </ul>
       </aside>
     </div>
   </section>
@@ -794,7 +810,7 @@ cite { font-style: italic; }
       <div class="detail-text">
         <h2 class="detail-title"><cite>Architectural Education Under the Iron Fist</cite></h2>
         <p class="detail-meta"><span class="es">Póster de investigación doctoral · Penn State, 2025</span><span class="en">Doctoral research poster · Penn State, 2025</span></p>
-        <p class="es">Los hallazgos de mi tesis doctoral contados como novela gráfica: cómo la dictadura intervino las escuelas de arquitectura en Chile entre 1973 y 1990, y cómo estudiantes y profesores la enfrentaron. Tercer lugar, Research Poster, Penn State Graduate Exhibition 2025.</p><p class="en">The findings of my dissertation told as a graphic novel: how the dictatorship intervened Chile’s architecture schools between 1973 and 1990, and how students and professors faced it. Third place, Research Poster, Penn State Graduate Exhibition 2025.</p><p class="detail-tech"><span class="es">Ilustración digital (Clip Studio Paint Pro)</span><span class="en">Digital illustration (Clip Studio Paint Pro)</span></p>
+        <p class="es">Los hallazgos de mi tesis doctoral contados como novela gráfica: cómo la dictadura intervino las escuelas de arquitectura en Chile entre 1973 y 1990, y cómo estudiantes y profesores la enfrentaron.</p><p class="en">The findings of my dissertation told as a graphic novel: how the dictatorship intervened Chile’s architecture schools between 1973 and 1990, and how students and professors faced it.</p><p class="detail-award"><span class="es">Tercer lugar, Research Poster, Penn State Graduate Exhibition, 2025</span><span class="en">Third place, Research Poster, Penn State Graduate Exhibition, 2025</span></p><p class="detail-tech"><span class="es">Ilustración digital (Clip Studio Paint Pro)</span><span class="en">Digital illustration (Clip Studio Paint Pro)</span></p>
       </div>
       <div class="detail-images strip" data-strip><img loading="lazy" src="/img/w/poster.webp" width="1350" height="1800" alt="Póster de investigación en formato de novela gráfica"><img loading="lazy" src="/img/w/poster-detalle-1.webp" width="1500" height="988" alt="Detalle del póster: Chile entre 1970 y 1973"><img loading="lazy" src="/img/w/poster-detalle-2.webp" width="1500" height="585" alt="Detalle del póster: intervención por la fuerza y por coerción institucional">
       </div>
@@ -1035,7 +1051,7 @@ cite { font-style: italic; }
       <div class="detail-text">
         <h2 class="detail-title"><cite>Santiago Babylon</cite></h2>
         <p class="detail-meta"><span class="es">Libro, coeditor · Santiago, 2017</span><span class="en">Book, co-editor · Santiago, 2017</span></p>
-        <p class="es">Inmigración: espacio, prácticas y representación. Una investigación de Ariztíalab sobre los cruces entre comunidades, etnias y culturas en el centro de Santiago, y las formas en que la inmigración rearticula lo político, lo económico y lo espacial. Reconocida en la XX Bienal de Arquitectura de Chile como una de las publicaciones más relevantes de la convocatoria.</p><p class="en">Immigration: space, practices and representation. Ariztíalab’s research on the encounters between communities, ethnicities, and cultures in central Santiago, and the ways immigration reshapes the political, the economic, and the spatial. Recognized at the 20th Chilean Architecture Biennial as one of the most relevant publications of its call.</p>
+        <p class="es">Inmigración: espacio, prácticas y representación. Una investigación de Ariztíalab sobre los cruces entre comunidades, etnias y culturas en el centro de Santiago, y las formas en que la inmigración rearticula lo político, lo económico y lo espacial.</p><p class="en">Immigration: space, practices and representation. Ariztíalab’s research on the encounters between communities, ethnicities, and cultures in central Santiago, and the ways immigration reshapes the political, the economic, and the spatial.</p><p class="detail-award"><span class="es">Premio XX Bienal de Arquitectura de Chile, como una de las publicaciones más relevantes de la convocatoria, 2017</span><span class="en">Award, 20th Chilean Architecture Biennial, as one of the most relevant publications of its call, 2017</span></p>
       </div>
       <div class="detail-images">
         <img loading="lazy" src="/img/w/santiago-babylon.webp" width="690" height="960" alt="Portada: Santiago Babylon">
