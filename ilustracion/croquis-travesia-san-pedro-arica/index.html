@@ -329,6 +329,8 @@ cite { font-style: italic; }
 @media (max-width: 700px) { .detail-images.strip img.pano { height: 62vh; width: auto; } }
 .plate-list { margin: 4px 0 0; padding-left: 1.3em; font-size: 15px; line-height: 1.5; display: flex; flex-direction: column; gap: 6px; }
 .detail-images.strip:has(img.pano) { scroll-snap-type: none; }
+.detail-images.strip img.pano-long { height: min(48vh, 420px); }
+@media (max-width: 700px) { .detail-images.strip img.pano-long { height: 46vh; } }
 </style>
 </head>
 <body>
@@ -485,8 +487,8 @@ cite { font-style: italic; }
           <span class="card-cap"><b><span class="es">Nueva York</span><span class="en">New York</span></b><span class="es">Nueva York, octubre de 2018</span><span class="en">New York, October 2018</span></span>
         </a>
         <a class="card" href="/ilustracion/croquis-santiago-2018/">
-          <span class="panel"><img class="thumb" src="/img/w/santiago-2018-1-sm.webp" width="1600" height="1358" alt="Croquis: Santiago desde el cerro" loading="lazy"></span>
-          <span class="card-cap"><b><span class="es">Santiago desde el cerro</span><span class="en">Santiago from the hill</span></b><span class="es">Santiago, 2018</span><span class="en">Santiago, 2018</span></span>
+          <span class="panel"><img class="thumb" src="/img/w/panorama-santiago-2018-portada-sm.webp" width="280" height="335" alt="Detalle de Panorama Santiago 2018" loading="lazy"></span>
+          <span class="card-cap"><b>Panorama Santiago 2018</b><span class="es">Santiago, 2018</span><span class="en">Santiago, 2018</span></span>
         </a>
         <a class="card" href="/ilustracion/croquis-tongoy/">
           <span class="panel"><img class="thumb" src="/img/w/tongoy-2018-3-sm.webp" width="1200" height="1600" alt="Croquis: Tongoy" loading="lazy"></span>
@@ -1466,15 +1468,12 @@ cite { font-style: italic; }
     <a class="back" href="/ilustracion/">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
     <div class="detail-grid">
       <div class="detail-text">
-        <h2 class="detail-title"><span class="es">Santiago desde el cerro</span><span class="en">Santiago from the hill</span></h2>
-        <p class="detail-meta"><span class="es">Santiago, 2018 · Tinta sobre cuaderno</span><span class="en">Santiago, 2018 · Ink in sketchbook</span></p>
-        <p class="es">Panorámica de Santiago, 2018.</p><p class="en">A panorama of Santiago, 2018.</p>
+        <h2 class="detail-title">Panorama Santiago 2018</h2>
+        <p class="detail-meta"><span class="es">Santiago, 2018 · Tinta sobre papel</span><span class="en">Santiago, 2018 · Ink on paper</span></p>
+        <p class="es">Panorámica de la ciudad realizada desde la cima del cerro Santa Lucía.</p><p class="en">A panorama of the city drawn from the top of Santa Lucía Hill.</p>
       </div>
       <div class="detail-images strip" data-strip>
-        <img class="pano" loading="lazy" src="/img/w/santiago-2018-panorama.webp" width="4192" height="1663" alt="Panorámica de Santiago dibujada a tinta, con la ciudad y los cerros al fondo">
-        <img loading="lazy" src="/img/w/santiago-2018-p3.webp" width="1600" height="1186" alt="Croquis: Santiago desde el cerro">
-        <img loading="lazy" src="/img/w/santiago-2018-p6.webp" width="1600" height="1181" alt="Croquis: Santiago desde el cerro">
-        <img loading="lazy" src="/img/w/santiago-2018-2.webp" width="982" height="1316" alt="Croquis: Santiago desde el cerro">
+        <img class="pano pano-long" loading="lazy" src="/img/w/panorama-santiago-2018.webp" width="2576" height="335" alt="Panorama Santiago 2018: la ciudad dibujada a tinta desde la cima del cerro Santa Lucía">
       </div>
     </div>
   </article>
@@ -2036,7 +2035,7 @@ cite { font-style: italic; }
         for (var k = 0; k < kids.length; k++) { if (kids[k].getBoundingClientRect().left - left > -20) { i = k; break; } }
         if (el.scrollLeft >= max) i = kids.length - 1;
         counter.textContent = (i + 1) + ' / ' + kids.length;
-        if (kids.length < 2) counter.parentNode.hidden = true;
+        if (kids.length < 2) { counter.textContent = ''; counter.parentNode.hidden = (el.scrollWidth - el.clientWidth <= 2); }
       }
     }
     // Move to the next/previous page; inside a page wider than the view (a panorama), move by most of the view
