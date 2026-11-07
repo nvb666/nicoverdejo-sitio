@@ -16,6 +16,8 @@ SEC = {
                 ('Talks and conferences', 'Talks, conference papers, and live drawing by Nico Verdejo on architecture, politics, and drawing.')),
     'exposiciones': (('Exposiciones', 'Exposiciones de dibujo e ilustración de Nico Verdejo en Chile y Estados Unidos.'),
                      ('Exhibitions', 'Drawing and illustration exhibitions by Nico Verdejo in Chile and the United States.')),
+    'sobremi': (('Sobre mí', 'Nico Verdejo (Nicolás Verdejo Bravo): arquitecto, historiador e ilustrador. Formación, investigación, ilustración, arquitectura y docencia.'),
+                ('About', 'Nico Verdejo (Nicolás Verdejo Bravo): architectural designer, historian, and illustrator. Education, research, illustration, architecture, and teaching.')),
     'arquitectura': (('Arquitectura', 'Obras y proyectos de arquitectura de Nico Verdejo en Chile y el extranjero.'),
                      ('Architecture', 'Built work and architectural design projects by Nico Verdejo in Chile and abroad.')),
 }
@@ -25,7 +27,7 @@ HOME = {
            'Nico Verdejo (Nicolás Verdejo Bravo): Chilean architectural designer, historian, and illustrator. Illustration, urban sketches, graphic novels, publications, and architecture.'),
 }
 SKETCH = ('d-croquis', 'd-plaza-dignidad', 'd-sa-pa', 'd-grand-central', 'd-travesia', 'd-guggenheim')
-SECTION_RE = r'(?:ilustracion|publicaciones|charlas|exposiciones|arquitectura)'
+SECTION_RE = r'(?:ilustracion|publicaciones|charlas|exposiciones|arquitectura|sobre-mi)'
 
 src = open('index.html').read()
 

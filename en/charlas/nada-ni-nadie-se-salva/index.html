@@ -273,6 +273,23 @@ cite { font-style: italic; }
 @media (max-width: 900px) {
   .inner-top .bar { padding-block: 12px 10px; }
 }
+
+/* Cover: the presentation carries the links to the sections */
+.bio.intro p { font-size: 16.5px; line-height: 1.5; }
+.bio.intro p.lead { font-size: 19px; line-height: 1.4; }
+.bio.intro a { text-decoration-thickness: 1.5px; }
+/* About page */
+.about { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 640px); gap: 48px; align-items: start; }
+.about-face { margin: 0; }
+.about-face img { width: 100%; height: auto; display: block; }
+.about-face[hidden] + .about-text { grid-column: 1 / -1; max-width: 640px; }
+.about .bio p { font-size: 16px; line-height: 1.6; }
+.about .bio { gap: 14px; }
+@media (max-width: 900px) {
+  .about { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .about-face { max-width: 200px; }
+  .slides { max-height: 52svh; }
+}
 </style>
 </head>
 <body>
@@ -280,7 +297,7 @@ cite { font-style: italic; }
 
 <div class="cover" id="view-inicio" hidden>
   <div class="cover-top">
-    <nav class="menu" aria-label="Secciones"><span class="links"><a href="/en/ilustracion/"><span class="es">Ilustración</span><span class="en">Illustration</span></a><a href="/en/arquitectura/"><span class="es">Arquitectura</span><span class="en">Architecture</span></a><a href="/en/publicaciones/"><span class="es">Publicaciones</span><span class="en">Publications</span></a><a href="/en/exposiciones/"><span class="es">Exposiciones</span><span class="en">Exhibitions</span></a><a href="/en/charlas/"><span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a></span><span class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-set="es" aria-pressed="false">ES</button><button type="button" data-set="en" aria-pressed="true">EN</button></span></nav>
+    <nav class="menu" aria-label="Secciones"><span class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-set="es" aria-pressed="false">ES</button><button type="button" data-set="en" aria-pressed="true">EN</button></span></nav>
   </div>
   <div class="cover-main">
     <figure class="cover-figure">
@@ -300,22 +317,14 @@ cite { font-style: italic; }
         <img class="logo" src="/img/w/logo-rojo.webp" width="436" height="664" alt="Logo de Nico Verdejo">
         <h1 class="wordmark" aria-label="Nico Verdejo"><span class="row" aria-hidden="true"><span class="l">N</span><span class="l">i</span><span class="l">c</span><span class="l">o</span></span><span class="row" aria-hidden="true"><span class="l">V</span><span class="l">e</span><span class="l">r</span><span class="l">d</span><span class="l">e</span><span class="l">j</span><span class="l">o</span></span></h1>
       </div>
-      <div class="bio es">
-          <p class="lead">Soy arquitecto, historiador e ilustrador. Me interesa investigar, escribir y dibujar historias donde se cruzan la arquitectura, la política y los afectos.</p>
-          <p>Doctor en Arquitectura por Penn State, con beca Fulbright (2026); Magíster en Arquitectura por la Pontificia Universidad Católica de Chile (2017) y arquitecto por la Pontificia Universidad Católica de Valparaíso (2013).</p>
-          <p>Mi tesis doctoral, <a href="/en/ilustracion/architectural-education-under-the-iron-fist/"><cite>Architectural Education Under the Iron Fist</cite></a>, es una historia sobre las experiencias de estudiantes y profesores de las escuelas de arquitectura chilenas bajo la dictadura, y recibió una Citation of Special Recognition del Carter Manny Writing Award de la Graham Foundation (2024). Antes publiqué el libro <a href="/en/publicaciones/cambiar-de-vida/"><cite>Cambiar de vida</cite></a> (LOM, 2022), sobre la Escuela de Arquitectura de Valparaíso entre 1967 y 1973.</p>
-          <p>Mi historia gráfica <a href="/en/publicaciones/the-black-cats/"><cite>The Black Cats</cite></a> apareció en The Funambulist (2025). Obtuve el tercer lugar en la <a href="/en/exposiciones/graduate-exhibition/">Penn State Graduate Exhibition</a> (2025) por presentar mi investigación como novela gráfica, y una mención especial de Architizer (2023) por la ilustración <a href="/en/ilustracion/a-room-is-not-a-house/"><cite>A room is not a house or Banham’s latest nightmare</cite></a>.</p>
-          <p>He diseñado arquitectura en distintas partes del mundo. Desde 2018, como consultor independiente para <a href="/en/arquitectura/obmi/">OBMI</a>, Miami, he liderado proyectos de diseño conceptual en Medio Oriente, el Caribe, Europa y Estados Unidos. En Chile, he diseñado obras como <a href="/en/arquitectura/zaguan-del-viento/">El Zaguán del viento</a>, en Independencia, y la <a href="/en/arquitectura/casa-croasan/">Casa Croasán</a>, en Puerto Natales.</p>
-          <p>Enseño arquitectura desde 2016, en Chile, Estados Unidos y Corea del Sur. Otorgando gran valor a la representación y al dibujo como herramientas proyectuales y narrativas, trabajo con metodologías de diseño que conciben la pieza arquitectónica desde experiencias afectivas y colectivas. En los cursos de teoría, exploro los cruces entre diseño, arquitectura y política, en particular en contextos autoritarios.</p>
-        </div>
-      <div class="bio en">
+      <nav class="bio es intro" aria-label="Secciones">
+          <p class="lead">Soy arquitecto, historiador e ilustrador. Investigo, escribo y dibujo historias donde se cruzan la arquitectura, la política y los afectos.</p>
+          <p>En mis <a href="/en/publicaciones/">publicaciones</a> cuento cómo estudiantes y profesores vivieron la enseñanza de la arquitectura en períodos de polarización política y autoritarismo; en mis <a href="/en/ilustracion/">ilustraciones</a>, esas historias se convierten en cómic y novela gráfica, una práctica que comienza en mis cuadernos de dibujo y de viajes. En <a href="/en/arquitectura/">arquitectura</a> he diseñado desde una casa en Puerto Natales hasta un pequeño zaguán en Independencia. Lo he mostrado en <a href="/en/exposiciones/">exposiciones</a> y presentado en <a href="/en/charlas/">charlas y conferencias</a>, en Chile y el extranjero. Más <a href="/en/sobre-mi/">sobre mí</a>.</p>
+        </nav>
+      <nav class="bio en intro" aria-label="Sections">
           <p class="lead">I am an architectural designer, historian, and illustrator. I research, write, and draw stories where architecture, politics, and affect meet.</p>
-          <p>PhD in Architecture, Penn State, as a Fulbright fellow (2026); Master of Architecture, Pontificia Universidad Católica de Chile (2017); Professional degree in Architecture, Pontificia Universidad Católica de Valparaíso (2013).</p>
-          <p>My dissertation, <a href="/en/ilustracion/architectural-education-under-the-iron-fist/"><cite>Architectural Education Under the Iron Fist</cite></a>, is a history of the experiences of students and professors in Chile’s architecture schools under the dictatorship; it received a Citation of Special Recognition from the Graham Foundation’s Carter Manny Writing Award (2024). Earlier I published the book <a href="/en/publicaciones/cambiar-de-vida/"><cite>Cambiar de vida</cite></a> (LOM, 2022), on the Valparaíso school of architecture between 1967 and 1973.</p>
-          <p>My graphic story <a href="/en/publicaciones/the-black-cats/"><cite>The Black Cats</cite></a> appeared in The Funambulist (2025). I received third place at the <a href="/en/exposiciones/graduate-exhibition/">Penn State Graduate Exhibition</a> (2025) for presenting my research as a graphic novel, and a Special Mention from Architizer (2023) for the illustration <a href="/en/ilustracion/a-room-is-not-a-house/"><cite>A room is not a house or Banham’s latest nightmare</cite></a>.</p>
-          <p>I have designed architecture around the world. Since 2018, as an independent consultant for <a href="/en/arquitectura/obmi/">OBMI</a>, Miami, I have led conceptual design projects in the Middle East, the Caribbean, Europe, and the United States. In Chile, I have designed works such as <a href="/en/arquitectura/zaguan-del-viento/">El Zaguán del viento</a>, in Independencia, and <a href="/en/arquitectura/casa-croasan/">Casa Croasán</a>, in Puerto Natales.</p>
-          <p>I have taught architecture since 2016, in Chile, the United States, and South Korea. Placing great value on representation and drawing as tools for design and narrative, I teach design methodologies that conceive the architectural piece from affective and collective experiences. In theory courses, I explore the intersections of design, architecture, and politics, particularly in authoritarian contexts.</p>
-        </div>
+          <p>In my <a href="/en/publicaciones/">publications</a> I trace how students and professors experienced the teaching of architecture in periods of political polarization and authoritarianism; in my <a href="/en/ilustracion/">illustrations</a>, those stories become comics and graphic novels, a practice that begins in my drawing and travel sketchbooks. In <a href="/en/arquitectura/">architecture</a> I have designed projects ranging from a house in Puerto Natales to a small <i>zaguán</i>, an entryway, in Independencia. I have shown this work in <a href="/en/exposiciones/">exhibitions</a> and presented it in <a href="/en/charlas/">talks and conferences</a> in Chile and abroad. More <a href="/en/sobre-mi/">about me</a>.</p>
+        </nav>
       <p class="cover-contact"><span class="email" id="email">nverdejob@gmail.com</span> <button type="button" class="copy" id="copy-email"><span class="es">Copiar</span><span class="en">Copy</span></button> · <a href="https://www.instagram.com/nicoverdejo/" target="_blank" rel="noopener">@nicoverdejo</a> · <a href="/cv/Verdejo-Nicolas-CV-2026.pdf" target="_blank" rel="noopener" download><span class="es">Descargar CV</span><span class="en">Download CV (Spanish)</span></a></p>
     </div>
   </div>
@@ -599,6 +608,29 @@ cite { font-style: italic; }
         <div class="type-cover t2" role="img" aria-label="Rasgos de España"><span class="tc-title">Rasgos<br>de España</span><span class="tc-meta">Cuadernos de viaje · 2010</span></div>
         <span class="card-cap"><b><cite>Rasgos de España</cite></b><span class="es">Cuadernos de viaje, Edificio Plaza Barón, Valparaíso, enero a marzo de 2010</span><span class="en">Travel sketchbooks, Edificio Plaza Barón, Valparaíso, January to March 2010</span></span>
       </a>
+    </div>
+  </section>
+
+  <section id="sobremi" data-path="/sobre-mi/" hidden>
+    <h2><span class="es">Sobre mí</span><span class="en">About</span></h2>
+    <div class="about">
+      <figure class="about-face" id="about-face" hidden></figure>
+      <div class="about-text">
+        <div class="bio es">
+          <p>Doctor en Arquitectura por Penn State, con beca Fulbright (2026); Magíster en Arquitectura por la Pontificia Universidad Católica de Chile (2017) y arquitecto por la Pontificia Universidad Católica de Valparaíso (2013).</p>
+          <p>Mi tesis doctoral, <a href="/en/ilustracion/architectural-education-under-the-iron-fist/"><cite>Architectural Education Under the Iron Fist</cite></a>, es una historia sobre las experiencias de estudiantes y profesores de las escuelas de arquitectura chilenas bajo la dictadura, y recibió una Citation of Special Recognition del Carter Manny Writing Award de la Graham Foundation (2024). Antes publiqué el libro <a href="/en/publicaciones/cambiar-de-vida/"><cite>Cambiar de vida</cite></a> (LOM, 2022), sobre la Escuela de Arquitectura de Valparaíso entre 1967 y 1973.</p>
+          <p>Mi historia gráfica <a href="/en/publicaciones/the-black-cats/"><cite>The Black Cats</cite></a> apareció en The Funambulist (2025). Obtuve el tercer lugar en la <a href="/en/exposiciones/graduate-exhibition/">Penn State Graduate Exhibition</a> (2025) por presentar mi investigación como novela gráfica, y una mención especial de Architizer (2023) por la ilustración <a href="/en/ilustracion/a-room-is-not-a-house/"><cite>A room is not a house or Banham’s latest nightmare</cite></a>.</p>
+          <p>He diseñado arquitectura en distintas partes del mundo. Desde 2018, como consultor independiente para <a href="/en/arquitectura/obmi/">OBMI</a>, Miami, he liderado proyectos de diseño conceptual en Medio Oriente, el Caribe, Europa y Estados Unidos. En Chile, he diseñado obras como <a href="/en/arquitectura/zaguan-del-viento/">El Zaguán del viento</a>, en Independencia, y la <a href="/en/arquitectura/casa-croasan/">Casa Croasán</a>, en Puerto Natales.</p>
+          <p>Enseño arquitectura desde 2016, en Chile, Estados Unidos y Corea del Sur. Otorgando gran valor a la representación y al dibujo como herramientas proyectuales y narrativas, trabajo con metodologías de diseño que conciben la pieza arquitectónica desde experiencias afectivas y colectivas. En los cursos de teoría, exploro los cruces entre diseño, arquitectura y política, en particular en contextos autoritarios.</p>
+        </div>
+        <div class="bio en">
+          <p>PhD in Architecture, Penn State, as a Fulbright fellow (2026); Master of Architecture, Pontificia Universidad Católica de Chile (2017); Professional degree in Architecture, Pontificia Universidad Católica de Valparaíso (2013).</p>
+          <p>My dissertation, <a href="/en/ilustracion/architectural-education-under-the-iron-fist/"><cite>Architectural Education Under the Iron Fist</cite></a>, is a history of the experiences of students and professors in Chile’s architecture schools under the dictatorship; it received a Citation of Special Recognition from the Graham Foundation’s Carter Manny Writing Award (2024). Earlier I published the book <a href="/en/publicaciones/cambiar-de-vida/"><cite>Cambiar de vida</cite></a> (LOM, 2022), on the Valparaíso school of architecture between 1967 and 1973.</p>
+          <p>My graphic story <a href="/en/publicaciones/the-black-cats/"><cite>The Black Cats</cite></a> appeared in The Funambulist (2025). I received third place at the <a href="/en/exposiciones/graduate-exhibition/">Penn State Graduate Exhibition</a> (2025) for presenting my research as a graphic novel, and a Special Mention from Architizer (2023) for the illustration <a href="/en/ilustracion/a-room-is-not-a-house/"><cite>A room is not a house or Banham’s latest nightmare</cite></a>.</p>
+          <p>I have designed architecture around the world. Since 2018, as an independent consultant for <a href="/en/arquitectura/obmi/">OBMI</a>, Miami, I have led conceptual design projects in the Middle East, the Caribbean, Europe, and the United States. In Chile, I have designed works such as <a href="/en/arquitectura/zaguan-del-viento/">El Zaguán del viento</a>, in Independencia, and <a href="/en/arquitectura/casa-croasan/">Casa Croasán</a>, in Puerto Natales.</p>
+          <p>I have taught architecture since 2016, in Chile, the United States, and South Korea. Placing great value on representation and drawing as tools for design and narrative, I teach design methodologies that conceive the architectural piece from affective and collective experiences. In theory courses, I explore the intersections of design, architecture, and politics, particularly in authoritarian contexts.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1449,7 +1481,7 @@ cite { font-style: italic; }
   var site = document.getElementById('site');
   var cover = document.getElementById('view-inicio');
   var inner = document.getElementById('view-inner');
-  var sections = ['ilustracion', 'investigacion', 'charlas', 'exposiciones', 'arquitectura'];
+  var sections = ['ilustracion', 'investigacion', 'charlas', 'exposiciones', 'arquitectura', 'sobremi'];
   var sub = { narrativa: 'ilustracion', obra: 'ilustracion', croquis: 'ilustracion' };
 
   var baseTitle = 'Nico Verdejo';
