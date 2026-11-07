@@ -2104,6 +2104,16 @@ cite { font-style: italic; }
       el.classList.add('on');
       cap.innerHTML = '<b>' + el.dataset.title + '</b>, <span class="es">' + el.dataset.es + '</span><span class="en">' + el.dataset.en + '</span>';
     }
+    // On phones the frame is square: start with a vertical drawing (Plaza Italia), which fills it better
+    if (window.matchMedia('(max-width: 900px)').matches) {
+      var start = box.querySelector('img[src*="cover-plaza-italia"]');
+      if (start) {
+        var k = Array.prototype.indexOf.call(slides, start);
+        slides.forEach(function (s) { s.style.transition = 'none'; });
+        show(k);
+        requestAnimationFrame(function () { requestAnimationFrame(function () { slides.forEach(function (s) { s.style.transition = ''; }); }); });
+      }
+    }
     setInterval(function () { if (!paused && !document.hidden) show(i + 1); }, DELAY);
     box.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') paused = true; });
     box.addEventListener('pointerleave', function () { paused = false; });
