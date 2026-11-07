@@ -12,10 +12,8 @@ SEC = {
                     ('Illustration', 'Graphic novels, individual work, and urban sketches by Nico Verdejo: drawings about architecture, politics, tenderness, and grief.')),
     'investigacion': (('Publicaciones', 'Libros, artículos y novelas gráficas de Nico Verdejo sobre historia de la arquitectura y política en Chile.'),
                       ('Publications', 'Books, articles, and graphic stories by Nico Verdejo on architectural history and politics in Chile.')),
-    'charlas': (('Charlas y conferencias', 'Charlas, conferencias y dibujo en vivo de Nico Verdejo sobre arquitectura, política y dibujo.'),
-                ('Talks and conferences', 'Talks, conference papers, and live drawing by Nico Verdejo on architecture, politics, and drawing.')),
-    'exposiciones': (('Exposiciones', 'Exposiciones de dibujo e ilustración de Nico Verdejo en Chile y Estados Unidos.'),
-                     ('Exhibitions', 'Drawing and illustration exhibitions by Nico Verdejo in Chile and the United States.')),
+    'exposiciones': (('Exposiciones y charlas', 'Exposiciones, charlas y conferencias de Nico Verdejo sobre arquitectura, política y dibujo, en Chile y el extranjero.'),
+                     ('Exhibitions and talks', 'Exhibitions, talks, and conference papers by Nico Verdejo on architecture, politics, and drawing, in Chile and abroad.')),
     'sobremi': (('Sobre mí', 'Nico Verdejo (Nicolás Verdejo Bravo): arquitecto, historiador e ilustrador. Formación, investigación, ilustración, arquitectura y docencia.'),
                 ('About', 'Nico Verdejo (Nicolás Verdejo Bravo): architectural designer, historian, and illustrator. Education, research, illustration, architecture, and teaching.')),
     'arquitectura': (('Arquitectura', 'Obras y proyectos de arquitectura de Nico Verdejo en Chile y el extranjero.'),
@@ -100,6 +98,8 @@ for k in SEC:
     p = re.search(r'<section id="%s" data-path="(/[^"]+/)"' % k, src).group(1)
     shutil.rmtree(p.strip('/'), ignore_errors=True)
 shutil.rmtree('en', ignore_errors=True)
+for top in set(re.findall(r'data-path="/([^/"]+)/', src)):
+    shutil.rmtree(top, ignore_errors=True)
 
 urls = ['/', '/en/']
 write('/en/', page('/', 'en', HOME['en'][0], HOME['en'][1], None, home=True))

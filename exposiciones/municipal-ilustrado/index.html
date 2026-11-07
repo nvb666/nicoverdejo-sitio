@@ -235,7 +235,7 @@ cite { font-style: italic; }
 .cat-title, .talk-sub { font-family: var(--display); font-weight: 500; letter-spacing: 0; }
 .cat-title { font-size: clamp(22px, 2.4vw, 28px); }
 /* Illustration, Architecture and Talks: three larger cards per row, so short rows fill */
-@media (min-width: 1101px) { #ilustracion .covers, #arquitectura .covers, #charlas .covers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 36px; } }
+@media (min-width: 1101px) { #ilustracion .covers, #arquitectura .covers, #exposiciones .covers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 36px; } }
 /* Urban sketches: little zoom, so each card shows the drawing */
 #croquis .panel .thumb { --z: 1.05; }
 /* Menu: section links and language switch */
@@ -316,11 +316,11 @@ cite { font-style: italic; }
       </div>
       <nav class="bio es intro" aria-label="Secciones">
           <p class="lead">Soy arquitecto, historiador e ilustrador. Investigo, escribo y dibujo historias donde se cruzan la arquitectura, la política y los afectos.</p>
-          <p>En mis <a href="/publicaciones/">publicaciones</a> cuento cómo estudiantes y profesores vivieron la enseñanza de la arquitectura en períodos de polarización política y autoritarismo; en mis <a href="/ilustracion/">ilustraciones</a>, esas historias se convierten en cómic y novela gráfica, una práctica que comienza en mis cuadernos de dibujo y de viajes. En <a href="/arquitectura/">arquitectura</a> he diseñado desde una casa en Puerto Natales hasta un pequeño zaguán en Independencia. Lo he mostrado en <a href="/exposiciones/">exposiciones</a> y presentado en <a href="/charlas/">charlas y conferencias</a>, en Chile y el extranjero. Más <a href="/sobre-mi/">sobre mí</a>.</p>
+          <p>En mis <a href="/publicaciones/">publicaciones</a> cuento cómo estudiantes y profesores vivieron la enseñanza de la arquitectura en períodos de polarización política y autoritarismo; en mis <a href="/ilustracion/">ilustraciones</a>, esas historias se convierten en cómic y novela gráfica, una práctica que comienza en mis cuadernos de dibujo y de viajes. En <a href="/arquitectura/">arquitectura</a> he diseñado desde una casa en Puerto Natales hasta un pequeño zaguán en Independencia. Lo he mostrado en <a href="/exposiciones/">exposiciones</a> y presentado en <a href="/exposiciones/#charlas">charlas y conferencias</a>, en Chile y el extranjero. Más <a href="/sobre-mi/">sobre mí</a>.</p>
         </nav>
       <nav class="bio en intro" aria-label="Sections">
           <p class="lead">I am an architectural designer, historian, and illustrator. I research, write, and draw stories where architecture, politics, and affect meet.</p>
-          <p>In my <a href="/publicaciones/">publications</a> I trace how students and professors experienced the teaching of architecture in periods of political polarization and authoritarianism; in my <a href="/ilustracion/">illustrations</a>, those stories become comics and graphic novels, a practice that begins in my drawing and travel sketchbooks. In <a href="/arquitectura/">architecture</a> I have designed projects ranging from a house in Puerto Natales to a small <i>zaguán</i>, an entryway, in Independencia. I have shown this work in <a href="/exposiciones/">exhibitions</a> and presented it in <a href="/charlas/">talks and conferences</a> in Chile and abroad. More <a href="/sobre-mi/">about me</a>.</p>
+          <p>In my <a href="/publicaciones/">publications</a> I trace how students and professors experienced the teaching of architecture in periods of political polarization and authoritarianism; in my <a href="/ilustracion/">illustrations</a>, those stories become comics and graphic novels, a practice that begins in my drawing and travel sketchbooks. In <a href="/arquitectura/">architecture</a> I have designed projects ranging from a house in Puerto Natales to a small <i>zaguán</i>, an entryway, in Independencia. I have shown this work in <a href="/exposiciones/">exhibitions</a> and presented it in <a href="/exposiciones/#charlas">talks and conferences</a> in Chile and abroad. More <a href="/sobre-mi/">about me</a>.</p>
         </nav>
       <p class="cover-contact"><span class="email" id="email">nverdejob@gmail.com</span> <button type="button" class="copy" id="copy-email"><span class="es">Copiar</span><span class="en">Copy</span></button> · <a href="https://www.instagram.com/nicoverdejo/" target="_blank" rel="noopener">@nicoverdejo</a> · <a href="/cv/Verdejo-Nicolas-CV-2026.pdf" target="_blank" rel="noopener" download><span class="es">Descargar CV</span><span class="en">Download CV (Spanish)</span></a></p>
     </div>
@@ -331,7 +331,7 @@ cite { font-style: italic; }
   <header class="inner-top">
     <div class="bar">
       <a class="home" href="/"><img src="/img/w/logo-rojo.webp" width="436" height="664" alt=""><span class="wordmark">Nico Verdejo</span></a>
-      <nav class="menu" aria-label="Secciones"><span class="links"><a href="/ilustracion/"><span class="es">Ilustración</span><span class="en">Illustration</span></a><a href="/arquitectura/"><span class="es">Arquitectura</span><span class="en">Architecture</span></a><a href="/publicaciones/"><span class="es">Publicaciones</span><span class="en">Publications</span></a><a href="/exposiciones/"><span class="es">Exposiciones</span><span class="en">Exhibitions</span></a><a href="/charlas/"><span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a><a href="/sobre-mi/"><span class="es">Sobre mí</span><span class="en">About</span></a></span><span class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-set="es" aria-pressed="true">ES</button><button type="button" data-set="en" aria-pressed="false">EN</button></span></nav>
+      <nav class="menu" aria-label="Secciones"><span class="links"><a href="/ilustracion/"><span class="es">Ilustración</span><span class="en">Illustration</span></a><a href="/arquitectura/"><span class="es">Arquitectura</span><span class="en">Architecture</span></a><a href="/publicaciones/"><span class="es">Publicaciones</span><span class="en">Publications</span></a><a href="/exposiciones/"><span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a><a href="/sobre-mi/"><span class="es">Sobre mí</span><span class="en">About</span></a></span><span class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-set="es" aria-pressed="true">ES</button><button type="button" data-set="en" aria-pressed="false">EN</button></span></nav>
     </div>
   </header>
   <main>
@@ -512,8 +512,49 @@ cite { font-style: italic; }
     </div>
   </section>
 
-<section id="charlas" data-path="/charlas/" hidden>
-    <h2><span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></h2>
+
+
+  <section id="exposiciones" data-path="/exposiciones/" hidden>
+    <h2><span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></h2>
+    <div class="cat" id="muestras">
+      <div class="cat-head">
+        <h3 class="cat-title"><span class="es">Exposiciones</span><span class="en">Exhibitions</span></h3>
+      </div>
+    <div class="covers">
+      <a class="card" href="/exposiciones/graduate-exhibition/">
+        <span class="panel"><img class="thumb" src="/img/w/iron-fist-poster-sm.webp" width="900" height="1200" alt="Póster de investigación en formato de novela gráfica" loading="lazy"></span>
+        <span class="card-cap"><b>Graduate Exhibition</b><span class="es">Penn State University, marzo de 2025. Tercer lugar, Research Poster.</span><span class="en">Penn State University, March 2025. Third place, Research Poster.</span></span>
+      </a>
+      <a class="card" href="/exposiciones/municipal-ilustrado/">
+        <span class="panel"><img class="thumb line" src="/img/w/municipal-ilustrado-sm.webp" width="1059" height="1040" alt="Croquis a tinta de la sala del Teatro Municipal de Santiago" loading="lazy"></span>
+        <span class="card-cap"><b><cite>Municipal Ilustrado</cite></b><span class="es">Artista invitado, Teatro Municipal de Santiago, septiembre a diciembre de 2023</span><span class="en">Guest artist, Teatro Municipal de Santiago, September to December 2023</span></span>
+      </a>
+      <a class="card" href="/exposiciones/my-beloved-room-quarantine-nightmares/">
+        <div class="type-cover t2" role="img" aria-label="My Beloved Room"><span class="tc-title">My Beloved Room</span><span class="tc-meta">Penn State Creates · 2021</span></div>
+        <span class="card-cap"><b><cite>My Beloved Room: Quarantine Nightmares</cite></b><span class="es">Penn State Creates, exposición virtual, 2021</span><span class="en">Penn State Creates, virtual exhibition, 2021</span></span>
+      </a>
+      <a class="card" href="/exposiciones/ciudad-y-cielo-santiago-1850/">
+        <div class="type-cover t1" role="img" aria-label="Ciudad y Cielo"><span class="tc-title">Ciudad<br>y Cielo</span><span class="tc-meta">Santiago 1850 · 2018</span></div>
+        <span class="card-cap"><b><cite>Ciudad y Cielo. Santiago 1850</cite></b><span class="es">Colegio de Arquitectos de Chile, octubre de 2018. En coautoría.</span><span class="en">Colegio de Arquitectos de Chile, October 2018. Co-authored.</span></span>
+      </a>
+      <a class="card" href="/exposiciones/cual-sueno/">
+        <span class="panel"><img class="thumb line" src="/img/w/cual-sueno-sm.webp" width="1135" height="853" alt="Croquis: un lienzo con la pregunta ¿Cuál sueño? frente a un edificio" loading="lazy"></span>
+        <span class="card-cap"><b><cite>¿Cuál sueño? De la arquitectura pública a la especulación inmobiliaria</cite></b><span class="es">Galería Metropolitana, abril a junio de 2014, con Ariztíalab. En coautoría.</span><span class="en">Galería Metropolitana, April to June 2014, with Ariztíalab. Co-authored.</span></span>
+      </a>
+      <a class="card" href="/exposiciones/territorio-obsoleto/">
+        <div class="type-cover t3" role="img" aria-label="Territorio obsoleto"><span class="tc-title">Territorio<br>obsoleto</span><span class="tc-meta">Galería Conejo · 2013</span></div>
+        <span class="card-cap"><b><cite>Territorio obsoleto</cite></b><span class="es">Galería Conejo, marzo de 2013, con el Colectivo META</span><span class="en">Galería Conejo, March 2013, with Colectivo META</span></span>
+      </a>
+      <a class="card" href="/exposiciones/rasgos-de-espana/">
+        <div class="type-cover t2" role="img" aria-label="Rasgos de España"><span class="tc-title">Rasgos<br>de España</span><span class="tc-meta">Cuadernos de viaje · 2010</span></div>
+        <span class="card-cap"><b><cite>Rasgos de España</cite></b><span class="es">Cuadernos de viaje, Edificio Plaza Barón, Valparaíso, enero a marzo de 2010</span><span class="en">Travel sketchbooks, Edificio Plaza Barón, Valparaíso, January to March 2010</span></span>
+      </a>
+    </div>
+    </div>
+    <div class="cat" id="charlas">
+      <div class="cat-head">
+        <h3 class="cat-title"><span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></h3>
+      </div>
     <div class="covers">
       <a class="card" href="/charlas/the-funambulist-en-santiago/">
         <div class="type-cover t1" role="img" aria-label="The Funambulist en Santiago"><span class="tc-title">The Funambulist en Santiago</span><span class="tc-meta">MNWAL · 2026</span></div>
@@ -572,39 +613,6 @@ cite { font-style: italic; }
         <span class="card-cap"><b><cite>El trabajo del colectivo META</cite></b><span class="es">Seminario Especulaciones Públicas n.º 2, Facultad de Arquitectura, Diseño y Artes Visuales, UNIACC, Santiago, 5 de junio de 2013</span><span class="en">Especulaciones Públicas seminar no. 2, Faculty of Architecture, Design and Visual Arts, UNIACC, Santiago, 5 June 2013</span></span>
       </a>
     </div>
-  </section>
-
-  <section id="exposiciones" data-path="/exposiciones/" hidden>
-    <h2><span class="es">Exposiciones</span><span class="en">Exhibitions</span></h2>
-    <div class="covers">
-      <a class="card" href="/exposiciones/graduate-exhibition/">
-        <span class="panel"><img class="thumb" src="/img/w/iron-fist-poster-sm.webp" width="900" height="1200" alt="Póster de investigación en formato de novela gráfica" loading="lazy"></span>
-        <span class="card-cap"><b>Graduate Exhibition</b><span class="es">Penn State University, marzo de 2025. Tercer lugar, Research Poster.</span><span class="en">Penn State University, March 2025. Third place, Research Poster.</span></span>
-      </a>
-      <a class="card" href="/exposiciones/municipal-ilustrado/">
-        <span class="panel"><img class="thumb line" src="/img/w/municipal-ilustrado-sm.webp" width="1059" height="1040" alt="Croquis a tinta de la sala del Teatro Municipal de Santiago" loading="lazy"></span>
-        <span class="card-cap"><b><cite>Municipal Ilustrado</cite></b><span class="es">Artista invitado, Teatro Municipal de Santiago, septiembre a diciembre de 2023</span><span class="en">Guest artist, Teatro Municipal de Santiago, September to December 2023</span></span>
-      </a>
-      <a class="card" href="/exposiciones/my-beloved-room-quarantine-nightmares/">
-        <div class="type-cover t2" role="img" aria-label="My Beloved Room"><span class="tc-title">My Beloved Room</span><span class="tc-meta">Penn State Creates · 2021</span></div>
-        <span class="card-cap"><b><cite>My Beloved Room: Quarantine Nightmares</cite></b><span class="es">Penn State Creates, exposición virtual, 2021</span><span class="en">Penn State Creates, virtual exhibition, 2021</span></span>
-      </a>
-      <a class="card" href="/exposiciones/ciudad-y-cielo-santiago-1850/">
-        <div class="type-cover t1" role="img" aria-label="Ciudad y Cielo"><span class="tc-title">Ciudad<br>y Cielo</span><span class="tc-meta">Santiago 1850 · 2018</span></div>
-        <span class="card-cap"><b><cite>Ciudad y Cielo. Santiago 1850</cite></b><span class="es">Colegio de Arquitectos de Chile, octubre de 2018. En coautoría.</span><span class="en">Colegio de Arquitectos de Chile, October 2018. Co-authored.</span></span>
-      </a>
-      <a class="card" href="/exposiciones/cual-sueno/">
-        <span class="panel"><img class="thumb line" src="/img/w/cual-sueno-sm.webp" width="1135" height="853" alt="Croquis: un lienzo con la pregunta ¿Cuál sueño? frente a un edificio" loading="lazy"></span>
-        <span class="card-cap"><b><cite>¿Cuál sueño? De la arquitectura pública a la especulación inmobiliaria</cite></b><span class="es">Galería Metropolitana, abril a junio de 2014, con Ariztíalab. En coautoría.</span><span class="en">Galería Metropolitana, April to June 2014, with Ariztíalab. Co-authored.</span></span>
-      </a>
-      <a class="card" href="/exposiciones/territorio-obsoleto/">
-        <div class="type-cover t3" role="img" aria-label="Territorio obsoleto"><span class="tc-title">Territorio<br>obsoleto</span><span class="tc-meta">Galería Conejo · 2013</span></div>
-        <span class="card-cap"><b><cite>Territorio obsoleto</cite></b><span class="es">Galería Conejo, marzo de 2013, con el Colectivo META</span><span class="en">Galería Conejo, March 2013, with Colectivo META</span></span>
-      </a>
-      <a class="card" href="/exposiciones/rasgos-de-espana/">
-        <div class="type-cover t2" role="img" aria-label="Rasgos de España"><span class="tc-title">Rasgos<br>de España</span><span class="tc-meta">Cuadernos de viaje · 2010</span></div>
-        <span class="card-cap"><b><cite>Rasgos de España</cite></b><span class="es">Cuadernos de viaje, Edificio Plaza Barón, Valparaíso, enero a marzo de 2010</span><span class="en">Travel sketchbooks, Edificio Plaza Barón, Valparaíso, January to March 2010</span></span>
-      </a>
     </div>
   </section>
 
@@ -934,8 +942,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-architecture-education-under-the-iron" data-parent="charlas" data-path="/charlas/architecture-education-under-the-iron-fist/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-architecture-education-under-the-iron" data-parent="exposiciones" data-path="/charlas/architecture-education-under-the-iron-fist/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>Architecture Education Under the Iron Fist: Architecture Schools Depoliticized in Chile during the Pinochet Dictatorship, 1973–1990</cite></h2>
@@ -947,8 +955,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-architectural-education-under-the-iron-3" data-parent="charlas" data-path="/charlas/architectural-education-under-the-iron-fist/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-architectural-education-under-the-iron-3" data-parent="exposiciones" data-path="/charlas/architectural-education-under-the-iron-fist/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>Architectural Education under the Iron Fist: Architecture Schools during the Pinochet Dictatorship in Chile, 1973–1989</cite></h2>
@@ -960,8 +968,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-nada-ni-nadie-se-salva" data-parent="charlas" data-path="/charlas/nada-ni-nadie-se-salva/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-nada-ni-nadie-se-salva" data-parent="exposiciones" data-path="/charlas/nada-ni-nadie-se-salva/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>Nada ni nadie se salva</cite></h2>
@@ -973,8 +981,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-conversaciones-sobre-dibujo" data-parent="charlas" data-path="/charlas/conversaciones-sobre-dibujo/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-conversaciones-sobre-dibujo" data-parent="exposiciones" data-path="/charlas/conversaciones-sobre-dibujo/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>Conversaciones sobre dibujo</cite></h2>
@@ -986,8 +994,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-un-objeto-y-un-sujeto" data-parent="charlas" data-path="/charlas/un-objeto-y-un-sujeto/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-un-objeto-y-un-sujeto" data-parent="exposiciones" data-path="/charlas/un-objeto-y-un-sujeto/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>Un objeto y un sujeto: dos órbitas</cite></h2>
@@ -999,8 +1007,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-dibujo-en-vivolive-drawing" data-parent="charlas" data-path="/charlas/dibujo-en-vivo/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-dibujo-en-vivolive-drawing" data-parent="exposiciones" data-path="/charlas/dibujo-en-vivo/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><span class="es">Dibujo en vivo</span><span class="en">Live drawing</span></h2>
@@ -1012,8 +1020,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-no-queda-otra-que-dibujar" data-parent="charlas" data-path="/charlas/no-queda-otra-que-dibujar/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-no-queda-otra-que-dibujar" data-parent="exposiciones" data-path="/charlas/no-queda-otra-que-dibujar/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>No queda otra que dibujar: representaciones en cuarentena</cite></h2>
@@ -1025,8 +1033,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-la-segunda-via-2" data-parent="charlas" data-path="/charlas/la-segunda-via/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-la-segunda-via-2" data-parent="exposiciones" data-path="/charlas/la-segunda-via/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>La segunda vía</cite></h2>
@@ -1038,8 +1046,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-la-segunda-via-la-publica" data-parent="charlas" data-path="/charlas/la-segunda-via-la-publica-controversia/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-la-segunda-via-la-publica" data-parent="exposiciones" data-path="/charlas/la-segunda-via-la-publica-controversia/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>La segunda vía: la pública controversia por el proyecto de la vía elevada entre Valparaíso y Viña del Mar, 1969</cite></h2>
@@ -1051,8 +1059,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-trayectorias-del-dolor-la-anulacion" data-parent="charlas" data-path="/charlas/trayectorias-del-dolor/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-trayectorias-del-dolor-la-anulacion" data-parent="exposiciones" data-path="/charlas/trayectorias-del-dolor/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>Trayectorias del dolor: la anulación política del cuerpo en la historiografía de la ciudad de Richard Sennett</cite></h2>
@@ -1064,8 +1072,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-el-gobierno-del-algoritmo-la" data-parent="charlas" data-path="/charlas/el-gobierno-del-algoritmo/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-el-gobierno-del-algoritmo-la" data-parent="exposiciones" data-path="/charlas/el-gobierno-del-algoritmo/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>El gobierno del algoritmo: la política y la ciudad en la Smartcity</cite></h2>
@@ -1077,8 +1085,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-campos-de-batalla" data-parent="charlas" data-path="/charlas/campos-de-batalla/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-campos-de-batalla" data-parent="exposiciones" data-path="/charlas/campos-de-batalla/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>Campos de batalla</cite></h2>
@@ -1090,8 +1098,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-el-trabajo-del-colectivo-meta" data-parent="charlas" data-path="/charlas/el-trabajo-del-colectivo-meta/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-el-trabajo-del-colectivo-meta" data-parent="exposiciones" data-path="/charlas/el-trabajo-del-colectivo-meta/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>El trabajo del colectivo META</cite></h2>
@@ -1104,7 +1112,7 @@ cite { font-style: italic; }
     </div>
   </article>
   <article class="detail" id="d-graduate-exhibition" data-parent="exposiciones" data-path="/exposiciones/graduate-exhibition/" hidden>
-    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title">Graduate Exhibition</h2>
@@ -1119,7 +1127,7 @@ cite { font-style: italic; }
     </div>
   </article>
   <article class="detail" id="d-municipal-ilustrado" data-parent="exposiciones" data-path="/exposiciones/municipal-ilustrado/">
-    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>Municipal Ilustrado</cite></h2>
@@ -1134,7 +1142,7 @@ cite { font-style: italic; }
     </div>
   </article>
   <article class="detail" id="d-my-beloved-room-quarantine-nightmares" data-parent="exposiciones" data-path="/exposiciones/my-beloved-room-quarantine-nightmares/" hidden>
-    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>My Beloved Room: Quarantine Nightmares</cite></h2>
@@ -1147,7 +1155,7 @@ cite { font-style: italic; }
     </div>
   </article>
   <article class="detail" id="d-ciudad-y-cielo-santiago-1850" data-parent="exposiciones" data-path="/exposiciones/ciudad-y-cielo-santiago-1850/" hidden>
-    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>Ciudad y Cielo. Santiago 1850</cite></h2>
@@ -1160,7 +1168,7 @@ cite { font-style: italic; }
     </div>
   </article>
   <article class="detail" id="d-cual-sueno-de-la-arquitectura" data-parent="exposiciones" data-path="/exposiciones/cual-sueno/" hidden>
-    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>¿Cuál sueño? De la arquitectura pública a la especulación inmobiliaria</cite></h2>
@@ -1173,7 +1181,7 @@ cite { font-style: italic; }
     </div>
   </article>
   <article class="detail" id="d-territorio-obsoleto" data-parent="exposiciones" data-path="/exposiciones/territorio-obsoleto/" hidden>
-    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>Territorio obsoleto</cite></h2>
@@ -1186,7 +1194,7 @@ cite { font-style: italic; }
     </div>
   </article>
   <article class="detail" id="d-rasgos-de-espana" data-parent="exposiciones" data-path="/exposiciones/rasgos-de-espana/" hidden>
-    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones</span><span class="en">Exhibitions</span></a>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>Rasgos de España</cite></h2>
@@ -1271,8 +1279,8 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
-  <article class="detail" id="d-the-funambulist-en-santiago" data-parent="charlas" data-path="/charlas/the-funambulist-en-santiago/" hidden>
-    <a class="back" href="/charlas/">← <span class="es">Charlas y conferencias</span><span class="en">Talks and conferences</span></a>
+  <article class="detail" id="d-the-funambulist-en-santiago" data-parent="exposiciones" data-path="/charlas/the-funambulist-en-santiago/" hidden>
+    <a class="back" href="/exposiciones/">← <span class="es">Exposiciones y charlas</span><span class="en">Exhibitions and talks</span></a>
     <div class="detail-grid">
       <div class="detail-text">
         <h2 class="detail-title"><cite>The Funambulist en Santiago</cite></h2>
@@ -1478,8 +1486,8 @@ cite { font-style: italic; }
   var site = document.getElementById('site');
   var cover = document.getElementById('view-inicio');
   var inner = document.getElementById('view-inner');
-  var sections = ['ilustracion', 'investigacion', 'charlas', 'exposiciones', 'arquitectura', 'sobremi'];
-  var sub = { narrativa: 'ilustracion', obra: 'ilustracion', croquis: 'ilustracion' };
+  var sections = ['ilustracion', 'investigacion', 'exposiciones', 'arquitectura', 'sobremi'];
+  var sub = { narrativa: 'ilustracion', obra: 'ilustracion', croquis: 'ilustracion', muestras: 'exposiciones', charlas: 'exposiciones' };
 
   var baseTitle = 'Nico Verdejo';
   var homeTitle = { es: 'Nico Verdejo · Arquitecto, historiador e ilustrador', en: 'Nico Verdejo · Architectural designer, historian, and illustrator' };
