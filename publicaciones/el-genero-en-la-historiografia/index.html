@@ -328,6 +328,7 @@ cite { font-style: italic; }
 .detail-images.strip img.pano { max-width: none; height: min(72vh, 680px); width: auto; }
 @media (max-width: 700px) { .detail-images.strip img.pano { height: 62vh; width: auto; } }
 .plate-list { margin: 4px 0 0; padding-left: 1.3em; font-size: 15px; line-height: 1.5; display: flex; flex-direction: column; gap: 6px; }
+.detail-images.strip:has(img.pano) { scroll-snap-type: none; }
 </style>
 </head>
 <body>
@@ -2038,8 +2039,27 @@ cite { font-style: italic; }
         if (kids.length < 2) counter.parentNode.hidden = true;
       }
     }
-    prev.addEventListener('click', function () { el.scrollBy({ left: -step(), behavior: 'smooth' }); });
-    next.addEventListener('click', function () { el.scrollBy({ left: step(), behavior: 'smooth' }); });
+    // Move to the next/previous page; inside a page wider than the view (a panorama), move by most of the view
+    function go(dir) {
+      if (isRow) { el.scrollBy({ left: dir * step(), behavior: 'smooth' }); return; }
+      var box = el.getBoundingClientRect(), left = el.scrollLeft, target = null, kids = el.children;
+      for (var k = 0; k < kids.length; k++) {
+        var r = kids[k].getBoundingClientRect(), a = left + r.left - box.left, b = a + r.width;
+        if (dir > 0) {
+          if (a < left + 2 && b > left + box.width + 2) { target = Math.min(left + box.width * 0.8, b - box.width); break; }
+          if (a > left + 2) { target = a; break; }
+        } else {
+          if (a < left - 2 && b > left + 2) { target = Math.max(a, left - box.width * 0.8); }
+          else if (a < left - 2) { target = (r.width > box.width) ? Math.max(a, b - box.width) : a; }
+        }
+      }
+      if (target === null) target = dir > 0 ? el.scrollWidth : 0;
+      el.style.scrollSnapType = 'none';
+      el.scrollTo({ left: target, behavior: 'smooth' });
+      clearTimeout(el._snapT); el._snapT = setTimeout(function () { el.style.scrollSnapType = ''; }, 700);
+    }
+    prev.addEventListener('click', function () { go(-1); });
+    next.addEventListener('click', function () { go(1); });
     el.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
     window.addEventListener('resize', update);
     el.querySelectorAll('img').forEach(function (im) { im.addEventListener('load', update); });
