@@ -314,6 +314,15 @@ cite { font-style: italic; }
 .strip-wrap { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .strip-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--grey); }
 @media (max-width: 700px) { .detail-images.strip img { height: auto; width: 86vw; max-width: none; } }
+
+/* Urban sketches: smaller cards, more per row */
+#croquis .covers { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 28px 20px; }
+#croquis .card-cap { font-size: 12px; }
+#croquis .type-cover .tc-title { font-size: clamp(16px, 1.5vw, 22px); overflow-wrap: normal; hyphens: none; }
+@media (min-width: 1101px) { #narrativa .covers, #obra .covers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px 36px; } }
+
+@media (max-width: 1100px) { #croquis .covers { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 700px) { #croquis .covers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 12px; } #croquis .type-cover .tc-title { font-size: 12px; } #croquis .type-cover { padding: 10px; } }
 </style>
 </head>
 <body>
@@ -370,7 +379,7 @@ cite { font-style: italic; }
         <p class="cat-intro es">Historias que cruzan la arquitectura y la política, contadas en secuencia: novela gráfica, cómic y dibujo que dan cuenta de investigaciones académicas y ensayos narrativos.</p>
         <p class="cat-intro en">Stories where architecture and politics meet, told in sequence: graphic novel, comics and drawing that carry academic research and narrative essays.</p>
       </div>
-      <div class="covers row" data-strip>
+      <div class="covers">
         <a class="card" href="/ilustracion/architectural-education-under-the-iron-fist/">
           <span class="panel"><img class="thumb" src="/img/w/poster-sm.webp" width="1350" height="1800" alt="Póster de investigación en formato de novela gráfica" loading="lazy"></span>
           <span class="card-cap"><b><cite>Architectural Education Under the Iron Fist</cite></b><span><span class="es">Póster de investigación doctoral · Penn State, 2025</span><span class="en">Doctoral research poster · Penn State, 2025</span></span></span>
@@ -391,7 +400,7 @@ cite { font-style: italic; }
         <p class="cat-intro es">Ilustraciones independientes sobre el encierro, la ternura y el duelo, y la política chilena.</p>
         <p class="cat-intro en">Stand-alone illustrations about confinement, tenderness and grief, and Chilean politics.</p>
       </div>
-      <div class="covers row" data-strip>
+      <div class="covers">
         <a class="card" href="/ilustracion/a-room-is-not-a-house/">
           <span class="panel"><img class="thumb" src="/img/w/room-sm.webp" width="1500" height="1077" alt="A room is not a house: un dormitorio convertido en máquina, con muros ondulantes en naranjo" loading="lazy"></span>
           <span class="card-cap"><b><cite>A room is not a house or Banham’s latest nightmare</cite></b><span>2020</span></span>
@@ -412,7 +421,7 @@ cite { font-style: italic; }
         <p class="cat-intro es">Cuadernos de viaje y de todos los días: dibujar para mirar con atención.</p>
         <p class="cat-intro en">Travel and everyday sketchbooks: drawing as a way of looking closely.</p>
       </div>
-      <div class="covers row" data-strip>
+      <div class="covers">
         <a class="card" href="/ilustracion/croquis-plaza-dignidad/">
           <span class="panel"><img class="thumb line" src="/img/w/plaza-italia-sm.webp" width="1111" height="1562" alt="Croquis de una manifestación en Plaza Italia" loading="lazy"></span>
           <span class="card-cap"><b>Plaza Dignidad</b><span><span class="es">Santiago, 2019</span><span class="en">Santiago, 2019</span></span></span>
