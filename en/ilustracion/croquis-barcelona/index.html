@@ -201,7 +201,7 @@ h3.sub { font-size: 13px; font-weight: 500; color: var(--grey); margin: 12px 0 0
 #croquis .panel { background: #FFFFFF; }
 #d-plaza-dignidad .detail-images img, #d-sa-pa-cat-cat .detail-images img, #d-grand-central-louie-en-ruta .detail-images img, #d-travesia-san-pedro-aricatravesia-san .detail-images img, #d-guggenheim .detail-images img { background: #FFFFFF; padding: 16px; box-sizing: border-box; }
 
-#d-croquis-nueva-york .detail-images img, #d-croquis-santiago-2018 .detail-images img, #d-croquis-tongoy .detail-images img, #d-croquis-pichilemu .detail-images img, #d-croquis-medellin .detail-images img, #d-croquis-puerto-natales .detail-images img, #d-croquis-portales .detail-images img, #d-croquis-roma .detail-images img, #d-croquis-paris .detail-images img, #d-croquis-gotemburgo .detail-images img, #d-croquis-travesia-villa-ohiggins .detail-images img, #d-croquis-travesia-misiones-2006 .detail-images img, #d-croquis-travesia-las-lastimas .detail-images img, #d-croquis-travesia-sao-francisco .detail-images img, #d-croquis-barcelona .detail-images img, #d-croquis-burgos .detail-images img, #d-croquis-granada .detail-images img, #d-croquis-leon .detail-images img, #d-croquis-oviedo .detail-images img, #d-croquis-vic .detail-images img { background: #FFFFFF; padding: 16px; box-sizing: border-box; }
+#d-croquis-nueva-york .detail-images img, #d-croquis-santiago-2018 .detail-images img, #d-croquis-tongoy .detail-images img, #d-croquis-pichilemu .detail-images img, #d-croquis-medellin .detail-images img, #d-croquis-puerto-natales .detail-images img, #d-croquis-portales .detail-images img, #d-croquis-roma .detail-images img, #d-croquis-paris .detail-images img, #d-croquis-gotemburgo .detail-images img, #d-croquis-travesia-villa-ohiggins .detail-images img, #d-croquis-travesia-misiones-2006 .detail-images img, #d-croquis-travesia-las-lastimas .detail-images img, #d-croquis-travesia-sao-francisco .detail-images img, #d-croquis-arch132 .detail-images img, #d-croquis-kentuck-knob .detail-images img, #d-croquis-fallingwater .detail-images img, #d-croquis-barcelona .detail-images img, #d-croquis-burgos .detail-images img, #d-croquis-granada .detail-images img, #d-croquis-leon .detail-images img, #d-croquis-oviedo .detail-images img, #d-croquis-vic .detail-images img { background: #FFFFFF; padding: 16px; box-sizing: border-box; }
 /* Lists */
 .list { list-style: none; margin: 0; padding: 0; max-width: 46em; }
 .list li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); }
@@ -325,6 +325,8 @@ cite { font-style: italic; }
 @media (max-width: 700px) { #croquis .covers { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 12px; } #croquis .type-cover .tc-title { font-size: 12px; } #croquis .type-cover { padding: 10px; } }
 .detail-text p a { color: inherit; text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; }
 .detail-text p a:hover { color: var(--red); }
+.detail-images.strip img.pano { max-width: none; height: min(72vh, 680px); width: auto; }
+@media (max-width: 700px) { .detail-images.strip img.pano { height: 62vh; width: auto; } }
 </style>
 </head>
 <body>
@@ -424,6 +426,18 @@ cite { font-style: italic; }
         <p class="cat-intro en">Travel sketchbooks and studies of the space of the city.</p>
       </div>
       <div class="covers">
+        <a class="card" href="/en/ilustracion/croquis-arch132/">
+          <span class="panel"><img class="thumb" src="/img/w/croquis-arch132-2024-2-sm.webp" width="1575" height="1519" alt="Croquis: Nueva York con estudiantes" loading="lazy"></span>
+          <span class="card-cap"><b><span class="es">Nueva York con estudiantes</span><span class="en">New York with students</span></b><span class="es">Nueva York, 2024–2025</span><span class="en">New York, 2024–2025</span></span>
+        </a>
+        <a class="card" href="/en/ilustracion/croquis-kentuck-knob/">
+          <span class="panel"><img class="thumb" src="/img/w/croquis-kentuck-knob-8-sm.webp" width="1322" height="791" alt="Croquis: Kentuck Knob" loading="lazy"></span>
+          <span class="card-cap"><b>Kentuck Knob</b><span class="es">Frank Lloyd Wright · 2024</span><span class="en">Frank Lloyd Wright · 2024</span></span>
+        </a>
+        <a class="card" href="/en/ilustracion/croquis-fallingwater/">
+          <span class="panel"><img class="thumb" src="/img/w/croquis-fallingwater-3-sm.webp" width="1093" height="1600" alt="Croquis: Fallingwater" loading="lazy"></span>
+          <span class="card-cap"><b>Fallingwater</b><span class="es">Frank Lloyd Wright · 2023</span><span class="en">Frank Lloyd Wright · 2023</span></span>
+        </a>
         <a class="card" href="/en/ilustracion/croquis-plaza-dignidad/">
           <span class="panel"><img class="thumb line" src="/img/w/plaza-italia-sm.webp" width="1111" height="1562" alt="Croquis de una manifestación en Plaza Italia" loading="lazy"></span>
           <span class="card-cap"><b>Plaza Dignidad</b><span><span class="es">Santiago, 2019</span><span class="en">Santiago, 2019</span></span></span>
@@ -1383,12 +1397,9 @@ cite { font-style: italic; }
         <p class="es">Panorámica de Santiago, 2018.</p><p class="en">A panorama of Santiago, 2018.</p>
       </div>
       <div class="detail-images strip" data-strip>
-        <img loading="lazy" src="/img/w/santiago-2018-p0.webp" width="1120" height="1183" alt="Croquis: Santiago desde el cerro">
-        <img loading="lazy" src="/img/w/santiago-2018-1.webp" width="1600" height="1358" alt="Croquis: Santiago desde el cerro">
-        <img loading="lazy" src="/img/w/santiago-2018-p2.webp" width="1223" height="1438" alt="Croquis: Santiago desde el cerro">
+        <img class="pano" loading="lazy" src="/img/w/santiago-2018-panorama.webp" width="4192" height="1663" alt="Panorámica de Santiago dibujada a tinta, con la ciudad y los cerros al fondo">
         <img loading="lazy" src="/img/w/santiago-2018-p3.webp" width="1600" height="1186" alt="Croquis: Santiago desde el cerro">
         <img loading="lazy" src="/img/w/santiago-2018-p6.webp" width="1600" height="1181" alt="Croquis: Santiago desde el cerro">
-        <img loading="lazy" src="/img/w/santiago-2018-p11.webp" width="1597" height="633" alt="Croquis: Santiago desde el cerro">
         <img loading="lazy" src="/img/w/santiago-2018-2.webp" width="982" height="1316" alt="Croquis: Santiago desde el cerro">
       </div>
     </div>
@@ -1646,6 +1657,71 @@ cite { font-style: italic; }
       </div>
     </div>
   </article>
+  <article class="detail" id="d-croquis-arch132" data-parent="ilustracion" data-path="/ilustracion/croquis-arch132/" hidden>
+    <a class="back" href="/en/ilustracion/">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title"><span class="es">Nueva York con estudiantes</span><span class="en">New York with students</span></h2>
+        <p class="detail-meta"><span class="es">2024–2025 · Tinta sobre cuaderno</span><span class="en">2024–2025 · Ink in sketchbook</span></p>
+        <p class="es">Croquis de las salidas a Nueva York con mis estudiantes del curso ARCH 132 de Penn State, en 2024 y 2025: Grand Central, el horizonte de Manhattan y retratos en el camino.</p><p class="en">Sketches from the New York field trips with my ARCH 132 students at Penn State, in 2024 and 2025: Grand Central, the Manhattan skyline, and portraits along the way.</p>
+      </div>
+      <div class="detail-images strip" data-strip>
+        <img loading="lazy" src="/img/w/croquis-arch132-2024-1.webp" width="1588" height="969" alt="Croquis: Nueva York con estudiantes">
+        <img loading="lazy" src="/img/w/croquis-arch132-2024-2.webp" width="1575" height="1519" alt="Croquis: Nueva York con estudiantes">
+        <img loading="lazy" src="/img/w/croquis-arch132-2024-3.webp" width="1349" height="1567" alt="Croquis: Nueva York con estudiantes">
+        <img loading="lazy" src="/img/w/croquis-arch132-2024-4.webp" width="1089" height="1600" alt="Croquis: Nueva York con estudiantes">
+        <img loading="lazy" src="/img/w/croquis-arch132-2024-5.webp" width="1209" height="1519" alt="Croquis: Nueva York con estudiantes">
+        <img loading="lazy" src="/img/w/croquis-arch132-2024-6.webp" width="1037" height="1579" alt="Croquis: Nueva York con estudiantes">
+        <img loading="lazy" src="/img/w/croquis-arch132-2024-7.webp" width="1583" height="1162" alt="Croquis: Nueva York con estudiantes">
+        <img loading="lazy" src="/img/w/croquis-arch132-2025-0.webp" width="1467" height="1220" alt="Croquis: Nueva York con estudiantes">
+        <img loading="lazy" src="/img/w/croquis-arch132-2025-1.webp" width="1454" height="1600" alt="Croquis: Nueva York con estudiantes">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-croquis-kentuck-knob" data-parent="ilustracion" data-path="/ilustracion/croquis-kentuck-knob/" hidden>
+    <a class="back" href="/en/ilustracion/">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title">Kentuck Knob</h2>
+        <p class="detail-meta"><span class="es">2024 · Tinta sobre cuaderno</span><span class="en">2024 · Ink in sketchbook</span></p>
+        <p class="es">La casa de Frank Lloyd Wright en Chalk Hill, Pensilvania, dibujada en marzo de 2024.</p><p class="en">Frank Lloyd Wright’s house in Chalk Hill, Pennsylvania, drawn in March 2024.</p>
+      </div>
+      <div class="detail-images strip" data-strip>
+        <img loading="lazy" src="/img/w/croquis-kentuck-knob-0.webp" width="1595" height="1306" alt="Croquis: Kentuck Knob">
+        <img loading="lazy" src="/img/w/croquis-kentuck-knob-1.webp" width="1587" height="1070" alt="Croquis: Kentuck Knob">
+        <img loading="lazy" src="/img/w/croquis-kentuck-knob-2.webp" width="1491" height="1249" alt="Croquis: Kentuck Knob">
+        <img loading="lazy" src="/img/w/croquis-kentuck-knob-3.webp" width="1585" height="994" alt="Croquis: Kentuck Knob">
+        <img loading="lazy" src="/img/w/croquis-kentuck-knob-4.webp" width="1582" height="1133" alt="Croquis: Kentuck Knob">
+        <img loading="lazy" src="/img/w/croquis-kentuck-knob-5.webp" width="1542" height="1060" alt="Croquis: Kentuck Knob">
+        <img loading="lazy" src="/img/w/croquis-kentuck-knob-6.webp" width="1519" height="647" alt="Croquis: Kentuck Knob">
+        <img loading="lazy" src="/img/w/croquis-kentuck-knob-7.webp" width="1589" height="917" alt="Croquis: Kentuck Knob">
+        <img loading="lazy" src="/img/w/croquis-kentuck-knob-8.webp" width="1322" height="791" alt="Croquis: Kentuck Knob">
+        <img loading="lazy" src="/img/w/croquis-kentuck-knob-9.webp" width="1531" height="767" alt="Croquis: Kentuck Knob">
+        <img loading="lazy" src="/img/w/croquis-kentuck-knob-10.webp" width="1600" height="1050" alt="Croquis: Kentuck Knob">
+        <img loading="lazy" src="/img/w/croquis-kentuck-knob-11.webp" width="1534" height="1063" alt="Croquis: Kentuck Knob">
+      </div>
+    </div>
+  </article>
+  <article class="detail" id="d-croquis-fallingwater" data-parent="ilustracion" data-path="/ilustracion/croquis-fallingwater/" hidden>
+    <a class="back" href="/en/ilustracion/">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
+    <div class="detail-grid">
+      <div class="detail-text">
+        <h2 class="detail-title">Fallingwater</h2>
+        <p class="detail-meta"><span class="es">2023 · Tinta sobre cuaderno</span><span class="en">2023 · Ink in sketchbook</span></p>
+        <p class="es">La casa de Frank Lloyd Wright en Mill Run, Pensilvania, dibujada en marzo de 2023.</p><p class="en">Frank Lloyd Wright’s house in Mill Run, Pennsylvania, drawn in March 2023.</p>
+      </div>
+      <div class="detail-images strip" data-strip>
+        <img loading="lazy" src="/img/w/croquis-fallingwater-0.webp" width="1065" height="1416" alt="Croquis: Fallingwater">
+        <img loading="lazy" src="/img/w/croquis-fallingwater-1.webp" width="1065" height="1298" alt="Croquis: Fallingwater">
+        <img loading="lazy" src="/img/w/croquis-fallingwater-2.webp" width="1078" height="1410" alt="Croquis: Fallingwater">
+        <img loading="lazy" src="/img/w/croquis-fallingwater-3.webp" width="1093" height="1600" alt="Croquis: Fallingwater">
+        <img loading="lazy" src="/img/w/croquis-fallingwater-4.webp" width="1047" height="1572" alt="Croquis: Fallingwater">
+        <img loading="lazy" src="/img/w/croquis-fallingwater-5.webp" width="1042" height="1581" alt="Croquis: Fallingwater">
+        <img loading="lazy" src="/img/w/croquis-fallingwater-6.webp" width="1204" height="1524" alt="Croquis: Fallingwater">
+        <img loading="lazy" src="/img/w/croquis-fallingwater-7.webp" width="1600" height="1116" alt="Croquis: Fallingwater">
+      </div>
+    </div>
+  </article>
   <article class="detail" id="d-croquis-barcelona" data-parent="ilustracion" data-path="/ilustracion/croquis-barcelona/">
     <a class="back" href="/en/ilustracion/">← <span class="es">Ilustración</span><span class="en">Illustration</span></a>
     <div class="detail-grid">
@@ -1876,7 +1952,7 @@ cite { font-style: italic; }
       var bar = document.createElement('div'); bar.className = 'strip-bar';
       counter = document.createElement('span'); bar.appendChild(counter); bar.appendChild(nav); wrap.appendChild(bar);
     }
-    function step() { var f = el.children[0]; if (!f) return el.clientWidth; var g = parseFloat(getComputedStyle(el).columnGap || getComputedStyle(el).gap) || 0; return isRow ? Math.max(f.getBoundingClientRect().width + g, el.clientWidth - f.getBoundingClientRect().width) : f.getBoundingClientRect().width + g; }
+    function step() { var f = el.children[0]; if (!f) return el.clientWidth; if (f.getBoundingClientRect().width > el.clientWidth) return el.clientWidth * 0.8; var g = parseFloat(getComputedStyle(el).columnGap || getComputedStyle(el).gap) || 0; return isRow ? Math.max(f.getBoundingClientRect().width + g, el.clientWidth - f.getBoundingClientRect().width) : f.getBoundingClientRect().width + g; }
     function update() {
       var max = el.scrollWidth - el.clientWidth - 2;
       prev.disabled = el.scrollLeft <= 2; next.disabled = el.scrollLeft >= max;
