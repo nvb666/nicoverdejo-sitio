@@ -349,6 +349,8 @@ cite { font-style: italic; }
 .plate-list { margin: 4px 0 0; padding-left: 1.3em; font-size: 15px; line-height: 1.5; display: flex; flex-direction: column; gap: 6px; }
 .detail-images.strip:has(img.pano) { scroll-snap-type: none; }
 .detail-images.strip img.pano-long { height: min(48vh, 420px); }
+/* Small source photos: shown closer to their real size so they stay sharp */
+.detail-images.strip img.lowres { height: min(60vh, 470px); }
 @media (max-width: 700px) { .detail-images.strip img.pano-long { height: 46vh; } }
 </style>
 </head>
@@ -1293,7 +1295,7 @@ cite { font-style: italic; }
         
       </div>
       <div class="detail-images strip" data-strip>
-        <img loading="lazy" src="/img/w/rasgos-de-espana.webp" width="1000" height="511" alt="Afiche de la exposición Rasgos de España: cuadernos de viaje, Edificio Plaza Barón, Valparaíso, 2010"><img loading="lazy" src="/img/w/rasgos-de-espana-1.webp" width="1024" height="681" alt="Cuadernos desplegados en repisas suspendidas frente a un muro de roca, con un visitante"><img loading="lazy" src="/img/w/rasgos-de-espana-2.webp" width="1024" height="681" alt="Visitante frente a un cuaderno desplegado con dibujos de Covadonga y Oviedo"><img loading="lazy" src="/img/w/rasgos-de-espana-3.webp" width="1024" height="681" alt="Visitantes recorriendo los paneles de la exposición"><img loading="lazy" src="/img/w/rasgos-de-espana-4.webp" width="1024" height="681" alt="Visitantes observando los cuadernos desplegados en las repisas"><img loading="lazy" src="/img/w/rasgos-de-espana-5.webp" width="1024" height="681" alt="Detalle de un cuaderno con el dibujo de Santa María del Naranco, con visitantes al fondo"><img loading="lazy" src="/img/w/rasgos-de-espana-6.webp" width="1024" height="681" alt="Detalle del dibujo de Santa María del Naranco en un cuaderno desplegado"><img loading="lazy" src="/img/w/rasgos-de-espana-7.webp" width="1024" height="681" alt="Detalle de un cuaderno desplegado con dibujos de la Catedral de Oviedo y una estatua de Santiago Apóstol">
+        <img loading="lazy" class="lowres" src="/img/w/rasgos-de-espana.webp" width="1000" height="511" alt="Afiche de la exposición Rasgos de España: cuadernos de viaje, Edificio Plaza Barón, Valparaíso, 2010"><img loading="lazy" class="lowres" src="/img/w/rasgos-de-espana-1.webp" width="1024" height="681" alt="Cuadernos desplegados en repisas suspendidas frente a un muro de roca, con un visitante"><img loading="lazy" class="lowres" src="/img/w/rasgos-de-espana-2.webp" width="1024" height="681" alt="Visitante frente a un cuaderno desplegado con dibujos de Covadonga y Oviedo"><img loading="lazy" class="lowres" src="/img/w/rasgos-de-espana-3.webp" width="1024" height="681" alt="Visitantes recorriendo los paneles de la exposición"><img loading="lazy" class="lowres" src="/img/w/rasgos-de-espana-4.webp" width="1024" height="681" alt="Visitantes observando los cuadernos desplegados en las repisas"><img loading="lazy" class="lowres" src="/img/w/rasgos-de-espana-5.webp" width="1024" height="681" alt="Detalle de un cuaderno con el dibujo de Santa María del Naranco, con visitantes al fondo"><img loading="lazy" class="lowres" src="/img/w/rasgos-de-espana-6.webp" width="1024" height="681" alt="Detalle del dibujo de Santa María del Naranco en un cuaderno desplegado"><img loading="lazy" class="lowres" src="/img/w/rasgos-de-espana-7.webp" width="1024" height="681" alt="Detalle de un cuaderno desplegado con dibujos de la Catedral de Oviedo y una estatua de Santiago Apóstol">
       </div>
     </div>
   </article>
