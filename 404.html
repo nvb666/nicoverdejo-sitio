@@ -1652,7 +1652,8 @@ cite { font-style: italic; }
   var site = document.getElementById('site');
   var cover = document.getElementById('view-inicio');
   var inner = document.getElementById('view-inner');
-  var sections = ['ilustracion', 'investigacion', 'exposiciones', 'arquitectura', 'sobremi'];
+  // Generated pages carry only their own section or project; the rest load as their own pages
+  var sections = ['ilustracion', 'investigacion', 'exposiciones', 'arquitectura', 'sobremi'].filter(function (id) { return document.getElementById(id); });
   var sub = { narrativa: 'ilustracion', obra: 'ilustracion', croquis: 'ilustracion', muestras: 'exposiciones', charlas: 'exposiciones' };
 
   var baseTitle = 'Nico Verdejo';
@@ -1683,7 +1684,8 @@ cite { font-style: italic; }
     }
     cover.hidden = true; inner.hidden = false;
     sections.forEach(function (id) { document.getElementById(id).hidden = detailEl ? true : (id !== target); });
-    var secPath = document.getElementById(target).getAttribute('data-path');
+    var secNode = document.getElementById(target);
+    var secPath = secNode ? secNode.getAttribute('data-path') : { ilustracion: '/ilustracion/', investigacion: '/publicaciones/', exposiciones: '/exposiciones/', arquitectura: '/arquitectura/', sobremi: '/sobre-mi/' }[target];
     document.querySelectorAll('.menu a').forEach(function (a) {
       if (bare(a.getAttribute('href')) === secPath) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
@@ -1720,6 +1722,7 @@ cite { font-style: italic; }
     document.documentElement.lang = l;
     buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === l)); });
     try { localStorage.setItem('nv-lang', l); } catch (e) {}
+    if (!fromUrl && site.hasAttribute('data-one-lang')) { location.href = withLang(bare(location.pathname), l) + location.hash; return; }
     if (!fromUrl) {
       var dest = withLang(bare(location.pathname), l) + location.hash;
       if (dest !== location.pathname + location.hash) history.pushState(null, '', dest);
@@ -1800,6 +1803,7 @@ cite { font-style: italic; }
   // Cover: the drawings take turns every few seconds; the cursor over the drawing holds the current one
   (function () {
     var box = document.getElementById('slides'), cap = document.getElementById('slide-cap');
+    if (!box) return;
     var slides = box.querySelectorAll('.slide'), i = 0, paused = false, DELAY = 7000;
     if (slides.length < 2) return;
     // Only the first drawing loads with the page; each of the others loads just before its turn

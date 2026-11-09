@@ -88,7 +88,30 @@ def page(path, lang, title, desc, image, show_id=None, home=False):
             s = re.sub(r'(<article class="detail" id="%s"[^>]*?) hidden>' % re.escape(show_id), r'\1>', s, count=1)
         else:
             s = s.replace(f'<section id="{show_id}" data-path="{path}" hidden>', f'<section id="{show_id}" data-path="{path}">', 1)
-    return s
+    return slim(s, lang, home, show_id)
+
+def slim(s, lang, home, show_id):
+    """Keep in each generated page only what it shows, in its own language, so search engines
+    see distinct pages (not the whole site twice). Links to other pages load those pages."""
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(s, 'html.parser')
+    other = 'en' if lang == 'es' else 'es'
+    site = soup.find(id='site')
+    site['data-one-lang'] = ''
+    for el in soup.select('.%s' % other):
+        if el.name in ('span', 'p', 'ol', 'ul', 'li', 'div', 'nav', 'cite', 'b', 'em', 'i', 'a', 'h2', 'h3'):
+            el.decompose()
+    if not home:
+        cover = soup.find(id='view-inicio')
+        if cover: cover.clear()
+        for art in soup.select('article.detail'):
+            if art.get('id') != show_id: art.decompose()
+        for sec in soup.select('section[data-path]'):
+            if sec.get('id') != show_id: sec.decompose()
+    else:
+        for art in soup.select('article.detail'): art.decompose()
+        for sec in soup.select('section[data-path]'): sec.decompose()
+    return str(soup)
 
 def write(path, content):
     d = path.strip('/')
