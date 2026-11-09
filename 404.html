@@ -78,6 +78,8 @@ img { display: block; max-width: 100%; height: auto; }
 .cover-figure figcaption b { color: var(--ink); font-weight: 500; }
 .cover-side { min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 18px; padding-right: 4px; }
 .cover-id { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+/* Desktop: name, logo and presentation sit low, aligned with the bottom of the drawing caption (auto margin collapses safely if the text is taller than the screen) */
+@media (min-width: 901px) { .cover-side > .cover-id { margin-top: auto; } }
 .cover .logo { width: 40px; height: auto; }
 .cover .wordmark { font-size: clamp(26px, 2.5vw, 38px); }
 .bio { display: flex; flex-direction: column; gap: 9px; }
