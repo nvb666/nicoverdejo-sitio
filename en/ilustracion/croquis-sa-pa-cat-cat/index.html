@@ -479,6 +479,11 @@ cite { font-style: italic; }
     if (sub[h]) { var el = document.getElementById(h); if (el) el.scrollIntoView(); }
     else { window.scrollTo(0, 0); requestAnimationFrame(function () { window.scrollTo(0, 0); }); }
   }
+  // Pages built for one section only hold that section: anything else is loaded from the server
+  function has(p) {
+    if (p.slice(-1) !== '/') p += '/';
+    return p === '/' ? cover.children.length > 0 : !!document.querySelector('[data-path="' + p + '"]');
+  }
   // Inside the site, links change the view without reloading the page
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href]');
@@ -487,13 +492,14 @@ cite { font-style: italic; }
     var url = new URL(a.href, location.href);
     if (url.origin !== location.origin) return;
     var p = bare(url.pathname);
-    if (p !== '/' && !document.querySelector('[data-path="' + p + '"]')) return;
+    if (!has(p)) return;
     e.preventDefault();
     var dest = withLang(p, lang) + url.hash;
     if (dest !== location.pathname + location.hash) history.pushState(null, '', dest);
     route();
   });
   window.addEventListener('popstate', function () {
+    if (!has(bare(location.pathname))) { location.reload(); return; }
     if (langOf(location.pathname) !== lang) setLang(langOf(location.pathname), true);
     route();
   });
