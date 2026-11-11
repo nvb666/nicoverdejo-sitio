@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
-<meta content="Panorama Santiago 2018 · Santiago, 2018. A panorama of the city drawn from the top of Santa Lucía Hill." name="description"/>
+<meta content="Urban sketches by Nico Verdejo: Panorama Santiago 2018, Santiago, 2018. Ink on paper." name="description"/>
 <link href="https://nicoverdejo.com/en/ilustracion/croquis-santiago-2018/" rel="canonical"/>
 <link href="https://nicoverdejo.com/ilustracion/croquis-santiago-2018/" hreflang="es" rel="alternate"/>
 <link href="https://nicoverdejo.com/en/ilustracion/croquis-santiago-2018/" hreflang="en" rel="alternate"/>
@@ -16,7 +16,7 @@
 <meta content="en_US" property="og:locale"/>
 <meta content="es_CL" property="og:locale:alternate"/>
 <meta content="Panorama Santiago 2018 · Urban sketch · Nico Verdejo" property="og:title"/>
-<meta content="Panorama Santiago 2018 · Santiago, 2018. A panorama of the city drawn from the top of Santa Lucía Hill." property="og:description"/>
+<meta content="Urban sketches by Nico Verdejo: Panorama Santiago 2018, Santiago, 2018. Ink on paper." property="og:description"/>
 <meta content="https://nicoverdejo.com/img/panorama-santiago-2018.jpg" property="og:image"/>
 <meta content="https://nicoverdejo.com/en/ilustracion/croquis-santiago-2018/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
@@ -108,7 +108,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* Sections */
 section { display: flex; flex-direction: column; gap: 22px; }
-h2 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(28px, 4vw, 44px); line-height: 1; margin: 0 0 8px; }
+h2, .inner section > h1 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(28px, 4vw, 44px); line-height: 1; margin: 0 0 8px; }
 h3.sub { font-size: 13px; font-weight: 500; color: var(--grey); margin: 12px 0 0; }
 .prose { font-family: var(--serif); font-size: 18px; line-height: 1.55; max-width: 36em; margin: 0; }
 .caption { color: var(--grey); font-size: 13px; line-height: 1.4; }
@@ -397,7 +397,7 @@ cite { font-style: italic; }
 <a class="back" href="/en/ilustracion/">← <span class="en">Illustration</span></a>
 <div class="detail-grid">
 <div class="detail-text">
-<h2 class="detail-title">Panorama Santiago 2018</h2>
+<h1 class="detail-title">Panorama Santiago 2018</h1>
 <p class="detail-meta"><span class="en">Santiago, 2018</span></p>
 <p class="en">A panorama of the city drawn from the top of Santa Lucía Hill.</p><p class="detail-tech"><span class="en">Ink on paper</span></p>
 </div>
@@ -475,7 +475,7 @@ cite { font-style: italic; }
     document.querySelectorAll('.menu a').forEach(function (a) {
       if (bare(a.getAttribute('href')) === secPath) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
-    var label = detailEl ? detailEl.querySelector('.detail-title') : document.getElementById(target).querySelector('h2');
+    var label = detailEl ? detailEl.querySelector('.detail-title') : document.getElementById(target).querySelector('h1, h2');
     var lab = label ? (label.querySelector('.' + lang) || label).textContent.trim() : '';
     document.title = lab ? lab + ' · ' + baseTitle : baseTitle;
     if (sub[h]) { var el = document.getElementById(h); if (el) el.scrollIntoView(); }

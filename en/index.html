@@ -111,7 +111,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* Sections */
 section { display: flex; flex-direction: column; gap: 22px; }
-h2 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(28px, 4vw, 44px); line-height: 1; margin: 0 0 8px; }
+h2, .inner section > h1 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(28px, 4vw, 44px); line-height: 1; margin: 0 0 8px; }
 h3.sub { font-size: 13px; font-weight: 500; color: var(--grey); margin: 12px 0 0; }
 .prose { font-family: var(--serif); font-size: 18px; line-height: 1.55; max-width: 36em; margin: 0; }
 .caption { color: var(--grey); font-size: 13px; line-height: 1.4; }
@@ -367,12 +367,12 @@ cite { font-style: italic; }
 <figure class="cover-figure">
 <div aria-roledescription="carrusel" class="slides" id="slides">
 <img alt="Croquis a tinta de una marcha en Plaza Baquedano, Santiago, 2019" class="slide on" data-en="Santiago, 2019. Ink on paper." data-es="Santiago, 2019. Tinta sobre papel." data-title="Plaza Baquedano" fetchpriority="high" height="951" src="/img/w/cover-plaza-dignidad.webp" width="1709"/>
-<img alt="Croquis de cuaderno: la Catedral de Santiago y la multitud a la salida del metro Plaza de Armas" class="slide" data-en="5 September 2013. Ink in sketchbook." data-es="5 de septiembre de 2013. Tinta sobre cuaderno." data-src="/img/w/cover-2013-metro.webp" data-title="Salida del metro Plaza de Armas" height="1735" loading="lazy" width="1043"/>
-<img alt="Croquis: la fachada de la Catedral y una marcha en la Plaza de Armas" class="slide" data-en="5 September 2013. Ink in sketchbook." data-es="5 de septiembre de 2013. Tinta sobre cuaderno." data-src="/img/w/cover-2013-catedral.webp" data-title="Plaza de Armas" height="1762" loading="lazy" width="1233"/>
-<img alt="Croquis: lienzos y multitud bajo la Torre Entel, en Los Héroes" class="slide" data-en="September 2013. Ink in sketchbook." data-es="Septiembre de 2013. Tinta sobre cuaderno." data-src="/img/w/cover-2013-heroes.webp" data-title="Los Héroes, 10:45" height="1743" loading="lazy" width="1511"/>
-<img alt="Croquis: banderas sobre la multitud, con la Torre Entel al fondo" class="slide" data-en="September 2013. Ink in sketchbook." data-es="Septiembre de 2013. Tinta sobre cuaderno." data-src="/img/w/cover-2013-banderas.webp" data-title="Banderas" height="1498" loading="lazy" width="1188"/>
-<img alt="Croquis: la torre de una iglesia tras los lienzos de una marcha llegando a Av. Recoleta" class="slide" data-en="8 September 2013. Ink in sketchbook." data-es="8 de septiembre de 2013. Tinta sobre cuaderno." data-src="/img/w/cover-2013-recoleta.webp" data-title="Llegando a Av. Recoleta" height="1350" loading="lazy" width="1144"/>
-<img alt="Croquis de cuaderno de una manifestación en Plaza Baquedano, con notas manuscritas" class="slide" data-en="Santiago, 2019. Ink in sketchbook." data-es="Santiago, 2019. Tinta sobre cuaderno." data-src="/img/w/cover-plaza-italia.webp" data-title="Plaza Baquedano" height="1752" loading="lazy" width="1250"/>
+<img alt="Croquis de cuaderno: la Catedral de Santiago y la multitud a la salida del metro Plaza de Armas" class="slide" data-en="5 September 2013. Ink in sketchbook." data-es="5 de septiembre de 2013. Tinta sobre cuaderno." data-src="/img/w/cover-2013-metro.webp" data-title="Salida del metro Plaza de Armas" height="1735" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="1043"/>
+<img alt="Croquis: la fachada de la Catedral y una marcha en la Plaza de Armas" class="slide" data-en="5 September 2013. Ink in sketchbook." data-es="5 de septiembre de 2013. Tinta sobre cuaderno." data-src="/img/w/cover-2013-catedral.webp" data-title="Plaza de Armas" height="1762" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="1233"/>
+<img alt="Croquis: lienzos y multitud bajo la Torre Entel, en Los Héroes" class="slide" data-en="September 2013. Ink in sketchbook." data-es="Septiembre de 2013. Tinta sobre cuaderno." data-src="/img/w/cover-2013-heroes.webp" data-title="Los Héroes, 10:45" height="1743" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="1511"/>
+<img alt="Croquis: banderas sobre la multitud, con la Torre Entel al fondo" class="slide" data-en="September 2013. Ink in sketchbook." data-es="Septiembre de 2013. Tinta sobre cuaderno." data-src="/img/w/cover-2013-banderas.webp" data-title="Banderas" height="1498" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="1188"/>
+<img alt="Croquis: la torre de una iglesia tras los lienzos de una marcha llegando a Av. Recoleta" class="slide" data-en="8 September 2013. Ink in sketchbook." data-es="8 de septiembre de 2013. Tinta sobre cuaderno." data-src="/img/w/cover-2013-recoleta.webp" data-title="Llegando a Av. Recoleta" height="1350" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="1144"/>
+<img alt="Croquis de cuaderno de una manifestación en Plaza Baquedano, con notas manuscritas" class="slide" data-en="Santiago, 2019. Ink in sketchbook." data-es="Santiago, 2019. Tinta sobre cuaderno." data-src="/img/w/cover-plaza-italia.webp" data-title="Plaza Baquedano" height="1752" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="1250"/>
 </div>
 <figcaption id="slide-cap"><b>Plaza Baquedano</b>, <span class="en">Santiago, 2019. Ink on paper.</span></figcaption>
 </figure>
@@ -496,7 +496,7 @@ cite { font-style: italic; }
     document.querySelectorAll('.menu a').forEach(function (a) {
       if (bare(a.getAttribute('href')) === secPath) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
-    var label = detailEl ? detailEl.querySelector('.detail-title') : document.getElementById(target).querySelector('h2');
+    var label = detailEl ? detailEl.querySelector('.detail-title') : document.getElementById(target).querySelector('h1, h2');
     var lab = label ? (label.querySelector('.' + lang) || label).textContent.trim() : '';
     document.title = lab ? lab + ' · ' + baseTitle : baseTitle;
     if (sub[h]) { var el = document.getElementById(h); if (el) el.scrollIntoView(); }

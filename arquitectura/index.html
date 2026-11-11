@@ -111,7 +111,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* Sections */
 section { display: flex; flex-direction: column; gap: 22px; }
-h2 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(28px, 4vw, 44px); line-height: 1; margin: 0 0 8px; }
+h2, .inner section > h1 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(28px, 4vw, 44px); line-height: 1; margin: 0 0 8px; }
 h3.sub { font-size: 13px; font-weight: 500; color: var(--grey); margin: 12px 0 0; }
 .prose { font-family: var(--serif); font-size: 18px; line-height: 1.55; max-width: 36em; margin: 0; }
 .caption { color: var(--grey); font-size: 13px; line-height: 1.4; }
@@ -373,7 +373,7 @@ cite { font-style: italic; }
 
 
 <section data-path="/arquitectura/" id="arquitectura">
-<h2><span class="es">Arquitectura</span></h2>
+<h1><span class="es">Arquitectura</span></h1>
 <div class="covers">
 <a class="card" href="/arquitectura/zaguan-del-viento/">
 <span class="panel"><img alt="Dibujo de El Zaguán del viento" class="thumb" height="1500" loading="lazy" src="/img/w/zaguan-sm.webp" style="--z:1.6; --fx:60%; --fy:50%; transform-origin:50% 55%" width="1500"/></span>
@@ -482,7 +482,7 @@ cite { font-style: italic; }
     document.querySelectorAll('.menu a').forEach(function (a) {
       if (bare(a.getAttribute('href')) === secPath) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
-    var label = detailEl ? detailEl.querySelector('.detail-title') : document.getElementById(target).querySelector('h2');
+    var label = detailEl ? detailEl.querySelector('.detail-title') : document.getElementById(target).querySelector('h1, h2');
     var lab = label ? (label.querySelector('.' + lang) || label).textContent.trim() : '';
     document.title = lab ? lab + ' · ' + baseTitle : baseTitle;
     if (sub[h]) { var el = document.getElementById(h); if (el) el.scrollIntoView(); }

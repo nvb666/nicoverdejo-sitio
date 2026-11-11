@@ -108,6 +108,10 @@ def slim(s, lang, home, show_id):
             if art.get('id') != show_id: art.decompose()
         for sec in soup.select('section[data-path]'):
             if sec.get('id') != show_id: sec.decompose()
+        # The page's own heading is its main heading
+        main = soup.find(id=show_id)
+        h = main.find('h2') if main else None
+        if h: h.name = 'h1'
     else:
         for art in soup.select('article.detail'): art.decompose()
         for sec in soup.select('section[data-path]'): sec.decompose()
@@ -146,8 +150,14 @@ for m in re.finditer(r'<article class="detail" id="(d-[^"]+)" data-parent="(\w+)
         paras = [text(p) for p in re.findall(r'<p class="%s">(.*?)</p>' % lang, textblock, re.S)]
         body_txt = next((p for p in paras if len(p) > 40 and p != meta and p != title), '')
         desc = clip(' · '.join(x for x in [title, meta] if x) + ('. ' + body_txt if body_txt else ''))
+        li = 0 if lang == 'es' else 1
         if did.startswith(SKETCH):
+            tech = only(re.search(r'<p class="detail-tech">(.*?)</p>', body, re.S).group(1), lang) if 'detail-tech' in body else ''
+            desc = clip(('Croquis urbanos de Nico Verdejo: ' if lang == 'es' else 'Urban sketches by Nico Verdejo: ')
+                        + ', '.join(x for x in [title, meta] if x) + '.' + (' ' + tech.rstrip('.') + '.' if tech else ''))
             title += ' · Croquis' if lang == 'es' else ' · Urban sketch'
+        else:
+            title += ' · ' + SEC[parent][li][0]
         out = ('/en' if lang == 'en' else '') + path
         write(out, page(path, lang, title, desc, image, did))
         urls.append(out)

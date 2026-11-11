@@ -15,7 +15,7 @@
 <meta content="Nico Verdejo" property="og:site_name"/>
 <meta content="es_CL" property="og:locale"/>
 <meta content="en_US" property="og:locale:alternate"/>
-<meta content="Un enemigo poderoso · Nico Verdejo" property="og:title"/>
+<meta content="Un enemigo poderoso · Ilustración · Nico Verdejo" property="og:title"/>
 <meta content="Un enemigo poderoso · Serie · 2019–2020. Ilustraciones en el contexto del estallido social de 2019:" property="og:description"/>
 <meta content="https://nicoverdejo.com/img/tolerancia-0.jpg" property="og:image"/>
 <meta content="https://nicoverdejo.com/ilustracion/un-enemigo-poderoso/" property="og:url"/>
@@ -23,7 +23,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Nico Verdejo", "alternateName": "Nicolás Verdejo Bravo", "url": "https://nicoverdejo.com/", "image": "https://nicoverdejo.com/img/og-image.jpg", "jobTitle": ["Arquitecto", "Historiador de la arquitectura", "Ilustrador"], "description": "Arquitecto, historiador e ilustrador. Investiga, escribe y dibuja historias donde se cruzan la arquitectura, la política y los afectos.", "email": "mailto:nverdejob@gmail.com", "sameAs": ["https://www.instagram.com/nicoverdejo/"], "alumniOf": [{"@type": "CollegeOrUniversity", "name": "The Pennsylvania State University"}, {"@type": "CollegeOrUniversity", "name": "Pontificia Universidad Católica de Chile"}, {"@type": "CollegeOrUniversity", "name": "Pontificia Universidad Católica de Valparaíso"}], "address": {"@type": "PostalAddress", "addressLocality": "Santiago", "addressCountry": "CL"}, "knowsAbout": ["Historia de la arquitectura", "Arquitectura y política", "Ilustración", "Novela gráfica", "Croquis urbano"]}</script>
 <link href="/img/logo-rojo.png" rel="icon" type="image/png"/>
 <style>html,body{margin:0}body{font-size:14px}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}</style>
-<title>Un enemigo poderoso · Nico Verdejo</title>
+<title>Un enemigo poderoso · Ilustración · Nico Verdejo</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&amp;family=Montserrat:wght@500;700;800&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&amp;display=swap" rel="stylesheet"/>
@@ -108,7 +108,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* Sections */
 section { display: flex; flex-direction: column; gap: 22px; }
-h2 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(28px, 4vw, 44px); line-height: 1; margin: 0 0 8px; }
+h2, .inner section > h1 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(28px, 4vw, 44px); line-height: 1; margin: 0 0 8px; }
 h3.sub { font-size: 13px; font-weight: 500; color: var(--grey); margin: 12px 0 0; }
 .prose { font-family: var(--serif); font-size: 18px; line-height: 1.55; max-width: 36em; margin: 0; }
 .caption { color: var(--grey); font-size: 13px; line-height: 1.4; }
@@ -378,7 +378,7 @@ cite { font-style: italic; }
 <a class="back" href="/ilustracion/">← <span class="es">Ilustración</span></a>
 <div class="detail-grid">
 <div class="detail-text">
-<h2 class="detail-title"><cite>Un enemigo poderoso</cite></h2>
+<h1 class="detail-title"><cite>Un enemigo poderoso</cite></h1>
 <p class="detail-meta"><span class="es">Serie · 2019–2020</span></p>
 <p class="es">Ilustraciones en el contexto del estallido social de 2019:</p><ol class="es plate-list"><li><cite>Tolerancia 0</cite></li><li><cite>La única paz posible</cite></li><li>Portada de <cite>Crónicas del Estallido</cite></li><li><cite>El segundo piso</cite></li><li><cite>El urbanista</cite></li><li><cite>Camaradería</cite></li><li><cite>El acusado</cite></li><li><cite>Un enemigo poderoso</cite></li><li><cite>Reformar la casa</cite></li><li><cite>Isla de la fantasía</cite></li><li><cite>Hasta que la muerte los separe</cite></li><li><cite>El último acuerdo</cite> (coloreado por Carlos Badilla)</li></ol>
 <p class="detail-tech"><span class="es">Ilustración digital (Autodesk Sketchbook)</span></p>
@@ -487,7 +487,7 @@ cite { font-style: italic; }
     document.querySelectorAll('.menu a').forEach(function (a) {
       if (bare(a.getAttribute('href')) === secPath) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
-    var label = detailEl ? detailEl.querySelector('.detail-title') : document.getElementById(target).querySelector('h2');
+    var label = detailEl ? detailEl.querySelector('.detail-title') : document.getElementById(target).querySelector('h1, h2');
     var lab = label ? (label.querySelector('.' + lang) || label).textContent.trim() : '';
     document.title = lab ? lab + ' · ' + baseTitle : baseTitle;
     if (sub[h]) { var el = document.getElementById(h); if (el) el.scrollIntoView(); }
