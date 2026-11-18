@@ -336,6 +336,7 @@ cite { font-style: italic; }
 .detail-images.strip { flex-direction: row; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 6px; }
 .detail-images.strip::-webkit-scrollbar { display: none; }
 .detail-images.strip img { flex: none; width: auto; height: min(68vh, 620px); max-width: 92%; object-fit: contain; scroll-snap-align: start; }
+.detail-images.strip.same img { aspect-ratio: 1; object-fit: scale-down; background: #FFFFFF; }
 .strip-wrap { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .strip-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--grey); }
 @media (max-width: 700px) { .detail-images.strip img { height: auto; width: 86vw; max-width: none; } }
@@ -379,7 +380,7 @@ cite { font-style: italic; }
 <h1><span class="es">Arquitectura</span></h1>
 <div class="covers">
 <a class="card" href="/arquitectura/zaguan-del-viento/">
-<span class="panel"><img alt="El Zaguán del viento desde la reja" class="thumb" height="900" loading="lazy" src="/img/w/zaguan-foto-patio-sm.webp" style="--z:1; --fx:40%; --fy:35%" width="675"/></span>
+<span class="panel"><img alt="El Zaguán del viento desde la calle" class="thumb" height="900" loading="lazy" src="/img/w/zaguan-foto-calle-sm.webp" style="--z:1; --fx:50%; --fy:50%" width="675"/></span>
 <span class="card-cap"><b>El Zaguán del viento</b><span class="es">Independencia, Santiago · 2025</span></span>
 </a>
 <a class="card" href="/arquitectura/casa-croasan/">
