@@ -340,6 +340,9 @@ cite { font-style: italic; }
 @media (max-width: 700px) { .detail-images.strip.same img.ph-s { padding: 17vw; } }
 .detail-images.strip.same img.wide { aspect-ratio: 3 / 2; height: auto; width: min(92%, calc(min(68vh, 620px) * 1.5)); align-self: center; background: none; object-fit: cover; }
 @media (max-width: 700px) { .detail-images.strip.same img.wide { width: 86vw; } }
+.detail-images.strip.same img.ph-g { padding: clamp(48px, 10.7vh, 98px); }
+.detail-images.strip.same img.ph-i { padding: clamp(30px, 6.7vh, 61px); }
+@media (max-width: 700px) { .detail-images.strip.same img.ph-g { padding: 13vw; } .detail-images.strip.same img.ph-i { padding: 8.6vw; } }
 .detail-images.strip.eq { container-type: inline-size; --h: min(68vh, 620px, 61cqw); }
 .detail-images.strip.eq img { height: var(--h); width: auto; max-width: none; }
 .detail-images.strip.eq img.wide { height: var(--h); width: auto; }
