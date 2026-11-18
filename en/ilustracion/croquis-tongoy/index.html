@@ -343,7 +343,8 @@ cite { font-style: italic; }
 .detail-images.strip.same img.ph-g { padding: clamp(48px, 10.7vh, 98px); }
 .detail-images.strip.same img.ph-i { padding: clamp(30px, 6.7vh, 61px); }
 @media (max-width: 700px) { .detail-images.strip.same img.ph-g { padding: 13vw; } .detail-images.strip.same img.ph-i { padding: 8.6vw; } }
-.detail-images.strip.zg img:not(.line) { background: #D8EFEB; }
+.detail-images.strip.zg img { background: #D8EFEB !important; }
+@media (max-width: 700px) { .detail-images.strip.zg img.ph { padding: 4.5vw; } .detail-images.strip.zg img.ph-g { padding: 9vw; } .detail-images.strip.zg img.ph-i { padding: 6vw; } }
 .more { display: flex; flex-direction: column; gap: 12px; }
 .more > summary { cursor: pointer; list-style: none; align-self: flex-start; font-size: 14px; color: var(--grey); text-decoration: underline; text-underline-offset: 3px; }
 .more > summary::-webkit-details-marker { display: none; }
@@ -383,6 +384,9 @@ cite { font-style: italic; }
 @media (max-width: 700px) { .detail-images.strip.eq img.ph-a { padding: 6.3vw; } }
 .detail-images.strip.same img.ph-a2 { padding: clamp(31px, 7.1vh, 65px); }
 @media (max-width: 700px) { .detail-images.strip.eq img.ph-a2 { padding: 4vw; } }
+.detail-images img, .detail-images img.line { box-sizing: border-box; border: 1.5px solid var(--ink); box-shadow: none; }
+.detail-images.strip.same img { border-width: 1.5px; }
+.detail-images.strip.same img.ph-m { padding: 14px; }
 </style>
 </head>
 <body>
