@@ -344,6 +344,15 @@ cite { font-style: italic; }
 .detail-images.strip.same img.ph-i { padding: clamp(30px, 6.7vh, 61px); }
 @media (max-width: 700px) { .detail-images.strip.same img.ph-g { padding: 13vw; } .detail-images.strip.same img.ph-i { padding: 8.6vw; } }
 .detail-images.strip.zg img:not(.line) { background: #D8EFEB; }
+.more { display: flex; flex-direction: column; gap: 12px; }
+.more > summary { cursor: pointer; list-style: none; align-self: flex-start; font-size: 14px; color: var(--grey); text-decoration: underline; text-underline-offset: 3px; }
+.more > summary::-webkit-details-marker { display: none; }
+.more > summary:hover { color: var(--ink); }
+.more[open] > summary { order: 2; }
+.more[open] .m, .more:not([open]) .l { display: none; }
+.more > p + p { margin-top: 12px !important; }
+.more[open] > summary { margin-top: 12px; }
+@media (max-width: 900px) { .detail-grid.img-first { row-gap: 14px; } .img-first > .detail-text { display: contents; } .img-first > .strip-wrap, .img-first > .detail-images { order: 1; } .img-first > .detail-text > :not(.detail-title):not(.detail-meta) { order: 2; } }
 .detail-images.strip.eq { container-type: inline-size; --h: min(68vh, 620px, 61cqw); }
 .detail-images.strip.eq img { height: var(--h); width: auto; max-width: none; }
 .detail-images.strip.eq img.wide { height: var(--h); width: auto; }
@@ -406,11 +415,12 @@ cite { font-style: italic; }
 
 <article class="detail" data-parent="arquitectura" data-path="/arquitectura/zaguan-del-viento/" id="d-zaguan-del-viento">
 <a class="back" href="/arquitectura/">← <span class="es">Arquitectura</span></a>
-<div class="detail-grid">
+<div class="detail-grid img-first">
 <div class="detail-text">
 <h1 class="detail-title">El Zaguán del viento</h1>
 <p class="detail-meta"><span class="es">Independencia, Santiago · 2025</span></p>
-<p class="es">Nadie sabe cómo vivir un duelo. En mis cuadernos de estos últimos dos años tengo centenares de dibujos que reconstruyen los códigos, signos e imaginarios que consensuamos con mi hermano, y eso me basta. Últimamente me he propuesto recordarlo más de niño, de niño pequeño, pero creo que siempre llego al mismo punto: toda su vida, y contrario al manual tácito de masculinidad rocosa, él prefirió su nombre en diminutivo. “Yo soy tierno”, me decía, apenas moviendo los labios en un tono confidencial.</p><p class="es">Tierno de niño, con sus juguetes y mundos compartidos; tierno de joven, abrazando al gato hosco, de arañazos fáciles. Ternura también la de las sábanas que mi madre ponía a secar en el patio de la casa, mecidas por el tibio viento de Puente Alto. Tierno como el suave velo que cubre y alivia un cuerpo pudoroso y maltratado.</p><p class="es">Yo solo pensé que este zaguán, en la casa de mis padres, debía retenerte con nosotros un poco más, quizá para contar algo de ti. O, como escribió Denise Riley al darse cuenta de su afán por encarnar atributos de su hijo fallecido, esto se trata de “seguir conteniendo esa otra vida y refugiarla una segunda vez”.</p><p class="es">Es una obra pequeña, de recursos muy limitados y quizás frágil. Una que abraza toda forma de vida o expresión animada que quiera integrarla, por el tiempo que sea. Una obra que extienda un vínculo de ternura durante todo el tiempo que sea posible. «La ternura es una idea anarquista que ha entrado a escondidas en un libro de leyes, socavando toda su estructura», dijo Anne Dufourmantelle en su <cite>Puissance de la douceur</cite>, sin desperdicio alguno.</p>
+<p class="es">Nadie sabe cómo vivir un duelo. En mis cuadernos de estos últimos dos años tengo centenares de dibujos que reconstruyen los códigos, signos e imaginarios que consensuamos con mi hermano, y eso me basta. Últimamente me he propuesto recordarlo más de niño, de niño pequeño, pero creo que siempre llego al mismo punto: toda su vida, y contrario al manual tácito de masculinidad rocosa, él prefirió su nombre en diminutivo. “Yo soy tierno”, me decía, apenas moviendo los labios en un tono confidencial.</p>
+<details class="more"><summary><span class="es"><span class="m">Leer más</span><span class="l">Leer menos</span></span></summary><p class="es">Tierno de niño, con sus juguetes y mundos compartidos; tierno de joven, abrazando al gato hosco, de arañazos fáciles. Ternura también la de las sábanas que mi madre ponía a secar en el patio de la casa, mecidas por el tibio viento de Puente Alto. Tierno como el suave velo que cubre y alivia un cuerpo pudoroso y maltratado.</p><p class="es">Yo solo pensé que este zaguán, en la casa de mis padres, debía retenerte con nosotros un poco más, quizá para contar algo de ti. O, como escribió Denise Riley al darse cuenta de su afán por encarnar atributos de su hijo fallecido, esto se trata de “seguir conteniendo esa otra vida y refugiarla una segunda vez”.</p><p class="es">Es una obra pequeña, de recursos muy limitados y quizás frágil. Una que abraza toda forma de vida o expresión animada que quiera integrarla, por el tiempo que sea. Una obra que extienda un vínculo de ternura durante todo el tiempo que sea posible. «La ternura es una idea anarquista que ha entrado a escondidas en un libro de leyes, socavando toda su estructura», dijo Anne Dufourmantelle en su <cite>Puissance de la douceur</cite>, sin desperdicio alguno.</p></details>
 <ul class="detail-list">
 <li><b><span class="es">Ubicación</span></b><span class="es">Independencia, Santiago</span></li>
 <li><b><span class="es">Año</span></b><span class="es">2025</span></li>
