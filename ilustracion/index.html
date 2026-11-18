@@ -337,7 +337,7 @@ cite { font-style: italic; }
 .detail-images.strip { flex-direction: row; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 6px; }
 .detail-images.strip::-webkit-scrollbar { display: none; }
 .detail-images.strip img { flex: none; width: auto; height: min(68vh, 620px); max-width: 92%; object-fit: contain; scroll-snap-align: start; }
-.detail-images.strip.same img { aspect-ratio: 1; object-fit: scale-down; background: #FFFFFF; }
+.detail-images.strip.same img { aspect-ratio: 1; object-fit: scale-down; background: #FFFFFF; box-sizing: border-box; border: 2px solid var(--ink); box-shadow: none; }
 .detail-images.strip.same img.ph { box-sizing: border-box; padding: clamp(22px, 5vh, 46px); }
 .detail-images.strip.same img.ph-s { padding: clamp(60px, 13.5vh, 124px); }
 @media (max-width: 700px) { .detail-images.strip.same img.ph-s { padding: 17vw; } }
