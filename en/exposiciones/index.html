@@ -339,6 +339,8 @@ cite { font-style: italic; }
 .detail-images.strip img { flex: none; width: auto; height: min(68vh, 620px); max-width: 92%; object-fit: contain; scroll-snap-align: start; }
 .detail-images.strip.same img { aspect-ratio: 1; object-fit: scale-down; background: #FFFFFF; }
 .detail-images.strip.same img.ph { box-sizing: border-box; padding: clamp(22px, 5vh, 46px); }
+.detail-images.strip.same img.ph-s { padding: clamp(60px, 13.5vh, 124px); }
+@media (max-width: 700px) { .detail-images.strip.same img.ph-s { padding: 17vw; } }
 .strip-wrap { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .strip-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--grey); }
 @media (max-width: 700px) { .detail-images.strip img { height: auto; width: 86vw; max-width: none; } }
